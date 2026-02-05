@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — DemoticEdu</title>
+  <meta name="description" content="Guides, checklists and how-tos for studying in China.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Site styles -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+</head>
+<body class="page-blog">
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height:36vh;background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),url('assets/hero.jpg')">
+    <div class="hero-content container" style="padding:70px 0 100px">
+      <h1>Blog</h1>
+      <p>All useful articles, guides and checklists.</p>
+    </div>
+  </section>
+
+  <!-- Articles list -->
+  <main>
+    <section class="news-duo">
+      <div class="container">
+        <h3 class="news-title">All Articles</h3>
+        <!-- main.js will fill this with cards that link to post.html?id=... -->
+        <div class="news-list" id="articles-all"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <!-- Load header/footer, highlight nav, then main.js -->
+  <script>
+    (async function () {
+      async function inject(id, file) {
+        const r = await fetch(file, { cache: 'no-store' });
+        document.getElementById(id).innerHTML = await r.text();
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      // highlight current nav link
+      const path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.links a, .mobile a').forEach(a => {
+        if (a.getAttribute('href') === path) a.classList.add('active');
+      });
+
+      // load site JS (renders #articles-all)
+      const s = document.createElement('script');
+      s.src = 'main.js';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

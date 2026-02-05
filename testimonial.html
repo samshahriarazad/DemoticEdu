@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonial - DemoticEdu</title>
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+  <style>
+    .ts-wrap{ width:min(900px,92vw); margin:40px auto 56px; }
+    .ts-top{ display:flex; align-items:center; gap:14px; margin-bottom:8px }
+    .ts-photo{ width:64px; height:64px; border-radius:999px; overflow:hidden }
+    .ts-photo img{ width:100%; height:100%; object-fit:cover }
+    .ts-name{ margin:0; font:700 26px/1.2 Poppins, sans-serif }
+    .ts-uni{ margin:2px 0 0; color:#20537A; font-weight:600 }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 16px }
+    .chip{ background:#f5f7fb; border:1px solid #eef2f6; border-radius:999px; padding:6px 10px; font-size:14px; color:#334155 }
+    .chip.full{ background:#e7f7df; border-color:#d3efc2; color:#25620d }
+    .chip.partial{ background:#fff4df; border-color:#fde6bd; color:#7a4b00 }
+    .chip.none{ background:#f2f4f7; border-color:#e5e7eb; color:#475569 }
+    .ts-body{ font:400 16px/1.8 Inter, sans-serif; color:#0b1020 }
+    .backlinks{ margin-top:28px }
+    .backlinks a{ color:#16a34a; text-decoration:none }
+    .backlinks a:hover{ text-decoration:underline }
+  </style>
+</head>
+<body class="page-testimonial">
+
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- Hero (simple, keeps image consistent with other pages) -->
+  <section class="hero" style="min-height:30vh;background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),url('assets/hero.jpg')">
+    <div class="hero-content container" style="padding:60px 0 70px; text-align:center;">
+      <h1>Student Story</h1>
+      <p>Experience of studying abroad with DemoticEdu support.</p>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <main>
+    <div class="ts-wrap">
+      <a href="testimonials.html" style="color:#16a34a; text-decoration:none">← Back to all testimonials</a>
+      <article id="ts"></article>
+      <div class="backlinks">
+        <a href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script>
+    (async function () {
+      // Inject header & footer
+      async function inject(id, file) {
+        const res = await fetch(file, { cache: "no-store" });
+        if (!res.ok) return;
+        document.getElementById(id).innerHTML = await res.text();
+      }
+
+      await Promise.all([
+        inject("header", "header-footer/header.html"),
+        inject("footer", "header-footer/footer.html"),
+      ]);
+
+      // Highlight active nav
+      const path = location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll(".links a, .mobile a").forEach(a => {
+        if (a.getAttribute("href") === path) a.classList.add("active");
+      });
+
+      // Load main.js, then render the testimonial
+      const script = document.createElement("script");
+      script.src = "main.js";
+      script.onload = async function () {
+        if (typeof loadTestimonials !== "function") return;
+
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+
+        const data = await loadTestimonials();
+        const t = (data || []).find(x => x.id === id);
+        const el = document.getElementById("ts");
+
+        if (!t) {
+          el.innerHTML =
+            "<h2 class='ts-name'>Testimonial not found</h2><p>The link may be outdated or removed.</p>";
+          return;
+        }
+
+        const sch = (t.scholarship || "").toLowerCase();
+        const cls = sch === "full" ? "full" : sch === "partial" ? "partial" : "none";
+
+        el.innerHTML = `
+          <div class="ts-top">
+            <div class="ts-photo"><img src="${t.photo}" alt="${t.name}"></div>
+            <div>
+              <h1 class="ts-name">${t.name}</h1>
+              <p class="ts-uni">${t.university}</p>
+            </div>
+          </div>
+
+          <div class="chips">
+            <span class="chip ${cls}">${t.scholarship || "—"} Scholarship</span>
+            <span class="chip">${t.program}</span>
+            <span class="chip">${new Date(t.date).toLocaleDateString()}</span>
+          </div>
+
+          <div class="ts-body">
+            ${t.story || t.quote || ""}
+          </div>
+        `;
+      };
+
+      document.body.appendChild(script);
+    })();
+  </script>
+</body>
+</html>

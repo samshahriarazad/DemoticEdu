@@ -1,0 +1,22 @@
+[
+  {
+    "id": "upd-1",
+    "title": "Study in Diploma Program with Paid Internship",
+    "summary": "Students can earn money through paid internships while studying for their diploma.",
+    "image": "assets/article-1.jpg",
+    "url": "post.html?id=upd-1",
+    "pinned": true,
+    "date": "2025-08-27",
+    "content": "<p>This program allows students to gain hands-on industry experience while studying. You’ll work with partner factories/companies for <strong>paid internships</strong>.</p>"
+  },
+  {
+    "id": "upd-2",
+    "title": "Apply for CSC Scholarship 2026",
+    "summary": "2026 CSC scholarship application already started.",
+    "image": "assets/hero.jpg",
+    "url": "post.html?id=upd-2",
+    "pinned": true,
+    "date": "2025-08-22",
+    "content": "<p>CSC 2026 cycle is live. Prepare transcripts, passport scan, reference letters, and study plan early. Deadlines vary by university.</p>"
+  }
+]

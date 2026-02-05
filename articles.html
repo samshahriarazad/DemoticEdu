@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Useful Articles - DemoticEdu</title>
+  <link rel="stylesheet" href="styles.css?v=20251215">
+</head>
+<body>
+  <div class="container" style="padding:40px 0">
+    <h2>All Useful Articles</h2>
+    <div class="news-list" id="articles-all"></div>
+    <p><a href="index.html" style="color:#16a34a">← Back to Home</a></p>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    (async function(){
+      const articles = await loadJSON("data/useful-articles.json");
+      renderList(document.getElementById("articles-all"), articles, 99); // show all
+    })();
+  </script>
+</body>
+</html>

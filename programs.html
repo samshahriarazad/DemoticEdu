@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>All Programs — DemoticEdu</title>
+  <meta name="description" content="Browse every program supported by DemoticEdu with filters for program type, subject, city and fee ranges.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+
+  <!-- Page-local styles -->
+  <style>
+    /* Filter bar – colorful, on-brand */
+    .prog-filters {
+      margin-top: -40px;
+      margin-bottom: 32px;
+      background: linear-gradient(135deg, #f5fee7 0%, #ecfccb 100%);
+      border-radius: 20px;
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.09),
+        0 0 0 1px rgba(127, 180, 35, 0.30);
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 960px) {
+      .prog-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .prog-filters {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .filter-group select,
+    .filter-group input[type="text"] {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 8px 12px;
+      font-size: 14px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
+      color: #111827;
+      transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        transform 0.12s ease;
+    }
+
+    .filter-group select:hover,
+    .filter-group input[type="text"]:hover {
+      background: #ffffff;
+      border-color: rgba(127, 180, 35, 0.4);
+    }
+
+    .filter-group select:focus,
+    .filter-group input[type="text"]:focus {
+      border-color: #7FB423;
+      box-shadow: 0 0 0 1px rgba(127, 180, 35, 0.55);
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Fee range sliders */
+    .filter-fee {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fee-slider-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .fee-slider {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .fee-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    .fee-label {
+      color: #4b5563;
+    }
+
+    .fee-value {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .fee-slider input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #bbf7d0 0%, #bef264 100%);
+      outline: none;
+    }
+
+    .fee-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #7FB423;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px rgba(127, 180, 35, 0.5);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .fee-slider input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 3px rgba(127, 180, 35, 0.6);
+    }
+
+    .fee-slider input[type="range"]::-moz-range-track {
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #bbf7d0 0%, #bef264 100%);
+    }
+
+    .fee-slider input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #7FB423;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px rgba(127, 180, 35, 0.5);
+      cursor: pointer;
+    }
+
+    .filter-small-hint {
+      font-size: 11px;
+      color: #84a259;
+      margin-top: 2px;
+    }
+
+    /* Back-to-home button */
+    .back-home-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0 10px;
+    }
+
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #7FB423 0%, #F2C94C 100%);
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(127, 180, 35, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(127, 180, 35, 0.35);
+      opacity: 0.96;
+    }
+
+    .back-home-btn:active {
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body class="page-programs">
+
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="hero" style="min-height:36vh;background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),url('assets/hero.jpg')">
+    <div class="hero-content container" style="padding:70px 0 100px; text-align:center;">
+      <h1>All Programs</h1>
+      <p>Browse every program we support.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="programs">
+      <div class="container">
+
+        <!-- FILTER BAR -->
+        <div class="prog-filters">
+          <div class="filter-group">
+            <label for="filter-program">Program</label>
+            <select id="filter-program">
+              <option value="">All programs</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-subject">Subject / Keyword</label>
+            <input id="filter-subject" type="text" placeholder="e.g. Software, Business">
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-city">City / Province</label>
+            <select id="filter-city">
+              <option value="">Anywhere</option>
+            </select>
+          </div>
+
+          <div class="filter-group filter-fee">
+            <label>Fee</label>
+            <div class="fee-slider-row">
+
+              <div class="fee-slider">
+                <div class="fee-label-row">
+                  <span class="fee-label">Tuition fee:</span>
+                  <span class="fee-value" id="tuition-max-label"></span>
+                </div>
+                <input id="tuition-max-range" type="range">
+              </div>
+
+              <div class="fee-slider">
+                <div class="fee-label-row">
+                  <span class="fee-label">Hostel fee:</span>
+                  <span class="fee-value" id="hostel-max-label"></span>
+                </div>
+                <input id="hostel-max-range" type="range">
+              </div>
+
+            </div>
+            <div class="filter-small-hint">
+              “Free” tuition/hostel is treated as ¥0.
+            </div>
+          </div>
+        </div>
+
+        <!-- Program cards grid -->
+        <div class="prog-grid" id="programs-all"></div>
+
+        <div class="back-home-wrap">
+          <a href="index.html" class="back-home-btn">← Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <script>
+    (async function () {
+      /* Inject header + footer */
+      async function inject(id, file) {
+        const r = await fetch(file, { cache: 'no-store' });
+        if (!r.ok) return;
+        document.getElementById(id).innerHTML = await r.text();
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      /* Highlight nav */
+      const path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.links a, .mobile a').forEach(a => {
+        if (a.getAttribute('href') === path) a.classList.add('active');
+      });
+
+      /* Load main.js (loadPrograms / renderPrograms) */
+      const s = document.createElement('script');
+      s.src = 'main.js';
+      s.onload = async function () {
+        if (typeof loadPrograms !== 'function') return;
+
+        const grid       = document.getElementById('programs-all');
+        const fProgram   = document.getElementById('filter-program');
+        const fSubject   = document.getElementById('filter-subject');
+        const fCity      = document.getElementById('filter-city');
+        const tuitionR   = document.getElementById('tuition-max-range');
+        const hostelR    = document.getElementById('hostel-max-range');
+        const tuitionLbl = document.getElementById('tuition-max-label');
+        const hostelLbl  = document.getElementById('hostel-max-label');
+
+        let allPrograms = await loadPrograms();
+        if (!Array.isArray(allPrograms)) allPrograms = [];
+
+        /* Helpers */
+
+        // Parse a fee expression; treat any "free" as 0
+        function parseAmount(str) {
+          if (!str) return null;
+          const lower = String(str).toLowerCase();
+          if (lower.includes('free')) return 0;
+          const digits = lower.match(/\d+/g);
+          if (!digits) return null;
+          const num = Number(digits.join(''));
+          return Number.isFinite(num) ? num : null;
+        }
+
+        // Extract tuition + hostel numbers from program fields
+        allPrograms.forEach(p => {
+          // tuition
+          let tuition = null;
+          if (p.tuitionFee) tuition = parseAmount(p.tuitionFee);
+          else if (p.tuition) tuition = parseAmount(p.tuition);
+          else if (p.fee) {
+            const text = String(p.fee).toLowerCase();
+            if (text.includes('tuition')) {
+              const idx = text.indexOf('tuition');
+              tuition = parseAmount(text.slice(idx));
+            } else {
+              tuition = parseAmount(p.fee);
+            }
+          }
+          // hostel
+          let hostel = null;
+          if (p.hostelFee) hostel = parseAmount(p.hostelFee);
+          else if (p.hostel) hostel = parseAmount(p.hostel);
+          else if (p.fee) {
+            const text = String(p.fee).toLowerCase();
+            if (text.includes('hostel')) {
+              const idx = text.indexOf('hostel');
+              hostel = parseAmount(text.slice(idx));
+            }
+          }
+
+          p._tuitionNum = tuition;
+          p._hostelNum  = hostel;
+        });
+
+        /* Configure sliders with fixed ranges */
+        const TUITION_MAX = 50000;
+        const HOSTEL_MAX  = 10000;
+
+        tuitionR.min = 0;
+        tuitionR.max = TUITION_MAX;
+        tuitionR.step = 500;
+        tuitionR.value = TUITION_MAX;
+
+        hostelR.min = 0;
+        hostelR.max = HOSTEL_MAX;
+        hostelR.step = 200;
+        hostelR.value = HOSTEL_MAX;
+
+        function formatCurrency(n) {
+          return '¥' + Number(n).toLocaleString('en-US');
+        }
+
+        function syncFeeLabels() {
+          tuitionLbl.textContent = formatCurrency(tuitionR.value);
+          hostelLbl.textContent  = formatCurrency(hostelR.value);
+        }
+        syncFeeLabels();
+
+        /* Build dropdown options from data */
+
+        // Program levels (Diploma / Bachelor / Master)
+        const levels = Array.from(new Set(
+          allPrograms.map(p => (p.level || '').trim()).filter(Boolean)
+        ));
+        levels.forEach(level => {
+          const opt = document.createElement('option');
+          opt.value = level.toLowerCase();
+          opt.textContent = level;
+          fProgram.appendChild(opt);
+        });
+
+        // City / province
+        const cities = Array.from(new Set(
+          allPrograms
+            .map(p => (p.city || p.province || p.location || '').trim())
+            .filter(Boolean)
+        ));
+        cities.forEach(city => {
+          const opt = document.createElement('option');
+          opt.value = city.toLowerCase();
+          opt.textContent = city;
+          fCity.appendChild(opt);
+        });
+
+        /* Apply filters */
+
+        function applyFilters() {
+          let list = allPrograms.slice();
+
+          const progVal    = fProgram.value;
+          const subjVal    = fSubject.value.trim().toLowerCase();
+          const cityVal    = fCity.value;
+          const tuitionMax = Number(tuitionR.value);
+          const hostelMax  = Number(hostelR.value);
+
+          if (progVal) {
+            list = list.filter(p =>
+              (p.level || '').trim().toLowerCase() === progVal
+            );
+          }
+
+          if (subjVal) {
+            list = list.filter(p => {
+              const subjectField = (p.subject || '');
+              const haystack = `${p.title || ''} ${subjectField}`.toLowerCase();
+              return haystack.includes(subjVal);
+            });
+          }
+
+          if (cityVal) {
+            list = list.filter(p =>
+              (p.city || p.province || p.location || '')
+                .trim()
+                .toLowerCase() === cityVal
+            );
+          }
+
+          // Tuition max filter (0..50000). If _tuitionNum is null, keep it.
+          list = list.filter(p => {
+            if (p._tuitionNum == null) return true;
+            return p._tuitionNum <= tuitionMax;
+          });
+
+          // Hostel max filter (0..10000). If _hostelNum is null, keep it.
+          list = list.filter(p => {
+            if (p._hostelNum == null) return true;
+            return p._hostelNum <= hostelMax;
+          });
+
+          renderPrograms(grid, list, { openInNewTab: true });
+        }
+
+        /* Attach listeners */
+        fProgram.addEventListener('change', applyFilters);
+        fSubject.addEventListener('input', applyFilters);
+        fCity.addEventListener('change', applyFilters);
+
+        tuitionR.addEventListener('input', () => {
+          syncFeeLabels();
+          applyFilters();
+        });
+
+        hostelR.addEventListener('input', () => {
+          syncFeeLabels();
+          applyFilters();
+        });
+
+        /* Initial render */
+        applyFilters();
+      };
+
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

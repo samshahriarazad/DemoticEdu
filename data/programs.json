@@ -1,0 +1,68 @@
+[
+  {
+    "id": "prog-diploma-se",
+    "title": "Software Engineering Technology",
+    "level": "Diploma",
+    "duration": "2–3 years",
+    "location": "Dalian Maple Leaf College of Technology",
+    "fee": "¥8,000 / year",
+    "icon": "💻",
+    "pinned": true,
+    "content": "<p>This diploma program provides students with solid foundations in programming, databases, and software project management. Students will also gain hands-on experience through paid internships while studying.</p>"
+  },
+  {
+    "id": "prog-eea",
+    "title": "Electrical Engineering & Automation",
+    "level": "Bachelor",
+    "duration": "4 years",
+    "location": "Nearby to Shanghai",
+    "fee": "Scholarship Available",
+    "icon": "⚡",
+    "pinned": true,
+    "content": "<p>This program focuses on power systems, industrial automation, and robotics. Students will learn to design, maintain, and troubleshoot electrical systems with modern tools and techniques.</p>"
+  },
+  {
+    "id": "prog-mech",
+    "title": "Mechanical Design & Automation",
+    "level": "Bachelor",
+    "duration": "4 years",
+    "location": "Partner Universities",
+    "fee": "Scholarship Available",
+    "icon": "🛠️",
+    "pinned": true,
+    "content": "<p>Students will develop skills in mechanical design, CAD, manufacturing, and industrial automation. The program emphasizes practical training for careers in global industries.</p>"
+  },
+  {
+    "id": "prog-it",
+    "title": "Information Technology",
+    "level": "Bachelor",
+    "duration": "4 years",
+    "location": "Beijing Institute of Technology",
+    "fee": "Scholarship Available",
+    "icon": "🌐",
+    "pinned": false,
+    "content": "<p>The IT program covers networking, cybersecurity, cloud computing, and data analytics. Students will be prepared for roles in global IT enterprises and startups.</p>"
+  },
+  {
+    "id": "prog-mba",
+    "title": "Master of Business Administration",
+    "level": "Master",
+    "duration": "2 years",
+    "location": "Shanghai",
+    "fee": "Partial Scholarship",
+    "icon": "📊",
+    "pinned": false,
+    "content": "<p>The MBA program equips students with leadership, financial analysis, and strategic management skills. The curriculum combines case studies and real-world projects.</p>"
+  },
+  {
+    "id": "prog-lang",
+    "title": "Chinese Language Program",
+    "level": "Diploma / Short-term",
+    "duration": "6 months – 1 year",
+    "location": "Multiple Universities",
+    "fee": "¥6,000 / semester",
+    "icon": "🈶",
+    "pinned": true,
+    "content": "<p>This program focuses on Mandarin language proficiency, cultural immersion, and practical communication skills. Flexible durations are available to fit student needs.</p>"
+  }
+]

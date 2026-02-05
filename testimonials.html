@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Testimonials - DemoticEdu</title>
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+  <style>
+    .tall{ padding:64px 0 }
+    .t-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
+    @media (max-width:980px){ .t-grid{ grid-template-columns:repeat(2,1fr) } }
+    @media (max-width:640px){ .t-grid{ grid-template-columns:1fr } }
+  </style>
+</head>
+<body class="page-testimonials">
+
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height:36vh;background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),url('assets/hero.jpg')">
+    <div class="hero-content container" style="padding:70px 0 100px; text-align:center;">
+      <h1>All Testimonials</h1>
+      <p>Real stories from students who trusted DemoticEdu.</p>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <main>
+    <section class="testimonials tall">
+      <div class="container">
+        <div class="t-head">
+          <p class="eyebrow">Testimonials (Trust)</p>
+          <h2>Our Students’ Voices</h2>
+        </div>
+
+        <div class="t-grid" id="t-all"></div>
+
+        <p class="t-seeall" style="text-align:center">
+          <a href="index.html" style="color:#16a34a; text-decoration:none">← Back to Home</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script>
+    (async function () {
+      // Inject header & footer
+      async function inject(id, file) {
+        const res = await fetch(file, { cache: "no-store" });
+        if (!res.ok) return;
+        document.getElementById(id).innerHTML = await res.text();
+      }
+
+      await Promise.all([
+        inject("header", "header-footer/header.html"),
+        inject("footer", "header-footer/footer.html"),
+      ]);
+
+      // Highlight active nav
+      const path = location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll(".links a, .mobile a").forEach(a => {
+        if (a.getAttribute("href") === path) a.classList.add("active");
+      });
+
+      // Load main.js, then render testimonials
+      const script = document.createElement("script");
+      script.src = "main.js";
+      script.onload = async function () {
+        if (typeof loadTestimonials !== "function") return;
+
+        const data = await loadTestimonials();
+        const items = (data || []).sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+
+        const grid = document.getElementById("t-all");
+        grid.innerHTML = items
+          .map(
+            (t) => `
+        <a class="t-card" href="testimonial.html?id=${encodeURIComponent(
+          t.id
+        )}">
+          <div class="t-top">
+            <div class="t-photo">
+              <img loading="lazy" src="${t.photo}" alt="${t.name} - ${t.university}">
+            </div>
+            <div>
+              <h3 class="t-name">${t.name}</h3>
+              <p class="t-uni">${t.university}</p>
+            </div>
+          </div>
+          <div class="t-badges">
+            <span class="badge ${
+              (t.scholarship || "").toLowerCase() === "full"
+                ? "sch-full"
+                : (t.scholarship || "").toLowerCase() === "partial"
+                ? "sch-partial"
+                : "sch-none"
+            }">${t.scholarship || "—"} Scholarship</span>
+            <span class="badge">${t.program}</span>
+          </div>
+          <p class="t-quote">${
+            (t.quote || "").length > 200
+              ? t.quote.slice(0, 200) + "…"
+              : t.quote || ""
+          }</p>
+        </a>`
+          )
+          .join("");
+      };
+
+      document.body.appendChild(script);
+    })();
+  </script>
+  <script>
+async function loadTestimonials(){
+  try{
+    const res = await fetch('Backend/api/testimonials.php', { cache:'no-store' });
+    if(!res.ok) throw new Error('API not reachable');
+    return await res.json();
+  }catch(e){
+    console.warn('Testimonials load failed:', e);
+    return [];
+  }
+}
+
+</body>
+</html>

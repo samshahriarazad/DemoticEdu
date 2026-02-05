@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universities — DemoticEdu</title>
+  <meta name="description" content="Browse Chinese universities. Filter by program, subject and province.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+
+  <style>
+    /* HERO */
+    .u-hero{
+      min-height:30vh;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),
+        url('assets/hero.jpg') center/cover no-repeat;
+    }
+    .u-hero h1{
+      font-size:32px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+    .u-hero p{
+      max-width:520px;
+      margin:0 auto;
+      font-size:15px;
+      opacity:0.92;
+    }
+
+    /* MAIN WRAPPER */
+    .u-wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:40px 16px 80px;
+    }
+
+    /* FILTERS CARD */
+    .u-filters{
+      background:#ffffff;
+      border-radius:20px;
+      padding:16px 18px;
+      box-shadow:0 20px 55px rgba(15,23,42,0.12);
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin-top:-52px;
+      margin-bottom:24px;
+      position:relative;
+      z-index:3;
+    }
+    @media(max-width:1000px){
+      .u-filters{grid-template-columns:repeat(2,minmax(0,1fr));}
+    }
+    @media(max-width:560px){
+      .u-filters{grid-template-columns:1fr;}
+    }
+    .u-filters select,
+    .u-filters input{
+      border:1px solid #e5e7eb;
+      border-radius:999px;
+      padding:9px 12px;
+      font:400 14px Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background:#f9fafb;
+      transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .u-filters select:focus,
+    .u-filters input:focus{
+      outline:none;
+      background:#ffffff;
+      border-color:#0b68a7;
+      box-shadow:0 0 0 1px rgba(11,104,167,.35);
+    }
+
+    /* GRID */
+    .u-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+    @media(max-width:1200px){
+      .u-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
+    @media(max-width:900px){
+      .u-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    }
+    @media(max-width:640px){
+      .u-grid{grid-template-columns:1fr;}
+    }
+
+    /* CARDS */
+    .u-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      padding:12px 14px 18px;
+      text-decoration:none;
+      color:inherit;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease,
+        background .16s ease;
+    }
+    .u-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 22px 55px rgba(15,23,42,0.14);
+      border-color:#0b68a7;
+      background:#f9fbff;
+    }
+
+    .u-logo{
+      height:120px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#f3f4f6;
+    }
+    .u-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .u-name{
+      font:700 15px/1.3 Poppins,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      margin:4px 0 0;
+      color:#0f172a;
+    }
+
+    .u-meta{
+      font:500 13px/1.4 Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:#64748b;
+    }
+
+    .u-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:4px;
+    }
+
+    .badge{
+      font:600 11px/1.2 Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background:#eef4ff;
+      color:#1e3a8a;
+      padding:5px 8px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    /* first badge = scholarship highlight */
+    .u-badges .badge:first-child{
+      background:#0b68a7;
+      color:#ffffff;
+    }
+
+    /* PAGER */
+    .u-pager{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      margin-top:22px;
+    }
+    .u-pager button{
+      border:1px solid #e5e7eb;
+      background:#ffffff;
+      border-radius:999px;
+      padding:8px 12px;
+      cursor:pointer;
+      font:500 13px Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:#374151;
+      transition:background .15s ease,border-color .15s ease,color .15s ease,transform .12s ease;
+    }
+    .u-pager button:hover{
+      background:#f3f4ff;
+      border-color:#0b68a7;
+      color:#0b68a7;
+      transform:translateY(-1px);
+    }
+    .u-pager .active{
+      background:#0f172a;
+      color:#ffffff;
+      border-color:#0f172a;
+    }
+  </style>
+</head>
+
+<body class="page-universities">
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="u-hero">
+    <div class="container" style="padding:70px 0">
+      <h1>Universities</h1>
+      <p>Browse and filter by program, subject and province. Click a card for full details.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="u-wrap">
+      <!-- Filters -->
+      <div class="u-filters">
+        <select id="f-program">
+          <option value="">Program (All)</option>
+          <option>Bachelor</option>
+          <option>Master</option>
+          <option>PhD</option>
+          <option>Diploma</option>
+          <option>Chinese Language</option>
+        </select>
+
+        <select id="f-subject">
+          <option value="">Subject (All)</option>
+        </select>
+
+        <select id="f-province">
+          <option value="">Province (All)</option>
+        </select>
+
+        <input id="f-search" type="text" placeholder="Search by name/city…" />
+      </div>
+
+      <!-- Results -->
+      <div id="uni-grid" class="u-grid"></div>
+      <div id="uni-pager" class="u-pager"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (async function () {
+      async function inject(id, file) {
+        const r = await fetch(file, { cache: "no-store" });
+        document.getElementById(id).innerHTML = await r.text();
+      }
+      await Promise.all([
+        inject("header", "header-footer/header.html"),
+        inject("footer", "header-footer/footer.html"),
+      ]);
+      const s = document.createElement("script");
+      s.src = "main.js";
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ts-robiul-2023",
+    "name": "Robiul Islam Rbs",
+    "photo": "assets/hero.jpg",
+    "university": "Taizhou University",
+    "program": "BSc in Computer Science & Technology",
+    "scholarship": "Full",
+    "quote": "Excellent service, very patient and dedicated. They solved all my doubts and I received a full scholarship.",
+    "story": "<p>I applied for BSc in Computer Science and Technology and got a <strong>Full Scholarship</strong>. DemoticEdu guided me step-by-step—from documents to university selection—and always answered quickly.</p>",
+    "date": "2024-06-20",
+    "pinned": true
+  },
+  {
+    "id": "ts-ahsan-2024",
+    "name": "Ahsan Habib Shuvo",
+    "photo": "assets/article-1.jpg",
+    "university": "Yangzhou University",
+    "program": "International Trade",
+    "scholarship": "Partial",
+    "quote": "They provide good service. Appreciated.",
+    "story": "<p>Very smooth process. I’m happy with the communication and the final offer with a <em>partial scholarship</em>.</p>",
+    "date": "2024-07-05",
+    "pinned": true
+  },
+  {
+    "id": "ts-rafi-2024",
+    "name": "Rafi Mn",
+    "photo": "assets/hero.jpg",
+    "university": "Changzhou Vocational College of Information Technology",
+    "program": "Information Technology",
+    "scholarship": "None",
+    "quote": "I really appreciate the service of this consultancy. I’m working now in Bangladesh, thanks to their help.",
+    "story": "<p>Clear guidance for admission and visa steps. Even without scholarship, the placement matched my goals.</p>",
+    "date": "2024-05-12",
+    "pinned": true
+  },
+  {
+    "id": "ts-lina-2023",
+    "name": "Lina Akter",
+    "photo": "assets/article-1.jpg",
+    "university": "Nanjing University of Science & Technology",
+    "program": "Mechanical Design & Automation",
+    "scholarship": "Partial",
+    "quote": "Got admission with partial scholarship. The team reviewed my SOP and improved it a lot.",
+    "story": "<p>My counselor helped me tailor SOP and recommendation letters—made a big difference.</p>",
+    "date": "2023-12-01",
+    "pinned": false
+  },
+  {
+    "id": "ts-tanvir-2022",
+    "name": "Tanvir Hasan",
+    "photo": "assets/hero.jpg",
+    "university": "Dalian University of Technology",
+    "program": "Software Engineering (Master)",
+    "scholarship": "Full",
+    "quote": "Full scholarship and a great lab! Thank you for the professor matching support.",
+    "story": "<p>They helped me contact potential supervisors and prepare a strong research proposal.</p>",
+    "date": "2022-09-15",
+    "pinned": false
+  },
+  {
+    "id": "ts-faria-2023",
+    "name": "Faria Noor",
+    "photo": "assets/article-1.jpg",
+    "university": "Sichuan University",
+    "program": "Chinese Language Program",
+    "scholarship": "None",
+    "quote": "The language program was the perfect start—great city and safe campus.",
+    "story": "<p>Visa support and pre-departure checklist were super helpful. Highly recommended.</p>",
+    "date": "2023-03-10",
+    "pinned": false
+  }
+]

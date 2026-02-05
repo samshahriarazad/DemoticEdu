@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apply Now — DemoticEdu</title>
+  <meta name="description" content="Apply now for Bachelor, Master, PhD, Diploma, and Language programs in China with scholarships.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    .apply-hero{
+      min-height:34vh;
+      color:#fff;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),
+        url('assets/apply hero.jpg') center/cover no-repeat;
+      display:grid; place-items:center; text-align:center;
+    }
+    .apply-wrap{ padding:60px 0 }
+    .apply-card{
+      background:#fff; border:1px solid #e8eef5; border-radius:18px;
+      padding:28px; box-shadow:0 10px 30px rgba(2,6,23,.08);
+      max-width:880px; margin:auto;
+    }
+    .apply-card h2{ margin:0 0 10px; }
+    .apply-note{
+      margin:0 0 18px;
+      padding:10px 12px;
+      border:1px dashed #fecaca;
+      background:#fff7f7;
+      color:#991b1b;
+      border-radius:12px;
+      font-size:14px;
+    }
+    .apply-form label{
+      font:600 14px/1.2 Inter, sans-serif;
+      display:block;
+      margin:8px 0 6px;
+    }
+    .req{ color:#dc2626; } /* RED asterisk */
+    .apply-form input, .apply-form select, .apply-form textarea{
+      width:100%; border:1px solid #e8eef5; border-radius:12px;
+      padding:12px 14px; font:400 15px/1.4 Inter, sans-serif;
+      margin-bottom:14px; outline:none;
+    }
+    .apply-form textarea{ min-height:120px; resize:vertical }
+    .row{ display:grid; grid-template-columns:1fr 1fr; gap:16px }
+    .row-3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px }
+    .inline{ display:flex; align-items:center; gap:16px; flex-wrap:wrap }
+    .inline .radio{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px; border:1px solid #e8eef5; border-radius:10px;
+    }
+    .files small{ color:#64748b; display:block; margin:-6px 0 10px }
+    @media(max-width:780px){
+      .row, .row-3{ grid-template-columns:1fr }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- Hero -->
+  <section class="apply-hero">
+    <div class="container" style="padding:70px 0">
+      <h1>Apply Now</h1>
+      <p>Submit your application for programs with up to 100% scholarship.</p>
+    </div>
+  </section>
+
+  <!-- Apply Form -->
+  <section class="apply-wrap">
+    <div class="container">
+      <div class="apply-card">
+        <h2>Application Form</h2>
+        <p class="apply-note">All fields marked with <span class="req">*</span> are mandatory and must be filled.</p>
+
+        <form class="apply-form" id="applyForm">
+          <!-- Name + Email -->
+          <div class="row">
+            <div>
+              <label for="name">Full Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Full Name" required>
+            </div>
+            <div>
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="Email Address" required>
+            </div>
+          </div>
+
+          <!-- Phone + DOB + Gender -->
+          <div class="row-3">
+            <div>
+              <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+              <input type="text" id="phone" name="phone" placeholder="Phone / WhatsApp" required>
+            </div>
+            <div>
+              <label for="dob">Date of Birth <span class="req">*</span></label>
+              <input type="date" id="dob" name="dob" required>
+            </div>
+            <div>
+              <label for="gender">Gender <span class="req">*</span></label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Highest Degree + Result -->
+          <div class="row">
+            <div>
+              <label for="highestDegree">Highest Academic Degree</label>
+              <input type="text" id="highestDegree" name="highestDegree" placeholder="e.g., HSC / Bachelor / Master">
+            </div>
+            <div>
+              <label for="highestResult">Highest Academic Result</label>
+              <input type="text" id="highestResult" name="highestResult" placeholder="e.g., GPA 4.50 / CGPA 3.80 / %">
+            </div>
+          </div>
+
+          <!-- Program + Subject -->
+          <div class="row">
+            <div>
+              <label for="program">Select Program <span class="req">*</span></label>
+              <select id="program" name="program" required>
+                <option value="">Select Program</option>
+                <option>Bachelor</option>
+                <option>Master</option>
+                <option>PhD</option>
+                <option>Diploma</option>
+                <option>Chinese Language</option>
+              </select>
+            </div>
+            <div>
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Preferred Subject / Major">
+            </div>
+          </div>
+
+          <!-- Passport yes/no -->
+          <label>Do you have Passport? <span class="req">*</span></label>
+          <div class="inline" role="radiogroup" aria-label="Do you have Passport?">
+            <label class="radio"><input type="radio" name="hasPassport" value="Yes" required> Yes</label>
+            <label class="radio"><input type="radio" name="hasPassport" value="No" required> No</label>
+          </div>
+
+          <!-- Uploads -->
+          <div class="files">
+            <label>Upload Documents</label>
+            <small>You can select images (JPG/PNG) or PDFs. Items marked <span class="req">*</span> are required.</small>
+
+            <label for="photo">Photo</label>
+            <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png,.pdf">
+
+            <label for="passport">Passport <span class="req">*</span></label>
+            <input type="file" id="passport" name="passport" accept=".jpg,.jpeg,.png,.pdf" required>
+
+            <label for="certificate">Highest Certificate <span class="req">*</span></label>
+            <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.jpeg,.png" required>
+
+            <label for="transcript">Highest Transcript <span class="req">*</span></label>
+            <input type="file" id="transcript" name="transcript" accept=".pdf,.jpg,.jpeg,.png" required>
+          </div>
+
+          <!-- Notes -->
+          <label for="msg">Additional Note</label>
+          <textarea id="msg" name="msg" placeholder="Any additional information…"></textarea>
+
+          <button type="submit" class="btn">Submit Your Application</button>
+        </form>
+
+        <p id="formNotice" style="display:none; color:#16a34a; margin-top:10px">
+          Thanks! Your email app should open now.  
+          If not, please send directly to <a href="mailto:contact@demoticedu.com">contact@demoticedu.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <!-- Loader -->
+  <script>
+    (async function(){
+      async function inject(id, file){
+        const r = await fetch(file,{cache:'no-store'});
+        document.getElementById(id).innerHTML = await r.text();
+      }
+      await Promise.all([
+        inject('header','header-footer/header.html'),
+        inject('footer','header-footer/footer.html')
+      ]);
+      const s=document.createElement('script'); s.src='main.js'; document.body.appendChild(s);
+    })();
+
+    // Mailto submission (note: file attachments can't be sent via mailto; they are validated here)
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const form = document.getElementById('applyForm');
+      const notice = document.getElementById('formNotice');
+
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+
+        // Let browser HTML5 validation run first
+        if (!form.reportValidity()) return;
+
+        const name   = document.getElementById('name').value.trim();
+        const email  = document.getElementById('email').value.trim();
+        const phone  = document.getElementById('phone').value.trim();
+        const dob    = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const highestDegree = document.getElementById('highestDegree').value.trim();
+        const highestResult = document.getElementById('highestResult').value.trim();
+        const program = document.getElementById('program').value;
+        const subject = document.getElementById('subject').value.trim();
+        const hasPassport = (form.querySelector('input[name="hasPassport"]:checked')||{}).value || '';
+        const msg = document.getElementById('msg').value.trim();
+
+        const subjectLine = encodeURIComponent(`Application: ${program || 'Program'} — ${name}`);
+        const body = encodeURIComponent(
+`Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Date of Birth: ${dob}
+Gender: ${gender}
+
+Highest Academic Degree: ${highestDegree}
+Highest Academic Result: ${highestResult}
+
+Program: ${program}
+Subject: ${subject}
+Has Passport: ${hasPassport}
+
+NOTE: Files selected in the form (passport/certificate/transcript) are required for submission, but cannot be attached via email link. We will request them via reply if not received.
+
+Additional Notes:
+${msg}`);
+
+        window.location.href = `mailto:contact@demoticedu.com?subject=${subjectLine}&body=${body}`;
+        notice.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

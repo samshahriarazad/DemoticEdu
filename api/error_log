@@ -1,0 +1,24 @@
+[14-Dec-2025 15:33:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/demotvtq/public_html/Backend/config.php:18
+Stack trace:
+#0 /home/demotvtq/public_html/Backend/config.php(18): mysqli->__construct()
+#1 /home/demotvtq/public_html/Backend/api/programs.php(3): require_once('/home/demotvtq/...')
+#2 {main}
+  thrown in /home/demotvtq/public_html/Backend/config.php on line 18
+[14-Dec-2025 15:33:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/demotvtq/public_html/Backend/config.php:18
+Stack trace:
+#0 /home/demotvtq/public_html/Backend/config.php(18): mysqli->__construct()
+#1 /home/demotvtq/public_html/Backend/api/programs.php(3): require_once('/home/demotvtq/...')
+#2 {main}
+  thrown in /home/demotvtq/public_html/Backend/config.php on line 18
+[14-Dec-2025 15:33:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/demotvtq/public_html/Backend/config.php:18
+Stack trace:
+#0 /home/demotvtq/public_html/Backend/config.php(18): mysqli->__construct()
+#1 /home/demotvtq/public_html/Backend/api/testimonials.php(2): require_once('/home/demotvtq/...')
+#2 {main}
+  thrown in /home/demotvtq/public_html/Backend/config.php on line 18
+[14-Dec-2025 15:33:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/demotvtq/public_html/Backend/config.php:18
+Stack trace:
+#0 /home/demotvtq/public_html/Backend/config.php(18): mysqli->__construct()
+#1 /home/demotvtq/public_html/Backend/api/testimonials.php(2): require_once('/home/demotvtq/...')
+#2 {main}
+  thrown in /home/demotvtq/public_html/Backend/config.php on line 18

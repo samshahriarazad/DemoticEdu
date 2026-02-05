@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — DemoticEdu</title>
+  <meta name="description" content="Contact DemoticEdu. Call +880 1735 387 888 or email contact@demoticedu.com. House 06, Flat 2B, Road 08, Block B, West-Dhanmondi, Mohammadpur, Dhaka-1207.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+
+  <!-- Page-local cosmetics -->
+  <style>
+    .c-hero{
+      min-height:38vh;
+      color:#fff;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.35)),
+        url('assets/hero.jpg') center/cover no-repeat;
+      display:grid; place-items:center;
+      text-align:center;
+    }
+    .contact-wrap{ padding:60px 0 }
+    .contact-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:28px;
+    }
+    @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr } }
+    .c-card{
+      background:#fff;
+      border:1px solid #e8eef5;
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(2,6,23,.08);
+    }
+    .c-list{ list-style:none; margin:0; padding:0 }
+    .c-list li{ display:flex; gap:10px; align-items:flex-start; margin:10px 0 }
+    .c-ico{
+      width:36px; height:36px; border-radius:10px;
+      background:#eaf3fa; display:grid; place-items:center; font-size:18px;
+      color:#20537A; flex:0 0 36px;
+    }
+    .c-form .row{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+    .c-form input, .c-form textarea, .c-form select{
+      width:100%; border:1px solid #e8eef5; border-radius:12px;
+      padding:12px 14px; font:400 15px/1.4 Inter, sans-serif;
+      outline:none;
+    }
+    .c-form textarea{ min-height:140px; resize:vertical }
+    .c-actions{ display:flex; gap:12px; align-items:center }
+    .c-note{ color:#6b7280; font-size:14px; margin-top:6px }
+    .map{ border:0; width:100%; height:320px; border-radius:16px }
+  </style>
+</head>
+<body>
+
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="c-hero">
+    <div class="container" style="padding:70px 0">
+      <h1>Contact DemoticEdu</h1>
+      <p>We’re here to help with programs, scholarships, and visa questions.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="contact-wrap">
+    <div class="container contact-grid">
+      <!-- Left: contact details + map -->
+      <div class="c-card">
+        <h2 style="margin:0 0 10px">Get in touch</h2>
+        <ul class="c-list">
+          <li>
+            <span class="c-ico">📞</span>
+            <div>
+              <div style="font-weight:600">Phone</div>
+              <a href="tel:+8801735387888" style="color:#20537A; text-decoration:none">+880 1735 387 888</a>
+            </div>
+          </li>
+          <li>
+            <span class="c-ico">✉️</span>
+            <div>
+              <div style="font-weight:600">Email</div>
+              <a href="mailto:contact@demoticedu.com" style="color:#20537A; text-decoration:none">contact@demoticedu.com</a>
+            </div>
+          </li>
+          <li>
+            <span class="c-ico">📍</span>
+            <div>
+              <div style="font-weight:600">Address</div>
+              House 06, Flat 2B, Road 08, Block B, West-Dhanmondi,<br>
+              Mohammadpur, Dhaka-1207
+            </div>
+          </li>
+          <li>
+            <span class="c-ico">💬</span>
+            <div>
+              <div style="font-weight:600">WhatsApp</div>
+              <a href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%27d%20like%20to%20know%20about%20programs%20and%20scholarships."
+                 target="_blank" rel="noopener" style="color:#20537A; text-decoration:none">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <div style="margin:16px 0 8px; font-weight:600">Find us on the map</div>
+        <!-- You can replace with your exact location link/embed -->
+        <iframe class="map"
+          src="https://www.google.com/maps?q=West-Dhanmondi%20Mohammadpur%20Dhaka%201207&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="c-card">
+        <h2 style="margin:0 0 10px">Send us a message</h2>
+        <form class="c-form" id="contactForm">
+          <div class="row">
+            <div>
+              <label for="name" style="display:block; margin:0 0 6px;">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="email" style="display:block; margin:0 0 6px;">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px">
+            <div>
+              <label for="phone" style="display:block; margin:0 0 6px;">Phone / WhatsApp</label>
+              <input id="phone" name="phone" type="text" placeholder="+880 …">
+            </div>
+            <div>
+              <label for="topic" style="display:block; margin:0 0 6px;">Topic</label>
+              <select id="topic" name="topic">
+                <option>Programs & Scholarships</option>
+                <option>Application Status</option>
+                <option>Visa & Pre-departure</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label for="msg" style="display:block; margin:0 0 6px;">Message</label>
+            <textarea id="msg" name="msg" placeholder="How can we help?" required></textarea>
+          </div>
+
+          <div class="c-actions" style="margin-top:14px">
+            <button type="submit" class="btn">Send Message</button>
+            <a class="btn ghost"
+               href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%27d%20like%20to%20know%20about%20programs%20and%20scholarships."
+               target="_blank" rel="noopener">Message on WhatsApp</a>
+          </div>
+          <div class="c-note">We typically reply within 1 working day.</div>
+
+          <div id="formNotice" class="c-note" style="display:none; color:#16a34a; font-weight:600; margin-top:10px">
+            Thanks! Your email app should open now. If it didn’t, please send to
+            <a href="mailto:contact@demoticedu.com">contact@demoticedu.com</a>.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <!-- Header/Footer loader then main.js + a tiny form script -->
+  <script>
+    (async function(){
+      async function inject(id, file){
+        const res  = await fetch(file, {cache:'no-store'});
+        if(!res.ok) throw new Error(res.status+' '+res.statusText);
+        document.getElementById(id).innerHTML = await res.text();
+      }
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      // Highlight nav item
+      (function () {
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.links a, .mobile a').forEach(a=>{
+          if (a.getAttribute('href') === path) a.classList.add('active');
+        });
+      })();
+
+      // Load site-wide JS (menus, counters if any)
+      const s = document.createElement('script');
+      s.src = 'main.js';
+      document.body.appendChild(s);
+    })();
+
+    // Lightweight "mailto" submitter
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const topic = document.getElementById('topic').value;
+        const msg = document.getElementById('msg').value.trim();
+
+        const subject = encodeURIComponent(`Inquiry: ${topic} — ${name}`);
+        const body = encodeURIComponent(
+`Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Topic: ${topic}
+
+Message:
+${msg}
+`
+        );
+        const mailto = `mailto:contact@demoticedu.com?subject=${subject}&body=${body}`;
+        window.location.href = mailto;
+
+        const note = document.getElementById('formNotice');
+        note.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

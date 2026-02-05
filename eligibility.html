@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Eligibility | DemoticEdu</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ✅ Your main site CSS (header/footer styles are here) -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    :root{
+      /* ✅ YOUR BRAND COLORS */
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0f172a;
+      --muted:#64748b;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border:rgba(15,23,42,.10);
+      --shadow:0 18px 55px rgba(2,6,23,.14);
+      --shadowSoft:0 12px 34px rgba(2,6,23,.10);
+
+      --r18:18px;
+      --r24:24px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+
+    /* ✅ FIX: push page content below fixed header (topbar + nav) */
+    body{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+      padding-top: calc(var(--topbar-h, 40px) + var(--nav-h, 64px));
+    }
+
+    /* ✅ FIX: anchors won’t hide under header */
+    section, [id]{
+      scroll-margin-top: calc(var(--topbar-h, 40px) + var(--nav-h, 64px) + 16px);
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    /* ✅ Trust strip */
+    .trust-strip{background:#fff;border-bottom:1px solid var(--border)}
+    .trust-strip .row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:10px 0;
+      align-items:center;
+    }
+    .trust-pill{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff, #fbfbff);
+      font-size:13px;
+      font-weight:800;
+      justify-content:center;
+      white-space:nowrap;
+      color:#0b1220;
+    }
+    .trust-pill .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--brand-blue);
+      box-shadow:0 0 0 4px rgba(16,72,120,.12);
+      flex:0 0 auto;
+    }
+    .trust-pill:nth-child(2) .dot{background:var(--brand-green); box-shadow:0 0 0 4px rgba(144,192,24,.16)}
+    .trust-pill:nth-child(3) .dot{background:var(--brand-orange); box-shadow:0 0 0 4px rgba(248,176,48,.18)}
+    .trust-pill:nth-child(4) .dot{background:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12)}
+
+    /* ✅ Intake bar */
+    .alertbar{
+      background:linear-gradient(90deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+    .alertbar .inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:.2px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      font-size:12px;
+      font-weight:950;
+    }
+    .badge .tag{
+      background:var(--brand-orange);
+      color:#1b1600;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+    }
+
+    /* ✅ HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(900px 500px at 20% 30%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(700px 420px at 90% 20%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      padding:56px 0 40px;
+      box-shadow: var(--shadowSoft);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .9fr;
+      gap:28px;
+      align-items:start;
+    }
+    .pill-highlight{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--brand-orange), #ffe4a7);
+      color:#1b1600;
+      font-weight:950;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.22);
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .hero h1{
+      margin:14px 0 10px;
+      line-height:1.05;
+      font-size: clamp(34px, 4vw, 58px);
+      font-weight:950;
+      letter-spacing:-.9px;
+    }
+    .hero p{
+      margin:0;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size: clamp(15px, 1.4vw, 18px);
+      color:rgba(255,255,255,.92);
+    }
+    .cta-row{
+      display:flex; gap:12px; align-items:center;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:950;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.18)}
+    .btn.primary{
+      background:var(--brand-orange);
+      color:#1b1600;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+
+    .hero-features{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      margin-top:26px;
+    }
+    .mini-card{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      padding:16px 14px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      min-height:96px;
+    }
+    .mini-card .i{
+      width:44px;height:44px;border-radius:14px;
+      margin:0 auto 10px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size:18px;
+    }
+    .mini-card b{display:block; font-size:13px}
+    .mini-card .sub{font-size:12px; color:rgba(255,255,255,.86); margin-top:4px}
+
+    /* ✅ Sticky form */
+    .form-card{
+      background:#fff;
+      border-radius: var(--r24);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 22px 55px rgba(0,0,0,.20);
+      overflow:hidden;
+      position: sticky;
+      top: 18px;
+    }
+    .form-head{
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      padding:18px 18px;
+    }
+    .form-head h3{margin:0;font-size:18px;font-weight:950}
+    .form-head p{
+      margin:6px 0 0;
+      font-size:13px;
+      color:rgba(255,255,255,.92);
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    form{padding:16px 18px 18px;background:#fff}
+    .field{margin:10px 0 12px}
+    .label{
+      display:flex;align-items:center;gap:8px;
+      font-size:13px;
+      color:#0b1220;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .chip{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:#f1f5f9;
+      color:#0f172a;
+      border:1px solid var(--border);
+      font-weight:950;
+    }
+    input, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:#fff;
+      outline:none;
+      font-size:14px;
+      transition:border .15s ease, box-shadow .15s ease;
+    }
+    input:focus, select:focus{
+      border-color: rgba(16,72,120,.55);
+      box-shadow: 0 0 0 4px rgba(16,72,120,.12);
+    }
+    .phone-grid{display:grid;grid-template-columns: 86px 1fr;gap:10px}
+    .submit{
+      width:100%;
+      margin-top:8px;
+      padding:13px 16px;
+      border-radius:14px;
+      border:none;
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      color:#1b1600;
+      font-weight:950;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow: 0 16px 35px rgba(0,0,0,.14);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .submit:hover{transform: translateY(-1px); filter:saturate(1.05)}
+    .secure{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      text-align:center;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* ✅ Sections */
+    .section{padding:56px 0}
+    .title{text-align:center;margin-bottom:22px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(16,72,120,.10);
+      border:1px solid rgba(16,72,120,.18);
+      color:#0f3a63;
+      font-weight:950;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .title h2{
+      margin:0;
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight:950;
+      letter-spacing:-.3px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .title p{
+      margin:10px auto 0;
+      max-width: 860px;
+      color:var(--muted);
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    .grid-4{display:grid;grid-template-columns: repeat(4, 1fr);gap:16px}
+    .grid-3{display:grid;grid-template-columns: repeat(3, 1fr);gap:16px}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--r18);
+      padding:18px;
+      box-shadow: 0 14px 38px rgba(2,6,23,.06);
+    }
+    .card .ic{
+      width:46px;height:46px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(16,72,120,.10);
+      border:1px solid rgba(16,72,120,.16);
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .card h4{margin:0 0 6px; font-size:16px; font-weight:950; font-family:"Hind Siliguri", Inter, sans-serif}
+    .card p{margin:0; color:var(--muted); font-size:13px; font-family:"Hind Siliguri", Inter, sans-serif}
+
+    .solution-banner{
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+      border-radius: var(--r24);
+      padding:26px 22px;
+      color:#fff;
+      box-shadow: var(--shadowSoft);
+      border:1px solid rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-top:22px;
+    }
+    .solution-banner h3{
+      margin:0;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size: clamp(18px, 2.2vw, 28px);
+      font-weight:950;
+    }
+    .solution-banner .small{
+      margin:4px 0 0;
+      opacity:.92;
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    .media{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:center;
+    }
+    .imgCard{
+      border-radius: var(--r24);
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(2,6,23,.10);
+      background:#fff;
+      min-height: 280px;
+    }
+    .imgCard img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      min-height: 280px;
+    }
+
+    .checklist{margin-top:14px;display:grid;gap:10px}
+    .check{
+      display:flex; gap:10px; align-items:flex-start;
+      background:#f8fafc;
+      border:1px solid rgba(15,23,42,.08);
+      padding:12px 12px;
+      border-radius: 14px;
+    }
+    .ok{
+      width:26px;height:26px;border-radius:10px;
+      background:rgba(144,192,24,.14);
+      border:1px solid rgba(144,192,24,.26);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--brand-green);
+      font-weight:950;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .check b{display:block; font-size:14px; font-family:"Hind Siliguri", Inter, sans-serif}
+    .check span{display:block; color:var(--muted); font-size:13px; font-family:"Hind Siliguri", Inter, sans-serif}
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .stat{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r24);
+      padding:18px;
+      text-align:center;
+      box-shadow: 0 14px 35px rgba(2,6,23,.06);
+    }
+    .stat .n{font-size:28px;font-weight:950;letter-spacing:-.6px}
+    .stat .t{color:var(--muted);font-size:13px;margin-top:4px;font-family:"Hind Siliguri", Inter, sans-serif}
+
+    .quote{position:relative;padding:20px 18px}
+    .quote::before{
+      content:"“";
+      position:absolute;
+      left:14px; top:-8px;
+      font-size:48px;
+      color:rgba(15,23,42,.10);
+      font-weight:950;
+    }
+    .quote p{
+      margin:0 0 14px;
+      color:#0b1220;
+      font-size:13px;
+      font-style:italic;
+      font-family: Inter, "Hind Siliguri", sans-serif;
+    }
+    .who{display:flex;align-items:center;gap:10px}
+    .avatar{
+      width:42px;height:42px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(16,72,120,.28), rgba(248,176,48,.22));
+      border:1px solid var(--border);
+    }
+    .who b{display:block;font-size:13px}
+    .who span{display:block;font-size:12px;color:var(--muted);font-family:"Hind Siliguri", Inter, sans-serif}
+
+    .reassure{
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      border-radius: var(--r24);
+      padding:24px 18px;
+      box-shadow: var(--shadowSoft);
+      border:1px solid rgba(255,255,255,.14);
+      text-align:center;
+    }
+    .reassure h3{margin:0;font-family:"Hind Siliguri", Inter, sans-serif;font-weight:950}
+    .reassure p{margin:8px 0 0;opacity:.92;font-family:"Hind Siliguri", Inter, sans-serif;font-size:13px}
+    .tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+    .tagPill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
+      font-weight:950;
+      font-size:12px;
+      display:flex;align-items:center;gap:8px;
+      white-space:nowrap;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      background:#0b1220;
+      color:#fff;
+      padding:12px 14px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 9999;
+      font-size:13px;
+      max-width: min(560px, calc(100% - 26px));
+    }
+    .toast.show{opacity:1;transform: translateX(-50%) translateY(-6px)}
+
+    @media (max-width: 980px){
+      .trust-strip .row{grid-template-columns: 1fr 1fr; gap:8px}
+      .hero-grid{grid-template-columns: 1fr}
+      .form-card{position:relative; top:auto}
+      .hero-features{grid-template-columns: 1fr 1fr}
+      .grid-4{grid-template-columns: 1fr 1fr}
+      .grid-3{grid-template-columns: 1fr}
+      .media{grid-template-columns: 1fr}
+      .stats{grid-template-columns: 1fr}
+    }
+    @media (max-width: 520px){
+      .hero{padding:44px 0 28px}
+      .hero-features{grid-template-columns: 1fr}
+      .grid-4{grid-template-columns: 1fr}
+      .solution-banner{flex-direction:column; text-align:center}
+      .trust-pill{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Shared header injection target (same as index.html) -->
+  <div id="header"></div>
+
+  <div class="trust-strip">
+    <div class="container">
+      <div class="row">
+        <div class="trust-pill"><span class="dot"></span> Official University Partner</div>
+        <div class="trust-pill"><span class="dot"></span> 1500+ Success Stories</div>
+        <div class="trust-pill"><span class="dot"></span> Chinese Embassy Recognized</div>
+        <div class="trust-pill"><span class="dot"></span> 100% Risk-Free Application</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alertbar">
+    <div class="container">
+      <div class="inner">
+        <span class="badge">⏳ 2026 Intake Closing Soon! <span class="tag">LIMITED SEATS</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          
+
+          <h1>
+            Study in China 2026<br/>
+            With Full Scholarship + Stipend
+          </h1>
+
+          <p>
+            আপনার স্বপ্নের University ৩ Subject খুলে দিন— <b>100% বিনামূল্যে</b>!<br>
+            World-Class Education • Zero Tuition • Monthly Income • Global Career
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#eligibility">📌 Check Eligibility Now →</a>
+            <a class="btn" href="#programs">See Programs</a>
+          </div>
+
+          <div class="hero-features">
+            <div class="mini-card">
+              <div class="i">💳</div>
+              <b>Payment After VISA</b>
+              <div class="sub">No risk, no fear</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">✅</div>
+              <b>100% Transparent</b>
+              <div class="sub">Clear process</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">📄</div>
+              <b>Apply Without IELTS</b>
+              <div class="sub">Options available</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">🎓</div>
+              <b>Diploma–PhD</b>
+              <div class="sub">All levels</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky form -->
+        <div id="eligibility">
+          <div class="form-card">
+            <div class="form-head">
+              <h3>Check Eligibility</h3>
+              <p>All Payment After VISA • Fast Response • 100% Secure</p>
+            </div>
+
+            <form id="leadForm" autocomplete="on">
+              <div class="field">
+                <div class="label">👤 Full Name <span class="chip">Required</span></div>
+                <input name="name" type="text" placeholder="Enter full name" required />
+              </div>
+
+              <div class="field">
+                <div class="label">📱 WhatsApp / Phone <span class="chip">Required</span></div>
+                <div class="phone-grid">
+                  <input name="country_code" type="text" value="+88" />
+                  <input name="phone" type="tel" placeholder="01XXXXXXXXX" required />
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="label">🎓 Last Degree <span class="chip">Required</span></div>
+                <select name="last_degree" required>
+                  <option value="">Select one</option>
+                  <option>SSC / Dakhil</option>
+                  <option>HSC / Alim</option>
+                  <option>Diploma</option>
+                  <option>Bachelor</option>
+                  <option>Master's</option>
+                  <option>PhD</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <div class="label">📊 GPA / CGPA <span class="chip">Required</span></div>
+                <input name="gpa" type="text" placeholder="Example: 4.50" required />
+              </div>
+
+              <div class="field">
+                <div class="label">📝 English Score <span class="chip">Optional</span></div>
+                <input name="english_score" type="text" placeholder="IELTS 6.5 / Duolingo 105 (optional)" />
+              </div>
+
+              <button class="submit" type="submit" id="submitBtn">Check Eligibility Now →</button>
+              <div class="secure">🔒 Your information is 100% secure</div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="section">
+    <div class="container">
+      <div class="title">
+        <div class="kicker">⚠️ Common Problems</div>
+        <h2>স্বপ্ন দেখছেন বিদেশে পড়ার? <span style="color:var(--brand-orange)">কিন্তু…</span></h2>
+        <p>বেশিরভাগ শিক্ষার্থী এই বাধাগুলোর কারণে বিদেশে পড়ার স্বপ্ন বাস্তবায়ন করতে পারে না।</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card"><div class="ic">💸</div><h4>লক্ষ টাকা খরচ</h4><p>USA/UK/Canada-তে পড়তে অনেক বেশি টিউশন ও খরচ লাগে।</p></div>
+        <div class="card"><div class="ic">📚</div><h4>IELTS বাধা</h4><p>IELTS score না থাকায় অনেকের সুযোগ হারায়।</p></div>
+        <div class="card"><div class="ic">⚠️</div><h4>হিডেন ফি</h4><p>অনেক জায়গায় হিডেন চার্জ ও অনিশ্চয়তা থাকে।</p></div>
+        <div class="card"><div class="ic">❌</div><h4>Visa Rejection</h4><p>ভিসা না হলে টাকা ফেরত না পাওয়ার ভয়।</p></div>
+      </div>
+
+      <div class="solution-banner">
+        <div>
+          <h3>চায়না — আপনার সব সমস্যার সমাধান!</h3>
+          <div class="small">জিরো টিউশন • No IELTS (Options) • ভিসার পর পেমেন্ট • মাসিক আয়</div>
+        </div>
+        <a class="btn primary" href="#eligibility">Check Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="media">
+        <div>
+          <div class="kicker">💰 Scholarship Benefits</div>
+          <h2 style="margin:10px 0 8px; font-weight:950; letter-spacing:-.3px; font-family:'Hind Siliguri', Inter, sans-serif">
+            পাবেন <span style="color:var(--brand-green)">100% ফ্রি শিক্ষা</span> + মাসিক আয়
+          </h2>
+          <p style="margin:0; color:var(--muted); font-family:'Hind Siliguri', Inter, sans-serif">
+            টিউশন, হোস্টেল এবং অন্যান্য খরচ অনেক ক্ষেত্রেই Scholarship-এর মাধ্যমে কভার হতে পারে।
+            পাশাপাশি মাসিক stipend আপনার দৈনন্দিন খরচে সাহায্য করবে।
+          </p>
+
+          <div class="checklist">
+            <div class="check"><div class="ok">✓</div><div><b>Full Tuition Waiver</b><span>টিউশন ফি সম্পূর্ণ বা বড় অংশ মওকুফ</span></div></div>
+            <div class="check"><div class="ok">✓</div><div><b>Free Accommodation</b><span>বিনামূল্যে/কম খরচে হোস্টেল সুবিধা</span></div></div>
+            <div class="check"><div class="ok">✓</div><div><b>Monthly Stipend</b><span>৳10,000 – ৳60,000 (Program/Scholarship অনুযায়ী)</span></div></div>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><div class="n">Since 2018</div><div class="t">Trusted experience in China education</div></div>
+            <div class="stat"><div class="n">1000+</div><div class="t">Students successfully placed</div></div>
+            <div class="stat"><div class="n">Authorized</div><div class="t">Official university agent</div></div>
+          </div>
+        </div>
+
+        <div class="imgCard">
+          <img src="assets/img/china-graduates.jpg" alt="Study in China Scholarship" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs/Support -->
+  <section class="section" id="programs">
+    <div class="container">
+      <div class="title">
+        <div class="kicker">🧭 Programs & Support</div>
+        <h2>শুরু থেকে শেষ পর্যন্ত সম্পূর্ণ সাপোর্ট</h2>
+        <p>University selection থেকে airport pickup পর্যন্ত — প্রতিটি ধাপে আমাদের টিম আপনার পাশে থাকবে।</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card"><div class="ic">💬</div><h4>Free Consultation</h4><p>Profile assessment • University selection • Subject recommendation</p></div>
+        <div class="card"><div class="ic">🧾</div><h4>Application & Documents</h4><p>Document preparation • Submission • Admission letter follow-up</p></div>
+        <div class="card"><div class="ic">🛂</div><h4>VISA Processing</h4><p>Embassy appointment • Interview preparation • VISA support</p></div>
+        <div class="card"><div class="ic">✈️</div><h4>Pre-Departure</h4><p>Flight booking • Accommodation arrangement • Cultural orientation</p></div>
+        <div class="card"><div class="ic">🚗</div><h4>Airport Pickup</h4><p>Pickup guaranteed • University registration help • Settlement support</p></div>
+        <div class="card"><div class="ic">🎯</div><h4>Scholarship Guidance</h4><p>Eligible programs • Scholarship types • Faster processing strategy</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="title">
+        <div class="kicker">💚 Student Success Stories</div>
+        <h2>What Our Students Say</h2>
+        <p>Join students who achieved scholarships and admission with DemoticEdu.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card quote">
+          <p>DemoticEdu guided my full application process smoothly. I received scholarship support and clear updates at every step.</p>
+          <div class="who"><div class="avatar"></div><div><b>Student Name</b><span>Program • University</span></div></div>
+        </div>
+        <div class="card quote">
+          <p>Payment after visa made me confident. The process was transparent, and I got proper consultation for program selection.</p>
+          <div class="who"><div class="avatar"></div><div><b>Student Name</b><span>Program • University</span></div></div>
+        </div>
+        <div class="card quote">
+          <p>They helped with documents, admission follow-up, and visa preparation. Strongly recommended for Study in China.</p>
+          <div class="who"><div class="avatar"></div><div><b>Student Name</b><span>Program • University</span></div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px" class="reassure">
+        <h3>একা নন — আমরা আছি প্রতিটি ধাপে 🤝</h3>
+        <p>24/7 support • University Authorized • Complete Handholding</p>
+        <div class="tags">
+          <div class="tagPill">🧑‍💻 24/7 Support</div>
+          <div class="tagPill">🏫 University Authorized</div>
+          <div class="tagPill">✅ Complete Handholding</div>
+        </div>
+        <div style="margin-top:14px">
+          <a class="btn primary" href="#eligibility">Check Eligibility Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Shared footer injection target (same as index.html) -->
+  <div id="footer"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ✅ Toast
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(()=>t.classList.remove("show"), 2600);
+    }
+
+    // ✅ Lead submit (you renamed to leads.php)
+    const form = document.getElementById("leadForm");
+    const btn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      const cc = (fd.get("country_code") || "").trim();
+      const phone = (fd.get("phone") || "").trim();
+      fd.set("phone", `${cc}${phone}`.replace(/\s+/g, ""));
+
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+
+      try {
+        const res = await fetch("api/leads.php", { method: "POST", body: fd });
+
+        let data;
+        const text = await res.text();
+        try { data = JSON.parse(text); } catch { data = { ok: res.ok, message: text }; }
+
+        if (res.ok) {
+          showToast(data.message || "✅ Submitted! We will contact you soon.");
+          form.reset();
+          form.querySelector('input[name="country_code"]').value = "+88";
+        } else {
+          showToast(data.message || "❌ Submission failed. Please try again.");
+        }
+      } catch (err) {
+        showToast("❌ Network error. Please try again.");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Check Eligibility Now →";
+      }
+    });
+
+    // ✅ IMPORTANT FIX: Inject header/footer (same logic as index.html)
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          document.getElementById(id).innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      // highlight current page link
+      (function highlightActive(){
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.links a, .mobile a').forEach(a=>{
+          if (a.getAttribute('href') === path) a.classList.add('active');
+        });
+      })();
+
+      // now load your main JS (burger, sticky nav, etc.)
+      const s = document.createElement('script');
+      s.src = 'main.js';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

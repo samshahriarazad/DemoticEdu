@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Program Details — DemoticEdu</title>
+  <meta name="description" content="Detailed information about a study program supported by DemoticEdu.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    body.page-program{ background:#f6f8fb; }
+
+    /* ===== FIXED HERO (NO TEXT) ===== */
+    .prog-hero{
+      position: relative;
+      height: 220px;
+      background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.25)),
+        url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    @media (max-width: 980px){
+      .prog-hero{ background-attachment: scroll; height: 180px; }
+    }
+
+    /* ===== Layout ===== */
+    .wrap{ padding: 22px 0 60px; }
+    .grid{
+      display:grid;
+      grid-template-columns: minmax(0,2.1fr) minmax(0,1fr);
+      gap: 26px;
+      align-items: start;
+    }
+    @media(max-width:980px){ .grid{ grid-template-columns: 1fr; } }
+
+    /* ===== Main card ===== */
+    .card{
+      background:#fff;
+      border-radius:22px;
+      border:1px solid rgba(148,163,184,.25);
+      box-shadow:0 24px 60px rgba(2,6,23,.10);
+      overflow:hidden;
+
+      /* Modern overlap */
+      margin-top: -60px;
+      position: relative;
+      z-index: 3;
+    }
+    @media(max-width:980px){
+      .card{ margin-top: -40px; }
+    }
+
+    .header-mini{
+      padding: 14px 18px;
+      background: linear-gradient(135deg, rgba(127,180,35,.12), rgba(242,201,76,.16));
+      border-bottom: 1px solid rgba(148,163,184,.18);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .badge{
+      background: linear-gradient(135deg,#7FB423,#F2C94C);
+      color:#fff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand-mini{
+      font-size: 12px;
+      font-weight: 800;
+      color:#334155;
+      opacity:.8;
+    }
+
+    /* ===== Program cover with text overlay (ONLY place for quick facts) ===== */
+    .coverWrap{
+      position: relative;
+      height: 320px;
+      background:#e5e7eb;
+      border-bottom: 1px solid rgba(148,163,184,.16);
+      overflow:hidden;
+    }
+    @media (max-width: 640px){ .coverWrap{ height: 240px; } }
+
+    .coverImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.01);
+    }
+    .coverShade{
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.14), rgba(0,0,0,.05));
+    }
+    .coverText{
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      color:#fff;
+    }
+    .coverTitle{
+      margin:0;
+      font-size: 30px;
+      line-height: 1.15;
+      font-weight: 900;
+      text-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+    .coverSub{
+      margin: 8px 0 0;
+      font-size: 13px;
+      opacity: .92;
+      font-weight: 700;
+    }
+    .chips{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* ===== Content ===== */
+    .content{
+      padding: 18px 22px 22px;
+      line-height: 1.85;
+      color:#0f172a;
+    }
+
+    /* ===== Sidebar ===== */
+    .side{ display:flex; flex-direction:column; gap:16px; }
+
+    .priceCard{
+      padding:16px;
+      border-radius:18px;
+      background: linear-gradient(135deg,#ecfeff,#f0fdf4);
+      border:1px solid rgba(34,197,94,.3);
+    }
+    .priceLabel{
+      font-size: 11px;
+      font-weight: 900;
+      color:#047857;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .priceMain{
+      margin-top: 6px;
+      font-size: 22px;
+      font-weight: 900;
+      color:#065f46;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+    .priceList{
+      margin-top: 10px;
+      padding-left: 18px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .priceList li{ margin:6px 0; }
+
+    .ctaCard, .otherCard{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.25);
+      background:#fff;
+      box-shadow:0 14px 30px rgba(15,23,42,.06);
+    }
+    .ctaCard h3, .otherCard h3{ margin:0 0 10px; font-size:16px; color:#0f172a; }
+    .ctaCard p{ margin:0 0 12px; font-size:13px; color:#64748b; line-height:1.5; }
+
+    .ctaBtns{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btnSolid{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      background: linear-gradient(135deg,#7FB423,#F2C94C);
+      color:#fff; font-weight:900; text-decoration:none; font-size:13px;
+      box-shadow:0 10px 22px rgba(127,180,35,.20);
+    }
+    .btnGhost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(148,163,184,.38);
+      background:#fff;
+      color:#0f172a; font-weight:900; text-decoration:none; font-size:13px;
+    }
+
+    .otherList{ display:flex; flex-direction:column; gap:10px; }
+    .otherItem{
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(148,163,184,.22);
+      background:#f8fafc;
+      cursor:pointer;
+      transition:.18s;
+    }
+    .otherItem:hover{
+      background:#fff;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .otherTitle{ margin:0 0 4px; font-size:13px; font-weight:900; color:#0f172a; }
+    .otherMeta{ margin:0; font-size:12px; font-weight:700; color:#64748b; }
+
+    .backNav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body class="page-program">
+  <div id="header"></div>
+
+  <!-- FIXED HERO (NO TEXT) -->
+  <section class="prog-hero" aria-label="Hero image"></section>
+
+  <main class="wrap">
+    <div class="container grid">
+
+      <!-- MAIN -->
+      <div class="card" id="programCard"></div>
+
+      <!-- SIDE -->
+      <aside class="side">
+        <div class="priceCard" id="priceCard" style="display:none;"></div>
+
+        <div class="ctaCard">
+          <h3>Apply with DemoticEdu</h3>
+          <p>We help you choose the right program, prepare documents, and submit fast.</p>
+          <div class="ctaBtns">
+            <a class="btnSolid" href="apply.html">Apply Now</a>
+            <a class="btnGhost" href="contact.html">Talk to Advisor</a>
+          </div>
+        </div>
+
+        <div class="otherCard">
+          <h3>Other Programs</h3>
+          <div class="otherList" id="otherList"></div>
+
+          <div class="backNav">
+            <a class="btnGhost" href="programs.html">← Back to all</a>
+            <a class="btnGhost" href="index.html">⌂ Home</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (async function () {
+      async function inject(id, file) {
+        try{
+          const res = await fetch(file, { cache: "no-store" });
+          if (!res.ok) return;
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(e){}
+      }
+
+      await Promise.all([
+        inject("header", "header-footer/header.html"),
+        inject("footer", "header-footer/footer.html")
+      ]);
+
+      const script = document.createElement("script");
+      script.src = "main.js";
+      script.onload = async function () {
+
+        const escapeHTML = (s) => String(s ?? "")
+          .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+          .replace(/\"/g,"&quot;").replace(/'/g,"&#39;");
+
+        const looksLikeHTML = (s) =>
+          /<\s*(p|br|ul|ol|li|h\d|div|strong|em|table|img|a|span)\b/i.test(String(s||"").trim());
+
+        function normalizePrograms(result){
+          if (Array.isArray(result)) return result;
+          if (result && Array.isArray(result.programs)) return result.programs;
+          if (result && Array.isArray(result.data)) return result.data;
+          if (result && Array.isArray(result.items)) return result.items;
+          return [];
+        }
+
+        function resolveImagePath(path){
+          const t = String(path || "").trim();
+          if(!t) return "";
+          const pathname = String(window.location.pathname || "").replace(/\\/g,'/');
+          const inFrontendFolder = /\/Frontend\//i.test(pathname);
+          if (inFrontendFolder && /^Backend\//i.test(t)) return "../" + t;
+          return t;
+        }
+
+        function extractMonthYear(raw){
+          const plain = String(raw || "")
+            .replace(/<br\s*\/?>/gi, "\n")
+            .replace(/<\/li>/gi, "\n")
+            .replace(/<[^>]*>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+          const monthRe = /(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}/i;
+          const idx = plain.toLowerCase().indexOf("intake");
+          const tail = idx >= 0 ? plain.slice(idx) : plain;
+          const m = tail.match(monthRe) || plain.match(monthRe);
+          return m ? m[0].trim() : "";
+        }
+
+        function feeToLines(text){
+          const t = String(text||"")
+            .replace(/<br\s*\/?>/gi, "\n")
+            .replace(/<\/li>/gi, "\n")
+            .replace(/<[^>]*>/g, "\n")
+            .replace(/\r/g, "")
+            .trim();
+          if(!t) return [];
+          return t.split(/\n+|\s*\|\s*/g).map(x => x.trim()).filter(Boolean);
+        }
+
+        if (typeof loadPrograms !== "function") {
+          document.getElementById("programCard").innerHTML =
+            "<div style='padding:22px;color:#64748b;font-weight:700;'>Error: loadPrograms() not found in main.js</div>";
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        const rawResult = await loadPrograms();
+        const list = normalizePrograms(rawResult);
+
+        let p = list.find(x => String(x.id) === String(id));
+        if (!p && list.length) p = list[0];
+        if (!p) {
+          document.getElementById("programCard").innerHTML =
+            "<div style='padding:22px;color:#64748b;font-weight:700;'>Program not found.</div>";
+          return;
+        }
+
+        const title = (p.title || p.name || "Program").toString().trim();
+        const level = (p.level || "").toString().trim();
+        const duration = (p.duration || "").toString().trim();
+
+        let programLocation = (p.location || p.campus || "").toString().trim();
+        if (/^https?:\/\//i.test(programLocation)) programLocation = "";
+
+        const rawContent = (p.content || p.description || "").toString();
+        const descHTML = rawContent
+          ? (looksLikeHTML(rawContent) ? rawContent : `<p>${escapeHTML(rawContent).replace(/\n/g,"<br>")}</p>`)
+          : "<p>No description available yet.</p>";
+
+        let intake = (p.intake || p.date || "").toString().trim();
+        if (/^\d{4}-\d{2}-\d{2}/.test(intake)) intake = "";
+        if (!intake) intake = extractMonthYear(rawContent);
+
+        const img = resolveImagePath(p.image);
+
+        const feeRaw = (p.fee || p.tuition || "").toString().trim();
+        const feeLines = feeToLines(feeRaw);
+        const feeHeadline = feeLines[0] || feeRaw;
+        const feeBullets = feeLines.length > 1 ? feeLines.slice(1) : [];
+
+        // MAIN CARD: quick facts only here, no duplicates below.
+        document.getElementById("programCard").innerHTML = `
+          <div class="header-mini">
+            <span class="badge">Program Overview</span>
+            <span class="brand-mini">DemoticEdu</span>
+          </div>
+
+          <div class="coverWrap">
+            ${img ? `<img class="coverImg" src="${img}" alt="${escapeHTML(title)}">` : ``}
+            <div class="coverShade"></div>
+
+            <div class="coverText">
+              <h2 class="coverTitle">${escapeHTML(title)}</h2>
+              <div class="coverSub">
+                ${escapeHTML([programLocation, level, intake ? ("Intake: " + intake) : ""].filter(Boolean).join(" • "))}
+              </div>
+
+              <div class="chips">
+                ${duration ? `<span class="chip">⏳ ${escapeHTML(duration)}</span>` : ``}
+                ${programLocation ? `<span class="chip">📍 ${escapeHTML(programLocation)}</span>` : ``}
+                ${intake ? `<span class="chip">🗓️ ${escapeHTML(intake)}</span>` : ``}
+              </div>
+            </div>
+          </div>
+
+          <div class="content">${descHTML}</div>
+        `;
+
+        // Fee card
+        const priceCard = document.getElementById("priceCard");
+        if (feeRaw) {
+          priceCard.style.display = "";
+          priceCard.innerHTML = `
+            <div class="priceLabel">Tuition + Hostel</div>
+            <div class="priceMain">${escapeHTML(feeHeadline)}</div>
+            ${feeBullets.length ? `<ul class="priceList">${feeBullets.map(x => `<li>${escapeHTML(x)}</li>`).join("")}</ul>` : ``}
+          `;
+        } else {
+          priceCard.style.display = "none";
+        }
+
+        // Other programs
+        const other = list.filter(x => String(x.id) !== String(p.id)).slice(0, 6);
+        const otherList = document.getElementById("otherList");
+
+        otherList.innerHTML = other.length ? other.map(x => {
+          const t = (x.title || x.name || "Program").toString().trim();
+          const lvl = (x.level || "").toString().trim();
+          let loc = (x.location || x.campus || "").toString().trim();
+          if (/^https?:\/\//i.test(loc)) loc = "";
+          return `
+            <div class="otherItem" onclick="window.location.href='program.html?id=${encodeURIComponent(x.id)}'">
+              <p class="otherTitle">${escapeHTML(t)}</p>
+              <p class="otherMeta">${escapeHTML(lvl)}${loc ? " · " + escapeHTML(loc) : ""}</p>
+            </div>
+          `;
+        }).join("") : `<p style="margin:0;color:#64748b;font-size:13px;">No other programs found.</p>`;
+      };
+
+      document.body.appendChild(script);
+    })();
+  </script>
+</body>
+</html>

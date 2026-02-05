@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>University — DemoticEdu</title>
+
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-university">
+  <div id="header"></div>
+
+  <!-- HERO SECTION -->
+  <section class="uni-hero">
+    <div class="container" style="padding:40px 0">
+      <h1 id="u-title">University</h1>
+      <p id="u-sub"></p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="uni-detail-main">
+
+    <!-- FLOATING INFO CARD -->
+    <div class="uni-header-card">
+      <div class="uni-header-left">
+        <img id="u-logo" alt="Logo" class="uni-header-logo">
+
+        <div class="uni-header-main">
+          <h2 id="u-name"></h2>
+
+          <div class="uni-header-meta">
+            <span id="u-city"></span>, <span id="u-prov"></span>
+            <span id="u-country"></span>
+          </div>
+
+          <div id="u-badges" class="uni-badge-row"></div>
+        </div>
+      </div>
+
+      <!-- Rank box – only on detail page -->
+      <div class="uni-header-facts">
+        <div class="fact-label">World Rank</div>
+        <div class="fact-value" id="u-rank">—</div>
+        <div class="fact-tag" id="u-rank-tag" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- SECTIONS (NO TABS, JUST STACKED) -->
+    <section id="panel-about" class="panel uni-section"></section>
+    <section id="panel-programs" class="panel uni-section"></section>
+    <section id="panel-scholarship" class="panel uni-section"></section>
+    <section id="panel-gallery" class="panel uni-section"></section>
+
+    <!-- APPLY CTA -->
+    <section class="uni-cta">
+      <div class="uni-cta-text">
+        <h3>Ready to apply to this university?</h3>
+        <p>
+          Share your documents with DemoticEdu and we’ll check your eligibility,
+          scholarship options and application timeline.
+        </p>
+      </div>
+      <div class="uni-cta-actions">
+        <a href="https://wa.me/8801735387888" target="_blank" rel="noopener" class="uni-cta-btn">
+          Chat on WhatsApp
+        </a>
+        <a href="contact.html" class="uni-cta-btn ghost">
+          Book a free consultation
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (async function(){
+      async function inject(id, file){
+        const r = await fetch(file,{cache:'no-store'});
+        document.getElementById(id).innerHTML = await r.text();
+      }
+      await Promise.all([
+        inject('header','header-footer/header.html'),
+        inject('footer','header-footer/footer.html')
+      ]);
+      const s=document.createElement('script'); 
+      s.src='main.js'; 
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Updates - DemoticEdu</title>
+  <link rel="stylesheet" href="styles.css?v=20251215" />
+</head>
+<body>
+  <div class="container" style="padding:40px 0">
+    <h2>All Latest Updates</h2>
+    <div class="news-list" id="updates-all"></div>
+    <p><a href="index.html" style="color:#16a34a">← Back to Home</a></p>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    (async function(){
+      const updates = await loadJSON("data/latest-updates.json");
+      renderList(document.getElementById("updates-all"), updates, 99); // show all
+    })();
+  </script>
+</body>
+</html>
