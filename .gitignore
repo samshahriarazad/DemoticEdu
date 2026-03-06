@@ -1,21 +1,45 @@
-# Ignore OS files
+# =========================
+# OS Files
+# =========================
 .DS_Store
 Thumbs.db
-
-# Ignore logs
-*.log
-
-# Ignore zip files
-*.zip
-
-# Ignore local XAMPP files
 ntuser.dat*
 ntuser.ini
 
-# Ignore Python / notebook files
+# =========================
+# Logs
+# =========================
+*.log
+mail_error_log.txt
+mail_debug_log.txt
+reset_otp_log.txt
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.local
+
+# =========================
+# Composer dependencies
+# =========================
+vendor/
+
+# =========================
+# Archives
+# =========================
+*.zip
+*.tar
+*.gz
+
+# =========================
+# Python / notebooks (not part of this project)
+# =========================
 *.ipynb
 
-# Ignore unrelated folders
+# =========================
+# Unrelated folders
+# =========================
 yolov10/
 wxchat_files/
 seat-reservation*/
