@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner Universities | DemoticEdu</title>
+  <meta name="description" content="Browse DemoticEdu partner universities. Filter by program type, intake, major and more.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root{
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0b1220;
+      --muted:#5b6b85;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border: rgba(15,23,42,.10);
+
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 60px rgba(2,6,23,.10);
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    a{ color:inherit; text-decoration:none; }
+
+    body.page-bg{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg) !important;
+      background-image: none !important;
+      color: var(--ink);
+      line-height: 1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+
+    section,[id]{ scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+
+    .container{ width:min(1200px, calc(100% - 40px)); margin:0 auto; }
+
+    /* Background */
+    .page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16,72,120,.16), transparent 60%),
+        linear-gradient(#f7f8fc,#f6f7fb);
+    }
+    .page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.55;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    /* HERO (avoid .hero conflict) */
+    .u-hero{ padding:26px 0 10px; }
+    .u-heroBox{
+      position:relative;
+      padding:70px 18px 56px;
+      text-align:center;
+      border-radius:32px;
+      overflow:hidden;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 40px 120px rgba(2,6,23,.22);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.16), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.22), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .u-heroBox::before{
+      content:"";
+      position:absolute;
+      inset:-240px -240px auto auto;
+      width:560px; height:560px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,176,48,.28), transparent 65%);
+      animation: floatGlow 14s var(--ease) infinite;
+      pointer-events:none;
+    }
+    .u-heroBox::after{
+      content:"";
+      position:absolute;
+      inset:auto -260px -260px auto;
+      width:680px; height:680px;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.10), transparent 66%);
+      animation: floatGlow 18s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes floatGlow{
+      0%{ transform: translateY(0) translateX(0); }
+      50%{ transform: translateY(22px) translateX(-10px); }
+      100%{ transform: translateY(0) translateX(0); }
+    }
+    .u-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border-radius:999px;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      font-weight:900;
+      font-size:13px;
+      position:relative;
+      z-index:1;
+    }
+    .u-heroBox h1{
+      margin:18px 0 12px;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight:950;
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .u-heroBox p{
+      margin:0 auto;
+      max-width:860px;
+      color:#d7e3f3;
+      opacity:.95;
+      font-size:15px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .u-actions{
+      margin-top:22px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      cursor:pointer;
+      backdrop-filter: blur(10px);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+      white-space:nowrap;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow:0 18px 44px rgba(0,0,0,.22); background: rgba(255,255,255,.16); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      border:none;
+      color:#1b1600;
+      box-shadow:0 18px 44px rgba(0,0,0,.18);
+    }
+    .btn.primary::after{
+      content:"";
+      position:absolute;
+      inset:-40px auto -40px -120px;
+      width:120px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: skewX(-18deg);
+      opacity:.7;
+      animation: sweep 3.6s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes sweep{
+      0%{ left:-140px; }
+      55%{ left:120%; }
+      100%{ left:120%; }
+    }
+
+    /* Layout */
+    .section{ padding:18px 0 34px; }
+    .u-layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:18px;
+      align-items:start;
+      margin-top:18px;
+    }
+
+    /* Filters */
+    .u-sidebar{
+      position: sticky;
+      top: calc(var(--topbar-h) + var(--nav-h) + 16px);
+      z-index:5;
+    }
+    .u-filters{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow: var(--shadowSoft);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+      position:relative;
+    }
+    .u-filters::before{
+      content:"";
+      position:absolute;
+      inset:-70px -70px auto auto;
+      width:220px; height:220px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,176,48,.18), transparent 62%);
+      transform: rotate(16deg);
+      pointer-events:none;
+    }
+    .u-filters h3{
+      margin:0 0 6px;
+      font-size:14px;
+      font-weight:950;
+      letter-spacing:.2px;
+      color:#0b1220;
+      position:relative;
+      z-index:1;
+    }
+    .u-label{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(11,18,32,.78);
+      margin-top:2px;
+      position:relative;
+      z-index:1;
+    }
+    .u-input, .u-select{
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:0 12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      color:var(--ink);
+      width:100%;
+      position:relative;
+      z-index:1;
+      transition: box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .u-input::placeholder{ color: rgba(91,107,133,.95); }
+    .u-input:focus, .u-select:focus{
+      border-color: rgba(16,72,120,.28);
+      box-shadow: 0 0 0 4px rgba(16,72,120,.10);
+    }
+    .u-reset{
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      cursor:pointer;
+      font-weight:950;
+      position:relative;
+      z-index:1;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .u-reset:hover{ transform: translateY(-2px); box-shadow:0 16px 34px rgba(2,6,23,.10); }
+
+    /* Right content */
+    .u-head{ margin:0 0 12px; }
+    .u-head h2{
+      margin:0;
+      font-size: clamp(24px, 2.4vw, 34px);
+      font-weight:950;
+      letter-spacing:-.6px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    .u-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:14px;
+    }
+
+    /* Cards */
+    .u-card{
+      display:block;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow: var(--shadowSoft);
+      overflow:hidden;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .u-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 54px rgba(2,6,23,.12);
+      border-color: rgba(16,72,120,.18);
+    }
+
+    /* cover with image + overlay + logo */
+    .u-cover{
+      height: 150px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(600px 220px at 20% 0%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(520px 220px at 92% 10%, rgba(144,192,24,.14), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .u-coverImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+    }
+    .u-coverShade{
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.55));
+    }
+    .u-logo{
+      position:absolute;
+      left:14px; top:14px;
+      width:48px; height:48px;
+      border-radius:12px;
+      background:#fff;
+      padding:6px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+      object-fit:contain;
+    }
+
+    .u-body{ padding:16px 16px 14px; }
+    .u-title{
+      margin:0;
+      font-size:16px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+      color:#0b1220;
+      line-height:1.25;
+    }
+    .u-sub{ margin:8px 0 0; color: var(--muted); font-size:13px; }
+
+    .u-tags{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .u-tag{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(16,72,120,.10);
+      border:1px solid rgba(16,72,120,.18);
+      color:#0b2a3f;
+      font-weight:900;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .u-tag.good{
+      background: rgba(144,192,24,.14);
+      border-color: rgba(144,192,24,.26);
+      color:#2f4d06;
+    }
+    .u-tag.warn{
+      background: rgba(248,176,48,.18);
+      border-color: rgba(248,176,48,.30);
+      color:#6a3d00;
+    }
+    .u-tag.neutral{
+      background: rgba(148,163,184,.16);
+      border-color: rgba(148,163,184,.28);
+      color:#334155;
+    }
+
+    .u-deadline{
+      margin:10px 0 0;
+      font-size:13px;
+      font-weight:950;
+      color:#b45309;
+    }
+
+    .u-foot{
+      margin-top:14px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color: rgba(11,18,32,.85);
+      font-weight:800;
+    }
+
+    /* Pagination */
+    .u-pager{
+      margin:22px 0 50px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .u-pager button{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      cursor:pointer;
+      font-weight:950;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .u-pager button:hover:not(:disabled){
+      transform: translateY(-2px);
+      box-shadow:0 16px 34px rgba(2,6,23,.10);
+    }
+    .u-pager button:disabled{ opacity:.55; cursor:not-allowed; }
+    #pageinfo{ color: var(--muted); font-weight:900; padding:0 6px; }
+
+    .u-pagesize{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding-left:6px;
+      border-left:1px solid var(--border);
+      margin-left:6px;
+    }
+    .u-pagesize label{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(11,18,32,.70);
+    }
+    .u-pagesize select{
+      height:40px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      padding:0 12px;
+      font-weight:950;
+      cursor:pointer;
+      outline:none;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .u-pagesize select:focus{
+      border-color: rgba(16,72,120,.28);
+      box-shadow: 0 0 0 4px rgba(16,72,120,.10);
+    }
+
+    .u-empty{
+      grid-column:1 / -1;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:18px;
+      color: var(--muted);
+      text-align:center;
+      box-shadow: var(--shadowSoft);
+      font-weight:800;
+    }
+
+    /* Responsive */
+    @media (max-width: 1040px){ .u-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 900px){
+      .u-layout{ grid-template-columns: 1fr; }
+      .u-sidebar{ position:relative; top:auto; }
+      .u-pagesize{ border-left:none; margin-left:0; padding-left:0; }
+    }
+    @media (max-width: 560px){ .u-grid{ grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: reduce){
+      .u-heroBox::before, .u-heroBox::after{ animation:none; }
+      .btn.primary::after{ animation:none; }
+      .btn, .u-card, .u-pager button, .u-reset{ transition:none; }
+    }
+  </style>
+</head>
+
+<body class="page-bg">
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="u-hero">
+    <div class="container">
+      <div class="u-heroBox">
+        <div class="u-badge">🏫 Partner Universities</div>
+        <h1>Explore Our University Network</h1>
+        <p>Search and filter through our partner universities. Click any card to open the dedicated details page.</p>
+        <div class="u-actions">
+          <a class="btn primary" href="#list">Browse Universities</a>
+          <a class="btn" href="eligibility.html">Check Eligibility</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <section class="section" id="list">
+    <div class="container">
+      <div class="u-layout">
+
+        <!-- LEFT FILTERS -->
+        <aside class="u-sidebar">
+          <div class="u-filters">
+            <h3>Filters</h3>
+
+            <div class="u-label">Search</div>
+            <input id="q" class="u-input" placeholder="Name / Major / Requirements / Location" />
+
+            <div class="u-label">Country</div>
+            <select id="country" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <div class="u-label">Location (City)</div>
+            <select id="city" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <div class="u-label">Intake</div>
+            <select id="intake" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <div class="u-label">Program Type</div>
+            <select id="programType" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <div class="u-label">Scholarship</div>
+            <select id="scholarship" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <div class="u-label">Major</div>
+            <select id="major" class="u-select">
+              <option value="">Any</option>
+            </select>
+
+            <button id="reset" class="u-reset" type="button">Reset</button>
+          </div>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <main>
+          <div class="u-head">
+            <h2>University Listing</h2>
+          </div>
+
+          <div class="u-grid" id="grid"></div>
+
+          <div class="u-pager">
+            <button id="prev" type="button">Prev</button>
+            <div id="pageinfo">Page 1 of 1</div>
+            <button id="next" type="button">Next</button>
+
+            <div class="u-pagesize" aria-label="Cards per page">
+              <label for="pageSize">Show</label>
+              <select id="pageSize">
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="48">48</option>
+                <option value="100">100</option>
+              </select>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- ✅ FIXED JS (supports BOTH old + new JSON) -->
+  <script>
+    async function loadData(){
+      const res = await fetch("data/universities.json", { cache: "no-store" });
+      if(!res.ok) throw new Error("Failed to load data/universities.json");
+      return await res.json();
+    }
+
+    const grid = document.getElementById("grid");
+    const qEl = document.getElementById("q");
+    const countryEl = document.getElementById("country");
+    const cityEl = document.getElementById("city");
+    const intakeEl = document.getElementById("intake");
+    const programTypeEl = document.getElementById("programType");
+    const scholarshipEl = document.getElementById("scholarship");
+    const majorEl = document.getElementById("major");
+    const resetBtn = document.getElementById("reset");
+
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const pageInfo = document.getElementById("pageinfo");
+    const pageSizeEl = document.getElementById("pageSize");
+
+    let DATA = [];
+    let filtered = [];
+    let page = 1;
+
+    const LS_KEY = "universities_page_size";
+    let pageSize = Number(localStorage.getItem(LS_KEY)) || Number(pageSizeEl.value) || 10;
+    pageSizeEl.value = String(pageSize);
+
+    function normalize(t){ return String(t || "").toLowerCase().trim(); }
+
+    function asArray(v){
+      if(Array.isArray(v)) return v.filter(Boolean);
+      if(v === null || v === undefined) return [];
+      const s = String(v).trim();
+      if(!s) return [];
+      if(s.includes(",")) return s.split(",").map(x => x.trim()).filter(Boolean);
+      return [s];
+    }
+
+    function uniqueSorted(list){
+      return Array.from(new Set(list.filter(Boolean))).sort((a,b) =>
+        String(a).localeCompare(String(b), undefined, { sensitivity:"base" })
+      );
+    }
+
+    function fillSelect(selectEl, values){
+      const current = selectEl.value;
+      selectEl.innerHTML = `<option value="">Any</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
+      if(values.includes(current)) selectEl.value = current;
+    }
+
+    // ✅ Works with BOTH formats:
+    // Old: city/province/country + programType
+    // New: location{city,province,country} + programLevel
+    function getLoc(u){
+      const loc = (u && typeof u.location === "object" && u.location) ? u.location : {};
+      return {
+        city: loc.city || u.city || "",
+        province: loc.province || u.province || "",
+        country: loc.country || u.country || ""
+      };
+    }
+    function getProgramLevel(u){
+      return u.programLevel || u.programType || "";
+    }
+
+    // Scholarship label for cards + filters
+    function getScholarshipLabel(u){
+      const s = u ? u.scholarship : "";
+      if(typeof s === "string") return s.trim();
+
+      if(s && typeof s === "object"){
+        if(s.model) return String(s.model).trim();
+        if(s.available === true) return "Scholarship Available";
+        if(Array.isArray(s.types) && s.types.length) return "Scholarship Available";
+        if(s.firstYear && Array.isArray(s.firstYear.benefits) && s.firstYear.benefits.length) return "Scholarship Available";
+        if(s.fromSecondYear && Array.isArray(s.fromSecondYear.bands) && s.fromSecondYear.bands.length) return "Scholarship Available";
+      }
+      return "";
+    }
+
+    function flattenRequirements(req){
+      if(!req) return "";
+      if(typeof req === "string") return req;
+      if(typeof req !== "object") return "";
+      const parts = [];
+      if(req.academic) parts.push(req.academic);
+      if(req.cgpa) parts.push(`CGPA ${req.cgpa}`);
+      if(req.hsk) parts.push(`HSK ${req.hsk}`);
+      if(Array.isArray(req.english)) parts.push(req.english.join(" "));
+      if(req.english && typeof req.english === "string") parts.push(req.english);
+      if(Array.isArray(req.notes)) parts.push(req.notes.join(" "));
+      if(req.extra) parts.push(req.extra);
+      if(req.csca) parts.push("CSCA");
+      if(req.interview) parts.push("Interview");
+      return parts.join(" ");
+    }
+
+    function flattenScholarship(sch){
+      if(!sch) return "";
+      if(typeof sch === "string") return sch;
+      if(typeof sch !== "object") return "";
+
+      const parts = [];
+      if(sch.model) parts.push(sch.model);
+
+      // old format: types[{name,benefits}]
+      if(Array.isArray(sch.types)){
+        sch.types.forEach(t => {
+          if(t.name) parts.push(t.name);
+          if(Array.isArray(t.benefits)) parts.push(t.benefits.join(" "));
+        });
+      }
+
+      // new format: firstYear / fromSecondYear
+      if(sch.firstYear && Array.isArray(sch.firstYear.benefits)) parts.push(sch.firstYear.benefits.join(" "));
+      if(sch.fromSecondYear){
+        if(sch.fromSecondYear.basedOn) parts.push(sch.fromSecondYear.basedOn);
+        if(Array.isArray(sch.fromSecondYear.bands)){
+          sch.fromSecondYear.bands.forEach(b => {
+            if(b.label) parts.push(b.label);
+            if(b.percentage) parts.push(String(b.percentage));
+            if(Array.isArray(b.benefits)) parts.push(b.benefits.join(" "));
+            if(Array.isArray(b.conditions)) parts.push(b.conditions.join(" "));
+          });
+        }
+      }
+
+      if(Array.isArray(sch.notes)) parts.push(sch.notes.join(" "));
+      if(sch.note) parts.push(String(sch.note));
+      return parts.join(" ");
+    }
+
+    function buildSearchText(u){
+      const loc = getLoc(u);
+      const name = asArray(u.name).join(" ");
+      const country = asArray(loc.country).join(" ");
+      const city = asArray(loc.city).join(" ");
+      const province = asArray(loc.province).join(" ");
+      const majors = asArray(u.majors).join(" ");
+      const programType = asArray(getProgramLevel(u)).join(" ");
+      const intake = asArray(u.intake).join(" ");
+      const deadline = asArray(u.deadline).join(" ");
+      const req = flattenRequirements(u.requirements);
+      const scholarship = flattenScholarship(u.scholarship);
+      return normalize(`${name} ${country} ${province} ${city} ${req} ${majors} ${programType} ${intake} ${deadline} ${scholarship}`);
+    }
+
+    function scholarshipClass(text){
+      const t = normalize(text);
+      if(!t) return "neutral";
+      if(t.includes("self") || t.includes("fund")) return "neutral";
+      if(t.includes("type") || t.includes("available") || t.includes("scholar") || t.includes("cgpa")) return "good";
+      return "warn";
+    }
+
+    function matchSelect(value, selected){
+      if(!selected) return true;
+      const arr = asArray(value).map(v => normalize(v));
+      return arr.includes(normalize(selected));
+    }
+
+    function populateFilterOptions(){
+      const countries=[], cities=[], intakes=[], programTypes=[], scholarships=[], majors=[];
+      DATA.forEach(u => {
+        const loc = getLoc(u);
+        asArray(loc.country).forEach(x => countries.push(x));
+        asArray(loc.city).forEach(x => cities.push(x));
+        asArray(u.intake).forEach(x => intakes.push(x));
+        asArray(getProgramLevel(u)).forEach(x => programTypes.push(x));
+        asArray(getScholarshipLabel(u)).forEach(x => scholarships.push(x));
+        asArray(u.majors).forEach(x => majors.push(x));
+      });
+
+      fillSelect(countryEl, uniqueSorted(countries));
+      fillSelect(cityEl, uniqueSorted(cities));
+      fillSelect(intakeEl, uniqueSorted(intakes));
+      fillSelect(programTypeEl, uniqueSorted(programTypes));
+      fillSelect(scholarshipEl, uniqueSorted(scholarships));
+      fillSelect(majorEl, uniqueSorted(majors));
+    }
+
+    function debounce(fn, wait=250){
+      let t;
+      return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn(...args), wait);
+      };
+    }
+
+    function applyFilters(){
+      const q = normalize(qEl.value);
+      const country = countryEl.value;
+      const city = cityEl.value;
+      const intake = intakeEl.value;
+      const programType = programTypeEl.value;
+      const scholarship = scholarshipEl.value;
+      const major = majorEl.value;
+
+      filtered = DATA.filter(u => {
+        const loc = getLoc(u);
+
+        if(q && !buildSearchText(u).includes(q)) return false;
+        if(!matchSelect(loc.country, country)) return false;
+        if(!matchSelect(loc.city, city)) return false;
+        if(!matchSelect(u.intake, intake)) return false;
+        if(!matchSelect(getProgramLevel(u), programType)) return false;
+        if(!matchSelect(getScholarshipLabel(u), scholarship)) return false;
+
+        if(major){
+          const ms = asArray(u.majors).map(m => normalize(m));
+          if(!ms.includes(normalize(major))) return false;
+        }
+
+        return true;
+      });
+
+      page = 1;
+      render();
+    }
+
+    function render(){
+      const total = filtered.length;
+      const pages = Math.max(1, Math.ceil(total / pageSize));
+      page = Math.min(page, pages);
+
+      const start = (page - 1) * pageSize;
+      const slice = filtered.slice(start, start + pageSize);
+
+      if(total === 0){
+        grid.innerHTML = `<div class="u-empty">No results found. Try changing filters.</div>`;
+      } else {
+        grid.innerHTML = slice.map(u => {
+          const name = u.name || "University Name";
+          const loc = getLoc(u);
+
+          const city = asArray(loc.city)[0] || "";
+          const country = asArray(loc.country)[0] || "";
+          const intake = asArray(u.intake)[0] || "";
+          const programType = asArray(getProgramLevel(u))[0] || "";
+          const scholarship = asArray(getScholarshipLabel(u))[0] || "";
+          const deadline = u.deadline || "";
+          const slug = u.slug || "#";
+
+          const hero = u.heroImage || "";
+          const logo = u.logo || "";
+
+          const subParts = [city, country].filter(Boolean).join(", ");
+
+          const tags = [];
+          if(programType) tags.push(`<span class="u-tag">${programType}</span>`);
+          if(intake) tags.push(`<span class="u-tag warn">${intake} Intake</span>`);
+          if(scholarship) tags.push(`<span class="u-tag ${scholarshipClass(scholarship)}">${scholarship}</span>`);
+
+          return `
+            <a class="u-card" href="university-details.html?u=${slug}" aria-label="View ${name}">
+              <div class="u-cover">
+                ${hero ? `<img class="u-coverImg" src="${hero}" alt="${name}" loading="lazy" onerror="this.remove()">` : ``}
+                <div class="u-coverShade"></div>
+                ${logo ? `<img class="u-logo" src="${logo}" alt="${name} logo" loading="lazy" onerror="this.remove()">` : ``}
+              </div>
+
+              <div class="u-body">
+                <h3 class="u-title">${name}</h3>
+                <p class="u-sub">${subParts || "China"}</p>
+
+                ${tags.length ? `<div class="u-tags">${tags.join("")}</div>` : ""}
+
+                ${deadline ? `<p class="u-deadline">⏳ Deadline: ${deadline}</p>` : ""}
+
+                <div class="u-foot">
+                  <span>View details</span><span>→</span>
+                </div>
+              </div>
+            </a>
+          `;
+        }).join("");
+      }
+
+      pageInfo.innerText = `Page ${page} of ${pages}`;
+      prevBtn.disabled = (page <= 1);
+      nextBtn.disabled = (page >= pages);
+    }
+
+    prevBtn.onclick = () => { page--; render(); };
+    nextBtn.onclick = () => { page++; render(); };
+
+    qEl.addEventListener("input", debounce(applyFilters, 250));
+    [countryEl, cityEl, intakeEl, programTypeEl, scholarshipEl, majorEl].forEach(el => {
+      el.addEventListener("change", applyFilters);
+    });
+
+    resetBtn.onclick = () => {
+      qEl.value = "";
+      countryEl.value = "";
+      cityEl.value = "";
+      intakeEl.value = "";
+      programTypeEl.value = "";
+      scholarshipEl.value = "";
+      majorEl.value = "";
+      applyFilters();
+    };
+
+    pageSizeEl.addEventListener("change", () => {
+      pageSize = Number(pageSizeEl.value) || 10;
+      localStorage.setItem(LS_KEY, String(pageSize));
+      page = 1;
+      render();
+    });
+
+    loadData().then(list => {
+      DATA = Array.isArray(list) ? list : [];
+      filtered = DATA.slice();
+      populateFilterOptions();
+      render();
+    }).catch(err => {
+      console.error(err);
+      grid.innerHTML = `<div class="u-empty">Could not load data/universities.json</div>`;
+      pageInfo.innerText = "Page 1 of 1";
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+    });
+  </script>
+
+  <script>
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      try{
+        const header = await fetch("header-footer/header.html", { cache: "no-store" });
+        document.getElementById("header").innerHTML = await header.text();
+        const footer = await fetch("header-footer/footer.html", { cache: "no-store" });
+        document.getElementById("footer").innerHTML = await footer.text();
+      }catch(e){}
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260227';
+      document.body.appendChild(s);
+    })();
+  </script>
+
+</body>
+</html>

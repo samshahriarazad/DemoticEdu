@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | DemoticEdu</title>
+  <meta name="description" content="DemoticEdu study abroad services: university selection, scholarship support, application submission, document preparation, and visa assistance.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main CSS (your existing site css) -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    :root{
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0b1220;
+      --muted:#5b6b85;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border:rgba(15,23,42,.10);
+
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 60px rgba(2,6,23,.10);
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --dur: 680ms;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+
+    /* ✅ HARD OVERRIDE: remove any global background images */
+    body{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg) !important;
+      background-image: none !important;
+      color:var(--ink);
+      line-height:1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+
+    section, [id]{ scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{ width:min(1200px, calc(100% - 40px)); margin:0 auto; }
+
+    /* ===== Premium page background (not photo) ===== */
+    .page-bg{ position:relative; isolation:isolate; }
+    .page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16,72,120,.16), transparent 60%),
+        linear-gradient(#f7f8fc, #f6f7fb);
+    }
+    .page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.55;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-position: 0 0;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    /* ===== Reveal animation ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+      will-change: opacity, transform;
+    }
+    .reveal.in{ opacity:1; transform: translateY(0); }
+
+    /* ===== Trust strip ===== */
+    .trust-strip{background:#fff;border-bottom:1px solid var(--border)}
+    .trust-strip .row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:10px 0;
+      align-items:center;
+    }
+    .trust-pill{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff, #fbfbff);
+      font-size:13px;
+      font-weight:900;
+      justify-content:center;
+      white-space:nowrap;
+      color:#0b1220;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .trust-pill:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(2,6,23,.10);
+    }
+    .trust-pill .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--brand-blue);
+      box-shadow:0 0 0 4px rgba(16,72,120,.12);
+      flex:0 0 auto;
+    }
+    .trust-pill:nth-child(2) .dot{background:var(--brand-green); box-shadow:0 0 0 4px rgba(144,192,24,.16)}
+    .trust-pill:nth-child(3) .dot{background:var(--brand-orange); box-shadow:0 0 0 4px rgba(248,176,48,.18)}
+    .trust-pill:nth-child(4) .dot{background:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12)}
+
+    /* ===== Alert bar ===== */
+    .alertbar{
+      background:linear-gradient(90deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .alertbar::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 160px at 18% 50%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(600px 160px at 78% 50%, rgba(255,255,255,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .alertbar .inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:.2px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      font-size:12px;
+      font-weight:950;
+      backdrop-filter: blur(10px);
+    }
+    .badge .tag{
+      background:var(--brand-orange);
+      color:#1b1600;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+    }
+
+    /* ✅ HERO (Option B, NO IMAGE) - RENAMED to avoid .hero collision */
+    .services-hero{
+      padding: 26px 0 10px;
+      background: transparent !important;
+      background-image: none !important;
+    }
+    .hero-gradient{
+      position:relative;
+      padding: 76px 18px 62px;
+      text-align:center;
+      border-radius: 32px;
+      overflow:hidden;
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 40px 120px rgba(2,6,23,.22);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.16), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.22), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .hero-gradient::before{
+      content:"";
+      position:absolute;
+      inset:-240px -240px auto auto;
+      width:560px;height:560px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,176,48,.28), transparent 65%);
+      filter: blur(2px);
+      animation: floatGlow 14s var(--ease) infinite;
+      pointer-events:none;
+    }
+    .hero-gradient::after{
+      content:"";
+      position:absolute;
+      inset:auto -260px -260px auto;
+      width:680px;height:680px;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.10), transparent 66%);
+      animation: floatGlow 18s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes floatGlow{
+      0%{ transform: translateY(0px) translateX(0px); }
+      50%{ transform: translateY(22px) translateX(-10px); }
+      100%{ transform: translateY(0px) translateX(0px); }
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border-radius:999px;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      font-weight:900;
+      font-size:13px;
+      position:relative;
+      z-index:1;
+    }
+    .services-hero h1{
+      margin:18px 0 12px;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight:950;
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .services-hero p{
+      margin:0 auto;
+      max-width: 820px;
+      color:#d7e3f3;
+      opacity:.95;
+      font-size:15px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-actions{
+      margin-top:22px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      cursor:pointer;
+      backdrop-filter: blur(10px);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease), filter 220ms var(--ease);
+      white-space:nowrap;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(0,0,0,.22);
+      background: rgba(255,255,255,.16);
+      filter: saturate(1.02);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      border:none;
+      color:#1b1600;
+      box-shadow: 0 18px 44px rgba(0,0,0,.18);
+    }
+    .btn.primary::after{
+      content:"";
+      position:absolute;
+      inset:-40px auto -40px -120px;
+      width:120px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: skewX(-18deg);
+      opacity:.7;
+      animation: sweep 3.6s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes sweep{
+      0%{ left:-140px; }
+      55%{ left:120%; }
+      100%{ left:120%; }
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding: 18px 0 34px; }
+    .title{
+      text-align:center;
+      margin: 10px 0 20px;
+    }
+    .title h2{
+      margin:0;
+      font-size: clamp(26px, 2.6vw, 38px);
+      font-weight:950;
+      letter-spacing:-.6px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .title p{
+      margin:8px auto 0;
+      max-width: 820px;
+      color:var(--muted);
+      font-size:14px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* ===== Offer cards ===== */
+    .offer-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+    }
+    .offer{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .offer::before{
+      content:"";
+      position:absolute;
+      inset:-70px -70px auto auto;
+      width:220px;height:220px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,176,48,.18), transparent 62%);
+      transform: rotate(16deg);
+      pointer-events:none;
+    }
+    .offer:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 54px rgba(2,6,23,.12);
+      border-color: rgba(16,72,120,.18);
+    }
+    .offer .head{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
+    }
+    .ic{
+      width:48px;height:48px;
+      border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(16,72,120,.10);
+      border:1px solid rgba(16,72,120,.18);
+      font-size:20px;
+      flex:0 0 auto;
+    }
+    .offer h3{
+      margin:0;
+      font-size:18px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+    }
+    .offer .desc{
+      margin:6px 0 12px;
+      color:var(--muted);
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .checks{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color:#22314a;
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .checks li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .tick{
+      width:18px;height:18px;
+      border-radius:6px;
+      background: rgba(144,192,24,.18);
+      border:1px solid rgba(144,192,24,.28);
+      display:flex;align-items:center;justify-content:center;
+      color:#2b5a00;
+      font-weight:950;
+      flex:0 0 auto;
+      margin-top:1px;
+      font-size:12px;
+    }
+
+    /* ===== Additional support ===== */
+    .mini-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 20px;
+      padding:16px;
+      box-shadow: var(--shadowSoft);
+      text-align:center;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .mini-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 18px 44px rgba(2,6,23,.10);
+      border-color: rgba(16,72,120,.16);
+    }
+    .mini-ic{
+      width:54px;height:54px;
+      border-radius:18px;
+      margin:0 auto 10px;
+      background: rgba(248,176,48,.14);
+      border:1px solid rgba(248,176,48,.22);
+      display:flex;align-items:center;justify-content:center;
+      font-size:22px;
+    }
+    .mini-card h4{
+      margin:0 0 6px;
+      font-size:15px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .mini-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* ===== Process ===== */
+    .process{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:16px;
+      margin-top: 14px;
+    }
+    .p-step{
+      text-align:center;
+      padding: 10px 6px;
+      transition: transform 220ms var(--ease);
+    }
+    .p-step:hover{ transform: translateY(-2px); }
+    .p-num{
+      width:56px;height:56px;
+      border-radius:16px;
+      margin:0 auto 10px;
+      background: rgba(16,72,120,.10);
+      border: 1px solid rgba(16,72,120,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:950;
+      color: var(--brand-blue);
+      position:relative;
+      overflow:hidden;
+    }
+    .p-num::after{
+      content:"";
+      position:absolute;
+      inset:-20px auto -20px -120px;
+      width:120px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: skewX(-18deg);
+      opacity:.55;
+      transition: left 520ms var(--ease);
+    }
+    .p-step:hover .p-num::after{ left:120%; }
+
+    .p-step b{
+      display:block;
+      font-size:14px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .p-step span{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:12.5px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* ===== Why choose ===== */
+    .why-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .why{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 24px;
+      padding:18px;
+      box-shadow: var(--shadowSoft);
+      text-align:center;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .why:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 54px rgba(2,6,23,.12);
+      border-color: rgba(16,72,120,.16);
+    }
+    .why .why-ic{
+      width:56px;height:56px;
+      border-radius:18px;
+      margin:0 auto 12px;
+      background: rgba(248,176,48,.12);
+      border:1px solid rgba(248,176,48,.22);
+      display:flex;align-items:center;justify-content:center;
+      font-size:22px;
+    }
+    .why h4{
+      margin:0 0 6px;
+      font-size:16px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .why p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* ===== Dark CTA band ===== */
+    .cta-band{
+      margin: 22px 0 34px;
+      border-radius: 28px;
+      overflow:hidden;
+      border:1px solid rgba(2,6,23,.10);
+      box-shadow: 0 26px 90px rgba(2,6,23,.18);
+      background:
+        radial-gradient(900px 260px at 20% 40%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(900px 260px at 80% 40%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f);
+      color:#fff;
+      padding: 44px 18px;
+      text-align:center;
+      position:relative;
+    }
+    .cta-band::after{
+      content:"";
+      position:absolute;
+      inset:-40px auto -40px -220px;
+      width:220px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: skewX(-18deg);
+      animation: sweepCTA 6.2s var(--ease) infinite;
+      pointer-events:none;
+      opacity:.9;
+    }
+    @keyframes sweepCTA{
+      0%{ left:-240px; }
+      55%{ left:120%; }
+      100%{ left:120%; }
+    }
+    .cta-band h3{
+      margin:0;
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight:950;
+      letter-spacing:-.6px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+    .cta-band p{
+      margin:10px auto 0;
+      max-width: 780px;
+      opacity:.92;
+      color:#d7e3f3;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size:14px;
+      position:relative;
+      z-index:1;
+    }
+    .cta-actions{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+    .cta-band .btn{
+      box-shadow:none;
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+    }
+    .cta-band .btn.primary{
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      color:#1b1600;
+      border:none;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .trust-strip .row{grid-template-columns: 1fr 1fr;}
+      .offer-grid{grid-template-columns: 1fr;}
+      .mini-grid{grid-template-columns: 1fr 1fr;}
+      .process{grid-template-columns: 1fr 1fr 1fr;}
+      .why-grid{grid-template-columns: 1fr;}
+      .hero-gradient{ padding: 66px 14px 54px; }
+    }
+    @media (max-width: 560px){
+      .mini-grid{grid-template-columns: 1fr;}
+      .process{grid-template-columns: 1fr 1fr;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none; opacity:1; transform:none;}
+      .btn, .offer, .mini-card, .why, .trust-pill, .p-step{transition:none;}
+      .hero-gradient::before, .hero-gradient::after{animation:none;}
+      .btn.primary::after{animation:none;}
+      .cta-band::after{animation:none;}
+    }
+  </style>
+</head>
+
+<body class="page-bg">
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <!-- trust strip -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="row">
+        <div class="trust-pill reveal"><span class="dot"></span> Expert Guidance</div>
+        <div class="trust-pill reveal"><span class="dot"></span> Fast Processing</div>
+        <div class="trust-pill reveal"><span class="dot"></span> Scholarship Support</div>
+        <div class="trust-pill reveal"><span class="dot"></span> Visa Assistance</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- alert bar -->
+  <div class="alertbar">
+    <div class="container">
+      <div class="inner">
+        <span class="badge reveal">⏳ Admission Season Ongoing <span class="tag">LIMITED SEATS</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO (Pure gradient, no image) -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-gradient reveal">
+        
+        <h1>Our Services</h1>
+        <p>
+          Comprehensive study abroad support — from university selection and scholarship guidance to application submission,
+          document preparation, and visa assistance.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="consultation.html">Get Free Consultation</a>
+          <a class="btn" href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%20want%20to%20know%20about%20your%20study%20abroad%20services."
+             target="_blank" rel="noopener">WhatsApp Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER -->
+  <section class="section">
+    <div class="container">
+      <div class="title reveal">
+        <h2>What We Offer</h2>
+        <p>From university selection to visa guidance — we stay with you at every step.</p>
+      </div>
+
+      <div class="offer-grid">
+        <div class="offer reveal">
+          <div class="head">
+            <div class="ic">🎓</div>
+            <div>
+              <h3>University Selection & Applications</h3>
+              <div class="desc">Best-fit universities and programs aligned with your GPA, budget, and future goals.</div>
+            </div>
+          </div>
+          <ul class="checks">
+            <li><span class="tick">✓</span><span>Personalized university matching</span></li>
+            <li><span class="tick">✓</span><span>Program and intake guidance</span></li>
+            <li><span class="tick">✓</span><span>Portal submission support</span></li>
+            <li><span class="tick">✓</span><span>Follow-up until result</span></li>
+          </ul>
+        </div>
+
+        <div class="offer reveal">
+          <div class="head">
+            <div class="ic">💰</div>
+            <div>
+              <h3>Scholarship Support</h3>
+              <div class="desc">Strategic guidance to improve scholarship chances and strengthen your profile.</div>
+            </div>
+          </div>
+          <ul class="checks">
+            <li><span class="tick">✓</span><span>Scholarship eligibility review</span></li>
+            <li><span class="tick">✓</span><span>Application strategy guidance</span></li>
+            <li><span class="tick">✓</span><span>Document polishing checklist</span></li>
+            <li><span class="tick">✓</span><span>Follow-up support</span></li>
+          </ul>
+        </div>
+
+        <div class="offer reveal">
+          <div class="head">
+            <div class="ic">📄</div>
+            <div>
+              <h3>Documentation & Review</h3>
+              <div class="desc">Professional preparation and final checking to reduce errors and rejection risk.</div>
+            </div>
+          </div>
+          <ul class="checks">
+            <li><span class="tick">✓</span><span>Study plan / CV guidance</span></li>
+            <li><span class="tick">✓</span><span>Recommendation letter format help</span></li>
+            <li><span class="tick">✓</span><span>Passport + scan formatting</span></li>
+            <li><span class="tick">✓</span><span>Error-free final checking</span></li>
+          </ul>
+        </div>
+
+        <div class="offer reveal">
+          <div class="head">
+            <div class="ic">🛂</div>
+            <div>
+              <h3>Visa Assistance</h3>
+              <div class="desc">Step-by-step visa checklist and guidance for a smooth embassy submission.</div>
+            </div>
+          </div>
+          <ul class="checks">
+            <li><span class="tick">✓</span><span>Visa document checklist</span></li>
+            <li><span class="tick">✓</span><span>Document verification guidance</span></li>
+            <li><span class="tick">✓</span><span>Interview tips (if required)</span></li>
+            <li><span class="tick">✓</span><span>Pre-departure instructions</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL SUPPORT -->
+  <section class="section">
+    <div class="container">
+      <div class="title reveal">
+        <h2>Additional Support</h2>
+        <p>Extra services to make your study abroad journey smooth and stress-free.</p>
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card reveal">
+          <div class="mini-ic">🌍</div>
+          <h4>Destination Counseling</h4>
+          <p>Budget, city, university type — we help you choose the best path.</p>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mini-ic">📌</div>
+          <h4>Progress Tracking</h4>
+          <p>Clear updates while your application is processing.</p>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mini-ic">✈️</div>
+          <h4>Pre-Departure</h4>
+          <p>Packing, travel steps, and arrival preparation guidance.</p>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mini-ic">🤝</div>
+          <h4>After Arrival</h4>
+          <p>Accommodation tips, registration checklist and support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="title reveal">
+        <h2>Our Simple Process</h2>
+        <p>We make your journey simple with our proven 5-step process.</p>
+      </div>
+
+      <div class="process">
+        <div class="p-step reveal">
+          <div class="p-num">1</div>
+          <b>Initial Consultation</b>
+          <span>Profile review, intake planning, and budget overview.</span>
+        </div>
+        <div class="p-step reveal">
+          <div class="p-num">2</div>
+          <b>University Selection</b>
+          <span>Best-fit shortlist based on your goals and eligibility.</span>
+        </div>
+        <div class="p-step reveal">
+          <div class="p-num">3</div>
+          <b>Documentation</b>
+          <span>Prepare study plan, CV, scans and required documents.</span>
+        </div>
+        <div class="p-step reveal">
+          <div class="p-num">4</div>
+          <b>Submission</b>
+          <span>Submit applications and track until the decision arrives.</span>
+        </div>
+        <div class="p-step reveal">
+          <div class="p-num">5</div>
+          <b>Visa & Support</b>
+          <span>Visa guidance and pre-departure support until you fly.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="section">
+    <div class="container">
+      <div class="title reveal">
+        <h2>Why Choose DemoticEdu?</h2>
+        <p>Trusted guidance with transparency, strong support, and clear communication.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why reveal">
+          <div class="why-ic">👥</div>
+          <h4>Expert Team</h4>
+          <p>Experienced consultants who guide you step-by-step.</p>
+        </div>
+        <div class="why reveal">
+          <div class="why-ic">🏆</div>
+          <h4>Proven Results</h4>
+          <p>Strong strategy focused on real outcomes and smooth processing.</p>
+        </div>
+        <div class="why reveal">
+          <div class="why-ic">🕘</div>
+          <h4>Support</h4>
+          <p>Fast replies and clear updates during processing.</p>
+        </div>
+      </div>
+
+      <div class="cta-band reveal">
+        <h3>Ready to Start Your Journey?</h3>
+        <p>
+          Get a free consultation with our expert counselors and take the first step towards your international education.
+        </p>
+        <div class="cta-actions">
+          <a class="btn primary" href="consultation.html">Get Free Consultation</a>
+          <a class="btn" href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%20want%20to%20apply%20for%20study%20abroad.%20Please%20guide%20me."
+             target="_blank" rel="noopener">WhatsApp Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <script>
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          document.getElementById(id).innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header','header-footer/header.html'),
+        inject('footer','header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      (function highlightActive(){
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.links a, .mobile a').forEach(a=>{
+          if (a.getAttribute('href') === path) a.classList.add('active');
+        });
+      })();
+
+      const s=document.createElement('script');
+      s.src='main.js?v=20260206';
+      document.body.appendChild(s);
+
+      setTimeout(()=>{
+        const els = Array.from(document.querySelectorAll('.reveal'));
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach((e)=>{
+            if(e.isIntersecting){
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        }, {threshold: 0.12});
+
+        els.forEach((el, i)=>{
+          el.style.transitionDelay = Math.min(i * 55, 260) + "ms";
+          io.observe(el);
+        });
+      }, 50);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scholarships | DemoticEdu</title>
+  <meta name="description" content="Explore DemoticEdu scholarship types, requirements, and available offers for Study in China and other destinations." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#64748b;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border:rgba(15,23,42,.10);
+      --shadow:0 18px 55px rgba(2,6,23,.14);
+      --shadowSoft:0 12px 34px rgba(2,6,23,.10);
+      --r18:18px;
+      --r24:24px;
+
+      /* set by JS after header inject */
+      --topbar-h: 0px;
+      --nav-h: 0px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+    }
+    section, [id]{
+      scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{ width:min(1200px, calc(100% - 40px)); margin:0 auto; }
+
+    /* ===== Trust strip ===== */
+    .trust-strip{background:#fff;border-bottom:1px solid var(--border)}
+    .trust-strip .row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:10px 0;
+      align-items:center;
+    }
+    .trust-pill{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff, #fbfbff);
+      font-size:13px;
+      font-weight:900;
+      justify-content:center;
+      white-space:nowrap;
+      color:#0b1220;
+    }
+    .trust-pill .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--brand-blue);
+      box-shadow:0 0 0 4px rgba(32,83,122,.12);
+      flex:0 0 auto;
+    }
+    .trust-pill:nth-child(2) .dot{background:var(--brand-green); box-shadow:0 0 0 4px rgba(130,184,34,.16)}
+    .trust-pill:nth-child(3) .dot{background:var(--brand-yellow); box-shadow:0 0 0 4px rgba(242,172,51,.18)}
+    .trust-pill:nth-child(4) .dot{background:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12)}
+
+    /* ===== Intake bar ===== */
+    .alertbar{
+      background:linear-gradient(90deg, var(--brand-darkblue), var(--brand-blue));
+      color:#fff;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+    .alertbar .inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:.2px;
+    }
+    .badgebar{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      font-size:12px;
+      font-weight:950;
+    }
+    .badgebar .tag{
+      background:var(--brand-yellow);
+      color:#1b1600;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(900px 500px at 20% 30%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(700px 420px at 90% 20%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, var(--brand-darkblue), var(--brand-blue));
+      color:#fff;
+      padding:56px 0 40px;
+      box-shadow: var(--shadowSoft);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:24px;
+      align-items:start;
+    }
+    .hero h1{
+      margin:10px 0 10px;
+      line-height:1.05;
+      font-size: clamp(34px, 4vw, 58px);
+      font-weight:950;
+      letter-spacing:-.9px;
+    }
+    .hero p{
+      margin:0;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size: clamp(15px, 1.4vw, 18px);
+      color:rgba(255,255,255,.92);
+      max-width: 64ch;
+    }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .btnx{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:950;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btnx:hover{transform: translateY(-1px); background:rgba(255,255,255,.18)}
+    .btnx.primary{
+      background:var(--brand-yellow);
+      color:#1b1600;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    }
+    .btnx.primary:hover{transform: translateY(-2px)}
+
+    .hero-features{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .mini-card{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      padding:16px 14px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      min-height:96px;
+    }
+    .mini-card .i{
+      width:44px;height:44px;border-radius:14px;
+      margin:0 0 10px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size:18px;
+    }
+    .mini-card b{display:block; font-size:13px}
+    .mini-card .sub{font-size:12px; color:rgba(255,255,255,.86); margin-top:4px}
+
+    /* ===== Sections ===== */
+    .section{padding:56px 0}
+    .title{text-align:center;margin-bottom:22px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(32,83,122,.10);
+      border:1px solid rgba(32,83,122,.18);
+      color:#0f3a63;
+      font-weight:950;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .title h2{
+      margin:0;
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight:950;
+      letter-spacing:-.3px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .title p{
+      margin:10px auto 0;
+      max-width: 920px;
+      color:var(--muted);
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      line-height:1.7;
+    }
+
+    /* ===== Cards ===== */
+    .grid-3{display:grid;grid-template-columns: repeat(3, 1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns: repeat(2, 1fr);gap:16px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--r18);
+      padding:18px;
+      box-shadow: 0 14px 38px rgba(2,6,23,.06);
+    }
+    .card .ic{
+      width:46px;height:46px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(32,83,122,.10);
+      border:1px solid rgba(32,83,122,.16);
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .card h4{margin:0 0 6px; font-size:16px; font-weight:950; font-family:"Hind Siliguri", Inter, sans-serif}
+    .card p{margin:0; color:var(--muted); font-size:13px; font-family:"Hind Siliguri", Inter, sans-serif; line-height:1.6}
+
+    /* ===== Scholarship tables ===== */
+    .tables{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+      align-items:start;
+    }
+    .table-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r24);
+      overflow:hidden;
+      box-shadow: 0 18px 40px rgba(2,6,23,.10);
+    }
+    .table-head{
+      padding:16px 16px;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand-darkblue), var(--brand-blue));
+    }
+    .table-head h3{margin:0;font-size:16px;font-weight:950}
+    .table-head p{margin:6px 0 0;font-size:13px;opacity:.92;font-family:"Hind Siliguri", Inter, sans-serif}
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:13px;
+    }
+    th, td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(15,23,42,.08);
+      vertical-align:top;
+    }
+    th{
+      text-align:left;
+      font-weight:950;
+      color:#0b1220;
+      background:#fbfcfe;
+      border-bottom:1px solid rgba(15,23,42,.10);
+    }
+    tr:last-child td{border-bottom:0}
+    .typepill{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:950;
+      border:1px solid rgba(15,23,42,.10);
+      background:#f8fafc;
+      white-space:nowrap;
+    }
+
+    /* ===== Offers directory ===== */
+    .panel{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r24);
+      box-shadow: var(--shadowSoft);
+      overflow:hidden;
+    }
+    .toolbar{
+      padding:14px 14px;
+      border-bottom:1px solid rgba(15,23,42,.08);
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+      align-items:center;
+      background:#fbfcfe;
+    }
+    .search{
+      display:flex;gap:10px;align-items:center;
+      background:#fff;
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:16px;
+      padding:10px 12px;
+      box-shadow: 0 10px 26px rgba(2,6,23,.06);
+    }
+    .search input{
+      border:0; outline:0; background:transparent;
+      width:100%; font-size:14px;
+    }
+    .filters{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:10px;
+    }
+    .filters select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      outline:none;
+      font-size:14px;
+    }
+    .metahead{
+      padding:12px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
+    .count{font-weight:950;color:#0b1220}
+    .hint{font-size:13px;color:var(--muted);font-family:"Hind Siliguri", Inter, sans-serif}
+
+    .grid{
+      padding:14px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+    .offer{
+      border:1px solid rgba(15,23,42,.10);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(2,6,23,.06);
+      overflow:hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+      display:flex;
+      flex-direction:column;
+      min-height: 240px;
+    }
+    .offer:hover{ transform: translateY(-4px); box-shadow:0 16px 40px rgba(2,6,23,.12); }
+    .offer-top{
+      padding:14px 14px 10px;
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .logoBox{
+      width:52px;height:52px;border-radius:16px;
+      background:rgba(32,83,122,.08);
+      border:1px solid rgba(32,83,122,.16);
+      display:grid;place-items:center;
+      font-weight:950;
+      color:var(--brand-blue);
+      flex:0 0 auto;
+    }
+    .offer h3{
+      margin:0 0 4px;
+      font-size:15px;
+      font-weight:950;
+      line-height:1.25;
+    }
+    .offer .sub{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      line-height:1.35;
+    }
+    .pills{
+      padding:0 14px 12px;
+      display:flex;gap:8px;flex-wrap:wrap;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f8fafc;
+      border:1px solid rgba(15,23,42,.08);
+      font-size:12px;
+      color:#334155;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .offer-bottom{
+      margin-top:auto;
+      padding:12px 14px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border-top:1px solid rgba(15,23,42,.08);
+      background:#fbfcfe;
+    }
+    .fee{
+      font-weight:950;
+      color:var(--brand-blue);
+      font-size:13px;
+    }
+    .applyMini{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--brand-yellow), #ffd58b);
+      color:#1b1600;
+      font-weight:950;
+      font-size:13px;
+      text-decoration:none;
+      box-shadow:0 12px 28px rgba(0,0,0,.10);
+    }
+
+    .pager{
+      padding:14px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      border-top:1px solid rgba(15,23,42,.08);
+      background:#fff;
+    }
+    .pbtn{
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:950;
+      cursor:pointer;
+    }
+    .pbtn:disabled{ opacity:.5; cursor:not-allowed; }
+
+    /* ===== FAQ ===== */
+    .faq{
+      display:grid;
+      gap:12px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    details{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
+    }
+    summary{
+      cursor:pointer;
+      font-weight:950;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{ margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.7; font-family:"Hind Siliguri", Inter, sans-serif; }
+
+    /* responsive */
+    @media (max-width: 980px){
+      .trust-strip .row{grid-template-columns: 1fr 1fr; gap:8px}
+      .hero-grid{grid-template-columns: 1fr}
+      .hero-features{grid-template-columns: 1fr 1fr}
+      .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
+      .tables{grid-template-columns: 1fr}
+      .toolbar{grid-template-columns:1fr}
+      .filters{grid-template-columns:1fr}
+      .grid{grid-template-columns: 1fr}
+    }
+    @media (max-width: 520px){
+      .hero{padding:44px 0 28px}
+      .hero-features{grid-template-columns: 1fr}
+      .trust-pill{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared header -->
+  <div id="header"></div>
+
+  <div class="trust-strip">
+    <div class="container">
+      <div class="row">
+        <div class="trust-pill"><span class="dot"></span> Official University Partner</div>
+        <div class="trust-pill"><span class="dot"></span> Scholarship Guidance</div>
+        <div class="trust-pill"><span class="dot"></span> Visa & Document Support</div>
+        <div class="trust-pill"><span class="dot"></span> Transparent Process</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alertbar">
+    <div class="container">
+      <div class="inner">
+        <span class="badgebar">⏳ 2026 Intake Scholarships <span class="tag">LIMITED SEATS</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <h1>Scholarships in China<br/>Up to 100% Support</h1>
+          <p>
+            Understand scholarship types, eligibility, and explore available offers.
+            Apply with DemoticEdu and get step-by-step guidance from start to visa.
+          </p>
+
+          <div class="cta-row">
+            <a class="btnx primary" href="apply.html">🎓 Apply with DemoticEdu →</a>
+            <a class="btnx" href="consultation.html">Free Consultation</a>
+          </div>
+
+          <div class="hero-features">
+            <div class="mini-card">
+              <div class="i">💰</div>
+              <b>Type A / B / C</b>
+              <div class="sub">Clear scholarship categories</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">📄</div>
+              <b>Document Help</b>
+              <div class="sub">Review + submission support</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">✅</div>
+              <b>Fast Response</b>
+              <div class="sub">Quick shortlist & guidance</div>
+            </div>
+            <div class="mini-card">
+              <div class="i">🛂</div>
+              <b>Visa Support</b>
+              <div class="sub">Step-by-step checklist</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="border-radius:24px; box-shadow:0 22px 55px rgba(0,0,0,.20);">
+          <div class="ic" style="background:rgba(242,172,51,.16);border-color:rgba(242,172,51,.22);">📌</div>
+          <h4 style="margin:0 0 8px;font-size:18px;">Quick Guide</h4>
+          <p style="margin:0;color:#475569;">
+            Scholarship results depend on profile + university. We help you pick the best-fit options.
+          </p>
+          <div style="margin-top:12px; display:grid; gap:10px;">
+            <div style="display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px solid rgba(15,23,42,.08); padding:12px; border-radius:14px;">
+              <div style="width:26px;height:26px;border-radius:10px;background:rgba(130,184,34,.14);border:1px solid rgba(130,184,34,.26);display:flex;align-items:center;justify-content:center;color:var(--brand-green);font-weight:950;">✓</div>
+              <div>
+                <b style="display:block;font-size:14px;">Profile Check</b>
+                <span style="display:block;color:var(--muted);font-size:13px;font-family:'Hind Siliguri', Inter, sans-serif;">Degree, GPA, intake matching</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px solid rgba(15,23,42,.08); padding:12px; border-radius:14px;">
+              <div style="width:26px;height:26px;border-radius:10px;background:rgba(130,184,34,.14);border:1px solid rgba(130,184,34,.26);display:flex;align-items:center;justify-content:center;color:var(--brand-green);font-weight:950;">✓</div>
+              <div>
+                <b style="display:block;font-size:14px;">University Shortlist</b>
+                <span style="display:block;color:var(--muted);font-size:13px;font-family:'Hind Siliguri', Inter, sans-serif;">Best-fit options for your profile</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px solid rgba(15,23,42,.08); padding:12px; border-radius:14px;">
+              <div style="width:26px;height:26px;border-radius:10px;background:rgba(130,184,34,.14);border:1px solid rgba(130,184,34,.26);display:flex;align-items:center;justify-content:center;color:var(--brand-green);font-weight:950;">✓</div>
+              <div>
+                <b style="display:block;font-size:14px;">Strong Submission</b>
+                <span style="display:block;color:var(--muted);font-size:13px;font-family:'Hind Siliguri', Inter, sans-serif;">Review + final submission help</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btnx primary" href="consultation.html" style="width:100%;">Talk to an Advisor →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Scholarship Types -->
+    <section class="section" id="types">
+      <div class="container">
+        <div class="title">
+          <div class="kicker">💡 Scholarship Types</div>
+          <h2>Type A / Type B / Type C — What’s Included?</h2>
+          <p>
+            These are your DemoticEdu scholarship categories (quick understanding). Exact benefits vary by university and program.
+          </p>
+        </div>
+
+        <div class="tables">
+          <!-- Bachelor / Masters -->
+          <div class="table-card">
+            <div class="table-head">
+              <h3>Bachelor / Masters (HSC/Diploma+) Scholarship Types</h3>
+              <p>Common requirement guidance for higher programs.</p>
+            </div>
+            <div style="padding:10px 12px 14px;">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:90px;">Type</th>
+                    <th>Value</th>
+                    <th style="width:34%;">Requirements</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="typepill">Type A</span></td>
+                    <td>Tuition Fee: 100% Free<br>Hostel Fee: 100% Free<br>Stipend: 0–500 CNY</td>
+                    <td>HSC GPA 4.8+<br>Diploma 3.8+<br>AND/OR IELTS/Duolingo (Must for stipend)</td>
+                  </tr>
+                  <tr>
+                    <td><span class="typepill">Type B</span></td>
+                    <td>Tuition Fee: 100% Free<br>Hostel Fee: 1200–5400 CNY/Year</td>
+                    <td>HSC GPA 4.0+<br>Diploma 3.0+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="typepill">Type C</span></td>
+                    <td>Tuition + Hostel Fee: 6000–10000 CNY/Year</td>
+                    <td>HSC GPA 2.0+<br>Diploma 2.0+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Diploma / Language -->
+          <div class="table-card">
+            <div class="table-head">
+              <h3>Diploma / Language (SSC+) Scholarship Types</h3>
+              <p>Common requirement guidance for entry levels.</p>
+            </div>
+            <div style="padding:10px 12px 14px;">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:90px;">Type</th>
+                    <th>Value</th>
+                    <th style="width:34%;">Requirements</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="typepill">Type A</span></td>
+                    <td>Tuition Fee: 100% Free<br>Hostel Fee: 100% Free<br>Stipend: 0–600 CNY</td>
+                    <td>SSC GPA 4.0+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="typepill">Type B</span></td>
+                    <td>Tuition Fee: 100% Free<br>Hostel Fee: 1200–5000 CNY/Year</td>
+                    <td>SSC GPA 3.5+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="typepill">Type C</span></td>
+                    <td>Tuition + Hostel Fee: 4000–6000 CNY/Year</td>
+                    <td>SSC GPA 2.0+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="card"><div class="ic">📌</div><h4>Note</h4><p>Final scholarship depends on university, profile strength, and competition.</p></div>
+          <div class="card"><div class="ic">🧾</div><h4>Documents</h4><p>We help you avoid mistakes and submit a clean, complete file.</p></div>
+          <div class="card"><div class="ic">✅</div><h4>Strategy</h4><p>We suggest best-fit universities to maximize approval chance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section class="section" id="offers" style="padding-top:0;">
+      <div class="container">
+        <div class="title">
+          <div class="kicker">🎯 Scholarship Offers</div>
+          <h2>Find Scholarships by Degree, City, Subject</h2>
+          <p>
+            This section is ready to connect with your PDF/Database offers later. For now it shows demo data,
+            so your page design is complete.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="toolbar">
+            <div class="search">
+              <span aria-hidden="true">🔎</span>
+              <input id="q" type="search" placeholder="Search university / city / subject / scholarship..." />
+            </div>
+
+            <div class="filters">
+              <select id="fDegree"></select>
+              <select id="fScholar"></select>
+              <select id="fIntake"></select>
+            </div>
+          </div>
+
+          <div class="metahead">
+            <div class="count" id="count">0 results</div>
+            <div class="hint">Tip: Try “MBBS”, “Software”, “Guangzhou”, “Type A”.</div>
+          </div>
+
+          <div class="grid" id="grid"></div>
+
+          <div class="pager">
+            <button class="pbtn" id="prevBtn" type="button">← Prev</button>
+            <button class="pbtn" id="nextBtn" type="button">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top:0;">
+      <div class="container">
+        <div class="title">
+          <div class="kicker">❓ FAQ</div>
+          <h2>Common Scholarship Questions</h2>
+          <p>Short, clear answers — easy to scan.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Do I need IELTS for scholarship?</summary>
+            <p>Not always. Some universities allow alternatives, but IELTS/Duolingo can help improve scholarship strength (especially for stipend options).</p>
+          </details>
+          <details>
+            <summary>What documents are required?</summary>
+            <p>Usually passport, transcripts/certificates, photo, and sometimes CV, recommendation letters, and language proof (English/Chinese).</p>
+          </details>
+          <details>
+            <summary>Is scholarship guaranteed?</summary>
+            <p>No. Scholarship depends on profile, university policy, intake competition, and available quota. We help maximize your chance through correct matching + clean submission.</p>
+          </details>
+        </div>
+
+        <div style="margin-top:18px; text-align:center;">
+          <a class="btnx primary" href="consultation.html">Free Consultation →</a>
+          <a class="btnx" href="apply.html" style="margin-left:10px;">Apply Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="footer"></div>
+
+  <script>
+    // ===== Header vars (same as your eligibility page) =====
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    // ===== Inject header/footer + load main.js =====
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          document.getElementById(id).innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      (function highlightActive(){
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.links a, .mobile a').forEach(a=>{
+          if (a.getAttribute('href') === path) a.classList.add('active');
+        });
+      })();
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260207';
+      document.body.appendChild(s);
+
+      initOffers();
+    })();
+
+    // ===== Scholarships Offers Directory =====
+    function $(id){ return document.getElementById(id); }
+    function norm(s){ return (s||'').toString().toLowerCase().trim(); }
+    function escapeHtml(s){
+      return (s||'').toString()
+        .replaceAll('&','&amp;').replaceAll('<','&lt;')
+        .replaceAll('>','&gt;').replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+    }
+
+    async function fetchOffers(){
+      // ✅ Later we will connect your real endpoint here:
+      // return fetch('/api/scholarships.php?limit=500').then(r=>r.json())
+      // For now, we try it, and if not found -> fallback demo data
+
+      const tries = [
+        '/api/scholarships.php?limit=500',
+        'api/scholarships.php?limit=500',
+        './api/scholarships.php?limit=500'
+      ];
+
+      for (const url of tries){
+        try{
+          const res = await fetch(url, {cache:'no-store'});
+          if(!res.ok) continue;
+          const json = await res.json();
+          const arr = Array.isArray(json) ? json : (json.items || []);
+          if (Array.isArray(arr) && arr.length) return arr;
+        }catch(e){}
+      }
+
+      // fallback demo data (replace later with real DB/PDF data)
+      return [
+        { id:'d1', degree:'Bachelor', intake:"Sept 2026", university:'Shanghai Dianji University', city:'Shanghai', subject:'Software Engineering', scholarship:'Type A', fee:'Tuition Free', note:'Hostel Free (varies)' },
+        { id:'d2', degree:'Bachelor', intake:"Sept 2026", university:'NUIST', city:'Nanjing', subject:'Computer Science', scholarship:'Type B', fee:'Tuition Free', note:'Hostel partial' },
+        { id:'d3', degree:'Masters',  intake:"Sept 2026", university:'SCUT', city:'Guangzhou', subject:'Engineering', scholarship:'Type A', fee:'Tuition Free', note:'Stipend depends' },
+        { id:'d4', degree:'MBBS',     intake:"March 2026", university:'Sichuan University', city:'Chengdu', subject:'MBBS', scholarship:'Type C', fee:'Low Tuition', note:'Limited seats' },
+        { id:'d5', degree:'Diploma',  intake:"Sept 2026", university:'Linyi University', city:'Linyi', subject:'Chinese Language', scholarship:'Type B', fee:'Tuition Free', note:'Hostel partial' },
+        { id:'d6', degree:'Bachelor', intake:"Sept 2026", university:'NCEPU', city:'Beijing', subject:'Electrical Engineering', scholarship:'Type B', fee:'Tuition Free', note:'Hostel partial' }
+      ];
+    }
+
+    function initOffers(){
+      const state = {
+        items: [],
+        filtered: [],
+        page: 1,
+        pageSize: 9
+      };
+
+      const q = $('q');
+      const fDegree = $('fDegree');
+      const fScholar = $('fScholar');
+      const fIntake = $('fIntake');
+      const grid = $('grid');
+      const count = $('count');
+      const prevBtn = $('prevBtn');
+      const nextBtn = $('nextBtn');
+
+      q.addEventListener('input', apply);
+      fDegree.addEventListener('change', apply);
+      fScholar.addEventListener('change', apply);
+      fIntake.addEventListener('change', apply);
+
+      prevBtn.addEventListener('click', ()=>{
+        state.page = Math.max(1, state.page - 1);
+        render();
+      });
+      nextBtn.addEventListener('click', ()=>{
+        const maxPage = Math.max(1, Math.ceil(state.filtered.length / state.pageSize));
+        state.page = Math.min(maxPage, state.page + 1);
+        render();
+      });
+
+      (async function(){
+        state.items = (await fetchOffers()).map(x => ({
+          id: x.id || '',
+          degree: x.degree || '',
+          intake: x.intake || '',
+          university: x.university || x.university_name || '',
+          city: x.city || '',
+          subject: x.subject || x.major || '',
+          scholarship: x.scholarship || '',
+          fee: x.fee || x.tuition || '',
+          note: x.note || x.remarks || ''
+        }));
+
+        buildFilters();
+        apply();
+      })();
+
+      function buildFilters(){
+        const degrees = uniq(state.items.map(i=>i.degree).filter(Boolean));
+        const schols  = uniq(state.items.map(i=>i.scholarship).filter(Boolean));
+        const intakes = uniq(state.items.map(i=>i.intake).filter(Boolean));
+
+        fDegree.innerHTML = `<option value="">All Degree</option>` + degrees.map(v=>`<option>${escapeHtml(v)}</option>`).join('');
+        fScholar.innerHTML = `<option value="">All Scholarship</option>` + schols.map(v=>`<option>${escapeHtml(v)}</option>`).join('');
+        fIntake.innerHTML = `<option value="">All Intake</option>` + intakes.map(v=>`<option>${escapeHtml(v)}</option>`).join('');
+      }
+
+      function uniq(arr){
+        return Array.from(new Set(arr.map(s=>(s||'').trim()))).sort((a,b)=>a.localeCompare(b));
+      }
+
+      function apply(){
+        const qq = norm(q.value);
+        const d = norm(fDegree.value);
+        const s = norm(fScholar.value);
+        const it = norm(fIntake.value);
+
+        state.filtered = state.items.filter(x=>{
+          if (d && norm(x.degree) !== d) return false;
+          if (s && norm(x.scholarship) !== s) return false;
+          if (it && norm(x.intake) !== it) return false;
+
+          if (qq){
+            const hay = norm([x.university, x.city, x.subject, x.degree, x.intake, x.scholarship, x.note].join(' | '));
+            if (!hay.includes(qq)) return false;
+          }
+          return true;
+        });
+
+        state.page = 1;
+        render();
+      }
+
+      function render(){
+        const total = state.filtered.length;
+        count.textContent = `${total} result${total===1?'':'s'}`;
+
+        const maxPage = Math.max(1, Math.ceil(total / state.pageSize));
+        prevBtn.disabled = state.page <= 1;
+        nextBtn.disabled = state.page >= maxPage;
+
+        const start = (state.page - 1) * state.pageSize;
+        const pageItems = state.filtered.slice(start, start + state.pageSize);
+
+        grid.innerHTML = pageItems.map(x=>{
+          const initials = (x.university || 'U').trim().slice(0,2).toUpperCase();
+          const href = `apply.html`; // later we can link to offer detail page: scholarship-offer.html?id=...
+
+          const pills = [
+            x.degree, x.intake, x.city, x.scholarship
+          ].filter(Boolean).slice(0,4).map(p=>`<span class="pill">${escapeHtml(p)}</span>`).join('');
+
+          return `
+            <article class="offer">
+              <div class="offer-top">
+                <div class="logoBox">${escapeHtml(initials)}</div>
+                <div>
+                  <h3>${escapeHtml(x.university || 'University')}</h3>
+                  <p class="sub">${escapeHtml([x.subject, x.city].filter(Boolean).join(' • '))}</p>
+                </div>
+              </div>
+
+              <div class="pills">${pills}</div>
+
+              <div class="offer-bottom">
+                <span class="fee">${escapeHtml(x.fee || '')}</span>
+                <a class="applyMini" href="${href}">Apply →</a>
+              </div>
+            </article>
+          `;
+        }).join('') || `
+          <div style="padding:10px;color:var(--muted);font-family:'Hind Siliguri', Inter, sans-serif;">
+            No offers found. Try a different filter or search.
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

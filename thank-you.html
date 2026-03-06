@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submitted Successfully | DemoticEdu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    :root{
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --bg:#f6f7fb;
+      --border:rgba(15,23,42,.10);
+      --shadow:0 18px 55px rgba(2,6,23,.14);
+
+      --topbar-h:0px;
+      --nav-h:0px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#0f172a;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+    }
+    .container{width:min(1100px, calc(100% - 40px)); margin:0 auto}
+    .wrap{padding:44px 0}
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow: var(--shadow);
+      padding:26px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(248,176,48,.18);
+      border:1px solid rgba(248,176,48,.28);
+      color:#1b1600;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    h1{margin:14px 0 8px; font-weight:950; letter-spacing:-.6px}
+    p{margin:0; color:#475569; font-family:"Hind Siliguri", Inter, sans-serif; line-height:1.6}
+
+    .btnrow{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:950;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      color:#0f172a;
+      cursor:pointer;
+      text-decoration:none;
+      transition: transform .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      background: var(--brand-orange);
+      border:1px solid rgba(0,0,0,.10);
+      color:#1b1600;
+    }
+
+    .small{margin-top:12px; font-size:13px; color:#64748b}
+
+    /* Scholarship box */
+    .sch-box{
+      margin-top:18px;
+      text-align:left;
+      padding:16px;
+      border-radius:18px;
+      background:#f8fafc;
+      border:1px solid rgba(15,23,42,.10);
+    }
+    .sch-title{
+      margin:0 0 6px;
+      font-weight:950;
+      letter-spacing:-.2px;
+    }
+    .sch-result{
+      font-size:18px;
+      font-weight:950;
+      margin:0 0 6px;
+      color:#0f172a;
+    }
+    .sch-note{
+      margin:0;
+      color:#64748b;
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .warn{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(16,72,120,.08);
+      border:1px solid rgba(16,72,120,.14);
+      font-size:13px;
+      color:#0f3a63;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      text-align:left;
+    }
+
+    /* Programs section */
+    .section{
+      margin-top:18px;
+      text-align:left;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-.2px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+    }
+    .p-card{
+      background:#fff;
+      border:1px solid rgba(15,23,42,.10);
+      border-radius:18px;
+      padding:14px;
+      box-shadow: 0 12px 28px rgba(2,6,23,.06);
+    }
+    .p-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .p-title{
+      font-weight:950;
+      margin:0;
+      font-size:15px;
+    }
+    .pill{
+      font-size:11px;
+      font-weight:950;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:#f8fafc;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+    .pill.orange{ background:rgba(248,176,48,.18); border-color:rgba(248,176,48,.28); color:#1b1600; }
+    .pill.green{ background:rgba(144,192,24,.14); border-color:rgba(144,192,24,.26); color:#1f3b00; }
+    .p-card ul{
+      margin:0;
+      padding-left:18px;
+      color:#475569;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .p-card li{ margin:6px 0; }
+
+    .tip{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(248,176,48,.25);
+      background:rgba(248,176,48,.12);
+      color:#1b1600;
+      font-size:13px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      text-align:left;
+    }
+
+    @media (max-width:720px){
+      .grid{grid-template-columns: 1fr;}
+    }
+    @media (max-width:520px){
+      .wrap{padding:28px 0}
+      .card{padding:18px}
+      .btn{width:100%}
+      .btnrow{gap:10px}
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main class="wrap">
+    <div class="container">
+      <div class="card">
+        <div class="badge">✅ Submitted Successfully</div>
+
+        <h1>We received your information!</h1>
+        <p>
+          আমাদের টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে। <br>
+          দ্রুত কথা বলতে চাইলে এখনই WhatsApp / Call করুন।
+        </p>
+
+        <!-- ✅ Scholarship result will show here -->
+        <div class="sch-box" id="scholarshipResult" aria-live="polite">
+          <h3 class="sch-title">Estimated Scholarship Result</h3>
+          <p class="sch-result">Loading…</p>
+          <p class="sch-note">Please wait.</p>
+        </div>
+
+        <div class="warn">
+          ⚠ Final scholarship depends on your subject & university choice.
+          Exact confirmation will be provided by our counselor.
+        </div>
+
+        <!-- ✅ Program cards -->
+        <div class="section">
+          <h2>Programs you can study in China</h2>
+
+          <div class="grid">
+            <div class="p-card">
+              <div class="p-top">
+                <p class="p-title">🎓 Diploma Program</p>
+                <span class="pill green">SSC / Dakhil</span>
+              </div>
+              <ul>
+                <li><b>Who can apply:</b> SSC / Dakhil completed</li>
+                <li><b>Scholarship idea:</b> SSC 4.5–5.0 → Tuition + Hostel Free (often)</li>
+                <li>SSC 3.0–4.5 → Tuition Free, Hostel 1000–2000 RMB (approx)</li>
+                <li>SSC below 3.0 → Partial support depends on university</li>
+              </ul>
+            </div>
+
+            <div class="p-card">
+              <div class="p-top">
+                <p class="p-title">🎓 Bachelor Program</p>
+                <span class="pill orange">HSC / Alim</span>
+              </div>
+              <ul>
+                <li><b>Who can apply:</b> HSC / Alim completed</li>
+                <li>HSC 5.0 + IELTS/Duolingo → Full Free + Monthly Stipend (strong chance)</li>
+                <li>HSC 4.5–5.0 → Full / Tuition Free (depends on subject & university)</li>
+                <li>HSC 3.0–4.0 → Partial (5000–10000 RMB/year approx)</li>
+              </ul>
+            </div>
+
+            <div class="p-card">
+              <div class="p-top">
+                <p class="p-title">🎓 Master’s Program</p>
+                <span class="pill green">Bachelor CGPA</span>
+              </div>
+              <ul>
+                <li><b>Who can apply:</b> Bachelor completed</li>
+                <li>CGPA &gt; 3.5/4.0 → Full Free + Monthly Stipend (often)</li>
+                <li>CGPA 3.0–3.5 → Tuition+Hostel Free / Only Tuition Free</li>
+                <li>Final depends on university ranking + subject + supervisor</li>
+              </ul>
+            </div>
+
+            <div class="p-card">
+              <div class="p-top">
+                <p class="p-title">🎓 PhD Program</p>
+                <span class="pill">Master’s + Research</span>
+              </div>
+              <ul>
+                <li><b>Who can apply:</b> Master’s completed (research profile helps)</li>
+                <li><b>Scholarship:</b> Usually supervisor/university based</li>
+                <li>Higher chance with publications / research proposal</li>
+                <li>We help shortlist universities & supervisors</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tip">
+            ✅ Want the <b>maximum scholarship</b>? Subject & University choice matters a lot.
+            Message us on WhatsApp to shortlist the best options for your profile.
+          </div>
+        </div>
+
+        <div class="btnrow">
+          <a class="btn primary" id="waBtn" href="#" target="_blank" rel="noopener">💬 WhatsApp Now</a>
+          <a class="btn" href="tel:+8801735387888">📞 Call Now</a>
+          <a class="btn" href="eligibility.html">⬅ Back to Eligibility</a>
+        </div>
+
+        <div class="small">All Payment After VISA • 100% Secure • Trusted since 2018</div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    // ===== A) Helper =====
+    function getParam(name){
+      return new URLSearchParams(location.search).get(name);
+    }
+    function escapeHtml(str){
+      return String(str || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    // ===== B) Scholarship (Fetch from DB by lead id) =====
+    (function(){
+      const id = getParam("id");
+      const box = document.getElementById("scholarshipResult");
+
+      if (!box) return;
+
+      if (!id){
+        box.innerHTML = `
+          <h3 class="sch-title">Estimated Scholarship Result</h3>
+          <p class="sch-result">❌ Missing Lead ID</p>
+          <p class="sch-note">Please go back and submit the form again.</p>
+        `;
+        return;
+      }
+
+      fetch("api/lead.php?id=" + encodeURIComponent(id), { cache: "no-store" })
+        .then(r => r.json())
+        .then(data => {
+          if(!data || !data.ok || !data.lead) throw new Error("Lead not found");
+
+          const lead = data.lead;
+          const type = (lead.scholarship_type || "").trim() || "Scholarship depends on subject & university";
+          const note = (lead.scholarship_note || "").trim() || "Contact DemoticEdu for exact scholarship confirmation.";
+
+          box.innerHTML = `
+            <h3 class="sch-title">Estimated Scholarship Result</h3>
+            <p class="sch-result">${escapeHtml(type)}</p>
+            <p class="sch-note">${escapeHtml(note)}</p>
+          `;
+
+          // WhatsApp message using fetched lead
+          const waBtn = document.getElementById("waBtn");
+          if (waBtn){
+            const waNumber = "8801735387888"; // ✅ your WhatsApp without +
+            const msg =
+`Hi DemoticEdu, I submitted my eligibility form.
+Lead ID: ${lead.id}
+Name: ${lead.name || ""}
+Phone: ${lead.phone || ""}
+Estimated: ${type}
+
+Please guide me about subject & university for maximum scholarship.`;
+            waBtn.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+          }
+        })
+        .catch(() => {
+          box.innerHTML = `
+            <h3 class="sch-title">Estimated Scholarship Result</h3>
+            <p class="sch-result">⚠ Unable to load result</p>
+            <p class="sch-note">Please contact DemoticEdu on WhatsApp for confirmation.</p>
+          `;
+        });
+    })();
+
+    // ===== C) Inject header/footer + load main.js =====
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          document.getElementById(id).innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260207';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

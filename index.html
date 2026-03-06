@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DemoticEdu — Study in China with Scholarships</title>
+  <meta name="description" content="Study in China with scholarships (Diploma, Bachelor, Master’s, PhD, MBBS, Chinese Language). Transparent process, payment after visa." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="styles.css?v=20260228">
+
+  <style>
+    :root{
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0b1220;
+      --muted:#5b6b85;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border: rgba(15,23,42,.10);
+
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 60px rgba(2,6,23,.10);
+      --shadowHard: 0 30px 120px rgba(2,6,23,.18);
+
+      --r14:14px;
+      --r18:18px;
+      --r22:22px;
+      --r24:24px;
+      --r28:28px;
+      --r32:32px;
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    button{ font-family:inherit; }
+
+    /* ===== Background (same premium vibe as other pages) ===== */
+    body.page-bg{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg) !important;
+      background-image: none !important;
+      color: var(--ink);
+      line-height: 1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+    .page-bg{ position:relative; isolation:isolate; }
+
+    .page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16,72,120,.16), transparent 60%),
+        linear-gradient(#f7f8fc,#f6f7fb);
+    }
+    .page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.55;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    section,[id]{ scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+    .container{ width:min(1200px, calc(100% - 40px)); margin:0 auto; }
+
+    /* ===== HERO ===== */
+    .hero{ padding:26px 0 18px; }
+
+    .heroBox{
+      position:relative;
+      padding:70px 18px 26px;
+      text-align:center;
+      border-radius: var(--r32);
+      overflow:hidden;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadowHard);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.16), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.22), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .heroBox::before{
+      content:"";
+      position:absolute;
+      inset:-240px -240px auto auto;
+      width:560px; height:560px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,176,48,.28), transparent 65%);
+      animation: floatGlow 14s var(--ease) infinite;
+      pointer-events:none;
+    }
+    .heroBox::after{
+      content:"";
+      position:absolute;
+      inset:auto -260px -260px auto;
+      width:680px; height:680px;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.10), transparent 66%);
+      animation: floatGlow 18s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes floatGlow{
+      0%{ transform: translateY(0) translateX(0); }
+      50%{ transform: translateY(22px) translateX(-10px); }
+      100%{ transform: translateY(0) translateX(0); }
+    }
+
+    .heroBox h1{
+      margin:18px 0 12px;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight:950;
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+
+    .heroBox p{
+      margin:0 auto;
+      max-width:880px;
+      color:#d7e3f3;
+      opacity:.95;
+      font-size:15px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      position:relative;
+      z-index:1;
+    }
+
+    .heroActions{
+      margin-top:22px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      cursor:pointer;
+      backdrop-filter: blur(10px);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+      white-space:nowrap;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
+      background: rgba(255,255,255,.16);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      border:none;
+      color:#1b1600;
+      box-shadow:0 18px 44px rgba(0,0,0,.18);
+    }
+    .btn.light{
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      border:1px solid var(--border);
+      color: var(--ink);
+      backdrop-filter: none;
+    }
+    .btn.light:hover{ background:#fff; box-shadow: 0 22px 60px rgba(2,6,23,.12); }
+
+    /* ===== Image-1 Stats Cards (keep exactly under hero) ===== */
+    .proof{
+      margin: 28px auto 0;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      max-width: 1120px;
+      position:relative;
+      z-index:1;
+      padding: 0 8px 22px;
+    }
+    .proofCard{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      padding: 14px 14px;
+      backdrop-filter: blur(10px);
+      text-align:left;
+    }
+    .proofCard b{
+      display:block;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-.2px;
+    }
+    .proofCard span{
+      display:block;
+      margin-top:3px;
+      font-size:12px;
+      color:#d7e3f3;
+      opacity:.95;
+      font-weight:900;
+    }
+
+    /* ===== Section headings ===== */
+    .section{ padding: 22px 0 70px; }
+    .secHead{ text-align:center; margin: 0 0 16px; }
+    .secHead h2{
+      margin:0;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.6px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .secHead p{
+      margin:6px auto 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      max-width: 72ch;
+    }
+
+    /* ===== Image-2 Logos Marquee (BIGGER logos + premium fade) ===== */
+    .marqueeShell{
+      position:relative;
+      margin-top: 16px;
+      border:none;
+      background:transparent;
+      overflow:hidden;
+      border-radius: 18px;
+    }
+    .marqueeShell::before,
+    .marqueeShell::after{
+      content:"";
+      position:absolute;
+      top:0; bottom:0;
+      width:110px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .marqueeShell::before{
+      left:0;
+      background: linear-gradient(90deg, rgba(246,247,251,1), rgba(246,247,251,0));
+    }
+    .marqueeShell::after{
+      right:0;
+      background: linear-gradient(270deg, rgba(246,247,251,1), rgba(246,247,251,0));
+    }
+
+    .marqueeTrack{
+      display:flex;
+      gap:44px;
+      align-items:center;
+      width:max-content;
+      animation: scrollLeft 26s linear infinite;
+      padding: 14px 18px;
+      will-change: transform;
+      filter: saturate(1.04);
+    }
+    .marqueeShell:hover .marqueeTrack{ animation-play-state: paused; }
+
+    .logoItem{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      border:none;
+      background:transparent;
+      box-shadow:none;
+      opacity:.95;
+      transition: transform 200ms var(--ease), opacity 200ms var(--ease);
+    }
+    .logoItem:hover{ transform: translateY(-2px); opacity:1; }
+    .logoItem img{
+      max-height: 68px;
+      max-width: 260px;
+      object-fit: contain;
+      display:block;
+    }
+    @keyframes scrollLeft{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    /* ===== Programs (3x2) ===== */
+    .programGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top: 18px;
+    }
+
+    /* ✅ A + C locked (soft tint per program + colored glow hover) */
+    .programCard{
+      --tint: rgba(16,72,120,.06);
+      --tborder: rgba(16,72,120,.16);
+      --tglow: rgba(16,72,120,.16);
+
+      position:relative;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r24);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+      text-align:left;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+      overflow:hidden;
+    }
+    .programCard::before{
+      content:"";
+      position:absolute; inset:0;
+      background: var(--tint);
+      pointer-events:none;
+    }
+    .programCard > *{ position:relative; z-index:1; }
+
+    .programCard[data-cat="lang"]{
+      --tint: rgba(248,176,48,.10);
+      --tborder: rgba(248,176,48,.30);
+      --tglow: rgba(248,176,48,.18);
+    }
+    .programCard[data-cat="diploma"]{
+      --tint: rgba(16,185,170,.08);
+      --tborder: rgba(16,185,170,.26);
+      --tglow: rgba(16,185,170,.16);
+    }
+    .programCard[data-cat="bachelor"]{
+      --tint: rgba(43,103,240,.08);
+      --tborder: rgba(43,103,240,.24);
+      --tglow: rgba(43,103,240,.16);
+    }
+    .programCard[data-cat="masters"]{
+      --tint: rgba(124,58,237,.08);
+      --tborder: rgba(124,58,237,.24);
+      --tglow: rgba(124,58,237,.16);
+    }
+    .programCard[data-cat="phd"]{
+      --tint: rgba(71,85,105,.08);
+      --tborder: rgba(71,85,105,.20);
+      --tglow: rgba(71,85,105,.14);
+    }
+    .programCard[data-cat="mbbs"]{
+      --tint: rgba(144,192,24,.10);
+      --tborder: rgba(144,192,24,.28);
+      --tglow: rgba(144,192,24,.18);
+    }
+
+    .programCard:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 22px 60px rgba(2,6,23,.12), 0 0 0 6px var(--tglow);
+      border-color: var(--tborder);
+    }
+
+    .pIcon{
+      width:52px; height:52px;
+      border-radius: 18px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.82);
+      border:1px solid var(--tborder);
+      font-size:20px;
+      flex: 0 0 auto;
+      box-shadow: 0 14px 34px rgba(2,6,23,.08);
+    }
+
+    .programCard h3{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .programCard p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ===== Why Choose ===== */
+    .whyGrid{
+      display:grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap:16px;
+      margin-top: 18px;
+      align-items:stretch;
+    }
+    .whyBig{
+      background: linear-gradient(135deg, #2b67f0, #1d4fd0);
+      color:#fff;
+      border-radius: var(--r28);
+      padding: 22px;
+      box-shadow: var(--shadowMid);
+      position:relative;
+      overflow:hidden;
+    }
+    .whyHighlights{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px 18px;
+    }
+    .whyPoint{
+      font-size: 13px;
+      font-weight: 800;
+      opacity: .95;
+      letter-spacing: .2px;
+    }
+    .whyBig::before{
+      content:"";
+      position:absolute;
+      inset:-180px auto auto -180px;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 62%);
+      pointer-events:none;
+    }
+    .whyBig .bigTop{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .whyBig .bigIcon{
+      width:54px; height:54px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.22);
+      display:grid; place-items:center;
+      font-size:22px;
+    }
+    .whyBig h3{
+      margin:0;
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing:-.3px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .whyBig .bigMetric{
+      margin-top: 18px;
+      font-size: 48px;
+      font-weight: 950;
+      letter-spacing:-1px;
+      line-height: 1;
+    }
+    .whyBig .bigMetric small{
+      display:block;
+      margin-top: 8px;
+      font-size: 14px;
+      opacity:.92;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .whyBig p{
+      margin: 12px 0 0;
+      opacity:.92;
+      font-weight: 700;
+      line-height: 1.8;
+      max-width: 70ch;
+    }
+
+    .whySide{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+    }
+    .whyCard{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r28);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+      position:relative;
+      overflow:hidden;
+    }
+    .whyCard:hover{ transform: translateY(-6px); box-shadow: 0 22px 60px rgba(2,6,23,.12); }
+    .whyCard .miniIcon{
+      width:52px; height:52px;
+      border-radius: 18px;
+      background: rgba(248,176,48,.18);
+      border:1px solid rgba(248,176,48,.28);
+      display:grid; place-items:center;
+      font-size:20px;
+      margin-bottom: 10px;
+    }
+    .whyCard h4{
+      margin:0;
+      font-size: 18px;
+      font-weight: 950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+    }
+    .whyCard p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    /* ===== Process ===== */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:16px;
+      margin-top: 18px;
+    }
+    .step{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--r24);
+      box-shadow: var(--shadowSoft);
+      padding:16px;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+      position:relative;
+      overflow:hidden;
+    }
+    .step:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 22px 60px rgba(2,6,23,.12);
+      border-color: rgba(16,72,120,.18);
+    }
+    .step::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(900px 220px at 10% 0%, rgba(248,176,48,.10), transparent 60%);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .num{
+      width:38px; height:38px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(248,176,48,.18);
+      border:1px solid rgba(248,176,48,.30);
+      font-weight:950;
+      color:#7b4a00;
+      position:relative;
+      z-index:1;
+    }
+    .step b{
+      display:block;
+      margin-top:12px;
+      font-weight:950;
+      position:relative;
+      z-index:1;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+    }
+    .step p{
+      margin:8px 0 0;
+      color: var(--muted);
+      font-size:13px;
+      font-weight:700;
+      line-height:1.75;
+      position:relative;
+      z-index:1;
+    }
+
+    /* ===== How We Work ===== */
+    .timeline{
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r28);
+      box-shadow: var(--shadowSoft);
+      padding: 22px 18px;
+      text-align:center;
+    }
+    .timeline h3{
+      margin:0;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing:-.8px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .timeline p{
+      margin:8px auto 0;
+      color: var(--muted);
+      font-weight: 700;
+      max-width: 70ch;
+    }
+    .tlRow{
+      margin-top: 26px;
+      position:relative;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      align-items:start;
+    }
+    .tlRow::before{
+      content:"";
+      position:absolute;
+      left:6%;
+      right:6%;
+      top: 34px;
+      height: 3px;
+      background: rgba(43,103,240,.30);
+      border-radius: 999px;
+    }
+    .tlItem{
+      position:relative;
+      padding-top: 0;
+    }
+    .tlItem h4{
+      margin:0 0 10px;
+      font-weight: 950;
+      color: #245be8;
+      font-size: 18px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+    }
+    .tlDot{
+      width:56px; height:56px;
+      margin:0 auto 12px;
+      border-radius: 999px;
+      background: #245be8;
+      display:grid; place-items:center;
+      box-shadow: 0 18px 44px rgba(36,91,232,.24);
+      position:relative;
+      z-index:1;
+      border: 6px solid #fff;
+    }
+    .tlDot span{ font-size: 22px; color:#fff; }
+    .tlItem p{
+      margin:0 auto;
+      max-width: 34ch;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    /* ===== Who We Are ===== */
+    .who{
+      margin-top: 18px;
+      border-radius: var(--r32);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadowHard);
+      background:
+        radial-gradient(900px 420px at 20% 20%, rgba(248,176,48,.14), transparent 62%),
+        radial-gradient(900px 420px at 82% 10%, rgba(16,72,120,.22), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+      color:#fff;
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .whoMedia{
+      position:relative;
+      min-height: 340px;
+      background:
+        radial-gradient(900px 360px at 30% 20%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .whoMedia img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.92;
+      filter: saturate(1.03) contrast(1.03);
+    }
+    .whoMedia::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.50));
+      pointer-events:none;
+    }
+    .whoQuote{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      right:18px;
+      color:#fff;
+      font-weight: 700;
+      opacity:.95;
+      font-size: 13px;
+      line-height: 1.7;
+      z-index:2;
+    }
+    .whoQuote b{ font-weight: 950; }
+    .whoBody{
+      padding: 26px 22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 14px;
+    }
+    .whoKicker{
+      font-weight: 950;
+      letter-spacing: .8px;
+      font-size: 12px;
+      color: rgba(215,227,243,.92);
+      text-transform: uppercase;
+    }
+    .whoBody h3{
+      margin:0;
+      font-size: 46px;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-weight: 950;
+    }
+    .whoBody h3 .accentBlue{ color: #67a3ff; }
+    .whoBody h3 .accentOrange{ color: var(--brand-orange); }
+    .whoBody p{
+      margin:0;
+      color: rgba(215,227,243,.92);
+      font-weight: 700;
+      line-height: 1.9;
+      max-width: 70ch;
+    }
+    .whoStats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .wStat b{
+      display:block;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -.6px;
+    }
+    .wStat span{
+      display:block;
+      margin-top: 4px;
+      opacity: .92;
+      color: rgba(215,227,243,.92);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .whoActions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* ===== Big CTA Banner ===== */
+    .boarding{
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r32);
+      box-shadow: var(--shadowHard);
+      padding: 18px;
+    }
+    .boardingInner{
+      border-radius: var(--r28);
+      overflow:hidden;
+      background:
+        radial-gradient(900px 420px at 20% 20%, rgba(16,72,120,.14), transparent 62%),
+        radial-gradient(900px 420px at 80% 10%, rgba(248,176,48,.16), transparent 62%),
+        linear-gradient(180deg, #ffffff, #fbfbff);
+      border: 1px solid rgba(15,23,42,.08);
+      padding: 26px 18px;
+      text-align:center;
+      position:relative;
+    }
+    .boardingBadge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(248,176,48,.18);
+      border: 1px solid rgba(248,176,48,.30);
+      color: #6a3d00;
+      font-weight: 950;
+      font-size: 12px;
+    }
+    .boardingInner h3{
+      margin: 14px 0 10px;
+      font-size: 54px;
+      font-weight: 950;
+      letter-spacing: -1px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      line-height: 1.05;
+      color: #0b1220;
+    }
+    .boardingInner h3 .accent{
+      color: #2b67f0;
+    }
+    .boardingInner p{
+      margin: 0 auto;
+      max-width: 70ch;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.9;
+    }
+    .boardingBtn{
+      margin-top: 18px;
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .bigBtn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 950;
+      background: #2b67f0;
+      color: #fff;
+      border: none;
+      box-shadow: 0 18px 44px rgba(43,103,240,.26);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+      cursor:pointer;
+    }
+    .bigBtn:hover{ transform: translateY(-2px); box-shadow: 0 22px 60px rgba(43,103,240,.30); }
+
+    /* ===== Featured Universities ===== */
+    .u-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:14px;
+    }
+    .u-card{
+      display:block;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow: var(--shadowSoft);
+      overflow:hidden;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .u-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 54px rgba(2,6,23,.12);
+      border-color: rgba(16,72,120,.18);
+    }
+
+    .u-cover{
+      height: 150px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(600px 220px at 20% 0%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(520px 220px at 92% 10%, rgba(144,192,24,.14), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .u-coverImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+    }
+    .u-coverShade{
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.55));
+    }
+    .u-logo{
+      position:absolute;
+      left:14px; top:14px;
+      width:66px; height:66px;
+      border-radius:16px;
+      background:#fff;
+      padding:8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+      object-fit:contain;
+      z-index:2;
+    }
+
+    .u-body{ padding:16px 16px 14px; }
+    .u-title{
+      margin:0;
+      font-size:16px;
+      font-weight:950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      letter-spacing:-.2px;
+      color:#0b1220;
+      line-height:1.25;
+    }
+    .u-loc{
+      margin:6px 0 0;
+      font-size:12.5px;
+      color: var(--muted);
+      font-weight:800;
+      line-height:1.6;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .u-tags{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .u-tag{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(16,72,120,.10);
+      border:1px solid rgba(16,72,120,.18);
+      color:#0b2a3f;
+      font-weight:900;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .u-tag.good{
+      background: rgba(144,192,24,.14);
+      border-color: rgba(144,192,24,.26);
+      color:#2f4d06;
+    }
+    .u-tag.warn{
+      background: rgba(248,176,48,.18);
+      border-color: rgba(248,176,48,.30);
+      color:#6a3d00;
+    }
+
+    /* ===== B2B Partnership (before testimonials) ===== */
+    .b2b{
+      margin-top: 18px;
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r32);
+      box-shadow: var(--shadowHard);
+      overflow:hidden;
+    }
+    .b2bInner{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:stretch;
+      min-height: 420px;
+    }
+    .b2bLeft{
+      padding: 34px 32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 14px;
+    }
+    .b2bBadge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(248,176,48,.18);
+      border: 1px solid rgba(248,176,48,.30);
+      color: #6a3d00;
+      font-weight: 950;
+      font-size: 12px;
+      width: fit-content;
+    }
+    .b2bTitle{
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.03;
+      letter-spacing: -1.2px;
+      font-weight: 950;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      color: #0b1220;
+    }
+    .b2bTitle .accent{
+      color: #2b67f0;
+    }
+    .b2bText{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.9;
+      max-width: 64ch;
+    }
+    .b2bCtaRow{
+      margin-top: 8px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* ✅ Option A chips */
+    .b2bChips{
+      margin-top: 8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .b2bChip{
+      display:inline-flex;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(16,72,120,.06);
+      border: 1px solid rgba(16,72,120,.14);
+      color: #0b2a3f;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .1px;
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+      white-space: nowrap;
+    }
+
+    .b2bRight{
+      position:relative;
+      background: #0b2a3f;
+      min-height: 420px;
+    }
+    .b2bRight img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      filter: saturate(1.03) contrast(1.02);
+    }
+    .b2bRight::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+
+    /* ===== Testimonials (CENTER everything in middle) ===== */
+    .reviewWrap{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .reviewCard{
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r32);
+      box-shadow: var(--shadowHard);
+
+      display:flex;
+      flex-direction:column;
+    }
+    .reviewCard::after{
+      content:"";
+      position:absolute;
+      inset: 0;
+      pointer-events:none;
+      background:
+        radial-gradient(700px 260px at 18% 0%, rgba(43,103,240,.10), transparent 60%),
+        radial-gradient(700px 260px at 90% 25%, rgba(248,176,48,.10), transparent 60%);
+      opacity:.9;
+    }
+
+    .revInner{
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 8px 6px 16px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 280ms var(--ease), opacity 280ms var(--ease);
+    }
+    .revInner.isSwitching{
+      transform: translateY(8px);
+      opacity: 0;
+    }
+
+    .revBar{
+      position: relative;
+      z-index: 2;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,.08);
+      overflow:hidden;
+      margin-top: 10px;
+    }
+    .revBar span{
+      display:block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2b67f0, #f8b030);
+      transition: width 250ms linear;
+    }
+
+    .rTop{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 10px;
+    }
+    .avatar{
+      width:60px; height:60px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(16,72,120,.20), rgba(248,176,48,.22));
+      border: 1px solid rgba(15,23,42,.10);
+      flex: 0 0 auto;
+      display:grid;
+      place-items:center;
+      font-weight: 950;
+      color: #0b2a3f;
+      overflow:hidden;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .rName{ margin:0; font-weight: 950; font-size: 16px; letter-spacing:-.2px; font-family:"Hind Siliguri", Inter, sans-serif; }
+    .rMeta{ margin:2px 0 0; color: var(--muted); font-weight: 800; font-size: 12px; }
+    .stars{ margin-top: 10px; color: #f2b233; font-size: 14px; letter-spacing: 1px; font-weight: 900; }
+    .rQuote{
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.9;
+      font-size: 13.5px;
+      max-width: 72ch;
+    }
+    .rUni{
+      margin-top: 14px;
+      font-weight: 950;
+      color: #245be8;
+      letter-spacing: .6px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .reviewAside{
+      background: transparent;
+      border-radius: var(--r32);
+      padding: 12px 6px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 12px;
+    }
+    .reviewAside h3{
+      margin:0;
+      font-size: 44px;
+      line-height: 1.05;
+      font-weight: 950;
+      letter-spacing: -1px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .ratingRow{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .ratingBig{
+      font-size: 56px;
+      font-weight: 950;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .ratingStars{
+      color: #f2b233;
+      font-size: 18px;
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+    .ratingLabel{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .reviewAside p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.9;
+      max-width: 64ch;
+    }
+    .dots{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .dotBtn{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: rgba(36,91,232,.22);
+      border: none;
+      cursor:pointer;
+    }
+    .dotBtn.active{
+      width: 34px;
+      background: #245be8;
+    }
+
+    /* ===== Latest Announcements ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r24);
+      box-shadow: var(--shadowSoft);
+      overflow: hidden;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+      cursor: pointer;
+      outline: none;
+      display:block;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(2, 6, 23, .12); }
+
+    .thumb {
+      height: 200px;
+      position: relative;
+      background:
+        radial-gradient(900px 280px at 15% 0%, rgba(248,176,48,.22), transparent 60%),
+        radial-gradient(900px 280px at 90% 10%, rgba(16,72,120,.16), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+      overflow: hidden;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      filter:saturate(1.05) contrast(1.05);
+    }
+
+    .pill{
+      position:absolute;
+      top:12px;
+      left:12px;
+      z-index:2;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius:999px;
+      font-weight: 950;
+      font-size: 12px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      text-transform: capitalize;
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--brand-orange);
+      box-shadow: 0 0 0 4px rgba(248,176,48,.20);
+    }
+    .body{
+      padding: 16px 16px 18px;
+    }
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      flex-wrap:wrap;
+    }
+    .featuredTag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius:999px;
+      background: rgba(144,192,24,.14);
+      border:1px solid rgba(144,192,24,.26);
+      color:#2f4d06;
+      font-weight: 950;
+      font-size: 11px;
+      line-height:1;
+    }
+    .title{
+      margin:0;
+      font-size: 16px;
+      font-weight: 950;
+      letter-spacing:-.2px;
+      line-height: 1.25;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .desc{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.75;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+      min-height: 66px;
+    }
+
+    /* ===== Final CTA ===== */
+    .ctaBand{
+      margin-top: 18px;
+      border-radius: var(--r32);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadowHard);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.12), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.18), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+      color:#fff;
+      padding: 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .ctaBand h3{
+      margin:0;
+      font-weight:950;
+      letter-spacing:-.4px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size: 20px;
+    }
+    .ctaBand p{
+      margin:6px 0 0;
+      color:#d7e3f3;
+      opacity:.95;
+      font-weight:800;
+      font-size: 13px;
+      line-height:1.7;
+      max-width: 70ch;
+    }
+    .ctaBtns{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+
+    .center{ text-align:center; margin-top:16px; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1100px){
+      .proof{ grid-template-columns: 1fr 1fr; }
+      .whyGrid{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr 1fr; }
+      .u-grid{ grid-template-columns: 1fr 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .reviewWrap{ grid-template-columns: 1fr; }
+      .who{ grid-template-columns: 1fr; }
+      .whoMedia{ min-height: 280px; }
+      .b2bInner{ grid-template-columns: 1fr; }
+      .b2bRight{ min-height: 320px; }
+      .b2bTitle{ font-size: 44px; }
+      .programGrid{ grid-template-columns: 1fr 1fr; }
+      .tlRow{ grid-template-columns: 1fr; }
+      .tlRow::before{ display:none; }
+    }
+    @media (max-width: 560px){
+      .proof{ grid-template-columns: 1fr; }
+      .programGrid{ grid-template-columns: 1fr; }
+      .u-grid{ grid-template-columns: 1fr; }
+      .whoBody h3{ font-size: 38px; }
+      .boardingInner h3{ font-size: 42px; }
+      .marqueeShell::before, .marqueeShell::after{ width:64px; }
+      .b2bTitle{ font-size: 38px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .heroBox::before, .heroBox::after{ animation:none; }
+      .marqueeTrack{ animation:none; }
+      .btn, .programCard, .whyCard, .step, .u-card, .card, .bigBtn{ transition:none; }
+    }
+  </style>
+</head>
+
+<body class="page-bg">
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroBox">
+        <h1>Study in China with Scholarships</h1>
+        <p>Programs: Chinese Language, Diploma, Bachelor, Master’s, PhD, and MBBS. Transparent process with payment after visa.</p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="eligibility.html">Check Eligibility</a>
+          <a class="btn" href="consultation.html">Free Consultation</a>
+          <a class="btn" href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%20want%20to%20apply%20for%20Study%20in%20China.%20Please%20guide%20me."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+
+        <!-- Image-1 style stat cards under hero -->
+        <div class="proof" aria-label="Trust metrics">
+          <div class="proofCard"><b>2000+</b><span>Success Stories</span></div>
+          <div class="proofCard"><b>150+</b><span>Partner Universities</span></div>
+          <div class="proofCard"><b>8+</b><span>Years Experience</span></div>
+          <div class="proofCard"><b>Transparent</b><span>Payment After Visa</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Logos Marquee (bigger logos) -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead" style="margin-bottom:12px;">
+        <h2>Our network across China</h2>
+        <p>Building bridges across borders.</p>
+      </div>
+
+      <div class="marqueeShell" aria-label="Partner university logos">
+        <div class="marqueeTrack" id="logoTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs (3x2) -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead">
+        <h2>Choose your path</h2>
+        <p>Start with the right program, then explore universities and scholarships.</p>
+      </div>
+
+      <div class="programGrid">
+        <a class="programCard" data-cat="lang" href="universities.html"><div class="pIcon">🈶</div><div><h3>Chinese Language</h3><p>Foundation, communication, and culture preparation.</p></div></a>
+        <a class="programCard" data-cat="diploma" href="universities.html"><div class="pIcon">📘</div><div><h3>Diploma</h3><p>Career-focused programs with practical outcomes.</p></div></a>
+        <a class="programCard" data-cat="bachelor" href="universities.html"><div class="pIcon">🎓</div><div><h3>Bachelor</h3><p>Scholarship options with strong university choices.</p></div></a>
+        <a class="programCard" data-cat="masters" href="universities.html"><div class="pIcon">🧠</div><div><h3>Master’s</h3><p>Advanced degree tracks with research support.</p></div></a>
+        <a class="programCard" data-cat="phd" href="universities.html"><div class="pIcon">🔬</div><div><h3>PhD</h3><p>Supervisor-based routes and documentation guidance.</p></div></a>
+        <a class="programCard" data-cat="mbbs" href="universities.html"><div class="pIcon">🩺</div><div><h3>MBBS</h3><p>Clinical medicine pathways and eligibility support.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead">
+        <h2>Why students choose DemoticEdu</h2>
+        <p>Not just an agency — your strategic partner for scholarships, admission, and visa guidance.</p>
+      </div>
+
+      <div class="whyGrid">
+        <div class="whyBig">
+          <div class="bigTop">
+            <div class="bigIcon">📈</div>
+            <div>
+              <h3>Careful document vetting</h3>
+              <div style="opacity:.92;font-weight:800;margin-top:4px;font-size:13px;">
+                Reduces rejection risk and improves outcome.
+              </div>
+            </div>
+          </div>
+
+          <div class="bigMetric">
+            Transparent
+            <small>Payment after visa — simple and clear process.</small>
+          </div>
+
+          <p>
+            We guide you step-by-step: profile review, university matching, scholarship strategy,
+            documentation, submission follow-up, and visa preparation — all with clarity and proper communication.
+          </p>
+
+          <div class="whyHighlights">
+            <div class="whyPoint">✔ Profile-based university matching</div>
+            <div class="whyPoint">✔ Careful document review & correction</div>
+            <div class="whyPoint">✔ Transparent fee structure</div>
+            <div class="whyPoint">✔ Continuous follow-up until decision</div>
+          </div>
+        </div>
+
+        <div class="whySide">
+          <div class="whyCard">
+            <div class="miniIcon">🎯</div>
+            <h4>Scholarship guidance</h4>
+            <p>We match your profile to the right scholarship route and university options.</p>
+          </div>
+          <div class="whyCard">
+            <div class="miniIcon" style="background:rgba(16,72,120,.10);border-color:rgba(16,72,120,.18);">🧾</div>
+            <h4>No hidden fees</h4>
+            <p>Transparent pricing and honest communication from day one.</p>
+          </div>
+          <div class="whyCard">
+            <div class="miniIcon" style="background:rgba(144,192,24,.14);border-color:rgba(144,192,24,.26);">🤝</div>
+            <h4>Direct partners</h4>
+            <p>Strong university network and process experience across intakes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead">
+        <h2>Simple and guided</h2>
+        <p>Clear steps, consistent updates, and proper documentation support.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><b>Eligibility Review</b><p>We check your profile, budget, and intake timeline.</p></div>
+        <div class="step"><div class="num">2</div><b>University & Scholarship Matching</b><p>Best-fit options and scholarship direction for your profile.</p></div>
+        <div class="step"><div class="num">3</div><b>Document Preparation</b><p>Forms, scans, study plan, CV, and application materials.</p></div>
+        <div class="step"><div class="num">4</div><b>Submission & Follow-up</b><p>We submit and track progress until final decision.</p></div>
+        <div class="step"><div class="num">5</div><b>Visa Guidance</b><p>Visa checklist, interview guidance, and pre-departure steps.</p></div>
+      </div>
+
+      <div class="timeline">
+        <h3>How We Work</h3>
+        <p>Let your first step be your only step.</p>
+
+        <div class="tlRow">
+          <div class="tlItem">
+            <h4>Consult</h4>
+            <div class="tlDot"><span>💬</span></div>
+            <p>Meet our counselors for a free consultation and profile review.</p>
+          </div>
+          <div class="tlItem">
+            <h4>Apply</h4>
+            <div class="tlDot"><span>📄</span></div>
+            <p>We prepare documents and submit to your best-fit universities.</p>
+          </div>
+          <div class="tlItem">
+            <h4>Fly</h4>
+            <div class="tlDot"><span>✈️</span></div>
+            <p>We guide visa steps and you get ready to start your journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Are -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="who">
+        <div class="whoMedia">
+          <img src="assets/home-team.jpg" alt="DemoticEdu team" onerror="this.remove()">
+          <div class="whoQuote">
+            “We treat every application as if it were our own.”<br>
+            <span style="opacity:.9;">— <b>DemoticEdu Team</b></span>
+          </div>
+        </div>
+
+        <div class="whoBody">
+          <div class="whoKicker">Who we are</div>
+          <h3>Bridging the gap between <span class="accentBlue">Talent</span> and <span class="accentOrange">Opportunity</span>.</h3>
+          <p>
+            DemoticEdu is a team focused on helping students build a clear path to Study in China —
+            from eligibility and scholarship strategy to admission and visa guidance.
+          </p>
+
+          <div class="whoStats">
+            <div class="wStat"><b>2000+</b><span>Success Stories</span></div>
+            <div class="wStat"><b>8+</b><span>Years Experience</span></div>
+            <div class="wStat"><b>150+</b><span>University Partners</span></div>
+          </div>
+
+          <div class="whoActions">
+            <a class="btn primary" href="consultation.html">Free Consultation</a>
+            <a class="btn" href="eligibility.html">Check Eligibility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Big CTA Banner -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="boarding">
+        <div class="boardingInner">
+          <div class="boardingBadge">⚡ Approaching Intake • Scholarships</div>
+          <h3>Your <span class="accent">journey</span> is waiting.</h3>
+          <p>Stop dreaming about studying abroad. Start planning. We handle the paperwork — you focus on your future.</p>
+
+          <div class="boardingBtn">
+            <a class="bigBtn" href="eligibility.html">Start Free Eligibility Check <span style="font-size:18px;">→</span></a>
+            <a class="btn light" href="consultation.html">Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Universities -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead">
+        <h2>Explore universities</h2>
+        <p>Open details for requirements, scholarships, fees, majors, and deadlines.</p>
+      </div>
+
+      <div class="u-grid" id="featuredGrid"></div>
+
+      <div class="center">
+        <a class="btn primary" href="universities.html">Browse All Universities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B Partnership (before testimonials) -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="b2b">
+        <div class="b2bInner">
+          <div class="b2bLeft">
+            <div class="b2bBadge">🤝 B2B Partnership Program</div>
+            <h2 class="b2bTitle">Scale Your Business <span class="accent">Without Limits</span>.</h2>
+            <p class="b2bText">
+              Join our global network of educational agents and institutions. Access exclusive university contracts,
+              high commission rates, and reliable processing support.
+            </p>
+
+            <div class="b2bChips" aria-label="B2B partnership highlights">
+              
+            </div>
+
+            <div class="b2bCtaRow">
+              <a class="btn primary" href="consultation.html">Become a Partner</a>
+              <a class="btn light" href="consultation.html">Talk to Us</a>
+            </div>
+          </div>
+
+          <div class="b2bRight">
+            <img src="assets/b2b-partner.jpg" alt="Partnership meeting" loading="lazy" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="reviewWrap">
+        <div class="reviewCard" id="reviewCard">
+          <div class="revInner" id="revInner"></div>
+
+          <div class="revBar" aria-hidden="true">
+            <span id="revBarFill"></span>
+          </div>
+        </div>
+
+        <div class="reviewAside">
+          <h3>What Our Students Say About Us</h3>
+          <div class="ratingRow">
+            <div class="ratingBig">4.8</div>
+            <div>
+              <div class="ratingStars">★★★★★</div>
+              <div class="ratingLabel">Average Rating</div>
+            </div>
+          </div>
+          <p>You can read more feedback from our students on our Facebook page. Consistent guidance, transparent process, and reliable support.</p>
+
+          <div class="dots" id="reviewDots"></div>
+          <div style="margin-top:10px;">
+            <a class="btn primary" href="consultation.html">Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Announcements -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="secHead">
+        <h2>Latest announcements</h2>
+        <p>Scholarship, admission, visa, and important updates.</p>
+      </div>
+
+      <div id="updatesGrid" class="grid"></div>
+
+      <div class="center">
+        <a class="btn primary" href="updates.html">View All Updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="ctaBand">
+        <div>
+          <h3>Ready to start your China journey?</h3>
+          <p>Check eligibility first — then we guide you through university selection, scholarship strategy, and visa steps.</p>
+        </div>
+        <div class="ctaBtns">
+          <a class="btn primary" href="eligibility.html">Check Eligibility</a>
+          <a class="btn" href="consultation.html">Free Consultation</a>
+          <a class="btn" href="https://wa.me/8801735387888?text=Hello%20DemoticEdu%2C%20I%20want%20to%20apply%20for%20Study%20in%20China.%20Please%20guide%20me."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- Updates data -->
+  <script src="updates-data.js?v=20260228"></script>
+
+  <script>
+    function esc(s){
+      return String(s ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#39;");
+    }
+
+    function normalize(s){ return String(s ?? "").trim().toLowerCase(); }
+
+    function fmtDate(d){
+      const s = String(d ?? "").trim();
+      if(!s) return "";
+      const dt = new Date(s);
+      if(Number.isNaN(dt.getTime())) return s;
+      return dt.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
+    }
+
+    async function loadUniversities(){
+      const res = await fetch("data/universities.json", { cache: "no-store" });
+      if(!res.ok) throw new Error("Failed to load data/universities.json");
+      const list = await res.json();
+      return Array.isArray(list) ? list : [];
+    }
+
+    function scholarshipLabel(u){
+      const sch = (u && typeof u.scholarship === "object" && u.scholarship) ? u.scholarship : null;
+      if(!sch) return "";
+      if(sch.model && String(sch.model).trim()) return String(sch.model).trim();
+      if(sch.available === true) return "Scholarship";
+      return "";
+    }
+
+    /* ===== Logo marquee ===== */
+    function renderMarquee(list){
+      const track = document.getElementById("logoTrack");
+      if(!track) return;
+
+      const logos = list
+        .map(u => (u && u.logo) ? String(u.logo).trim() : "")
+        .filter(Boolean);
+
+      if(!logos.length){
+        track.innerHTML = "";
+        return;
+      }
+
+      const sequence = logos.slice(0, 28);
+      const htmlOne = sequence.map(src => `
+        <div class="logoItem" title="Partner University">
+          <img src="${esc(src)}" alt="University logo" loading="lazy" onerror="this.closest('.logoItem').remove()">
+        </div>
+      `).join("");
+
+      track.innerHTML = htmlOne + htmlOne;
+    }
+
+    /* ===== Featured universities ===== */
+    function uniCardHTML(u){
+      const name = u.name || "University";
+      const slug = u.slug || "";
+      const hero = (u.heroImage || "").trim();
+      const logo = (u.logo || "").trim();
+
+      const loc = u.location || {};
+      const city = (loc.city || u.city || "").trim();
+      const province = (loc.province || u.province || "").trim();
+      const country = (loc.country || u.country || "China").trim();
+      const where = [city, province, country].filter(Boolean).join(", ");
+
+      const intake = (u.intake || "").trim();
+      const deadline = (u.deadline || "").trim();
+      const sch = scholarshipLabel(u);
+
+      const tags = [];
+      if(intake) tags.push(`<span class="u-tag warn">🗓 ${esc(intake)}</span>`);
+      if(sch) tags.push(`<span class="u-tag good">🎯 ${esc(sch)}</span>`);
+      if(deadline) tags.push(`<span class="u-tag">⏳ ${esc(deadline)}</span>`);
+
+      return `
+        <a class="u-card" href="university-details.html?u=${encodeURIComponent(slug)}" aria-label="View ${esc(name)}">
+          <div class="u-cover">
+            ${hero ? `<img class="u-coverImg" src="${esc(hero)}" alt="${esc(name)}" loading="lazy" onerror="this.remove()">` : ``}
+            <div class="u-coverShade"></div>
+            ${logo ? `<img class="u-logo" src="${esc(logo)}" alt="${esc(name)} logo" loading="lazy" onerror="this.remove()">` : ``}
+          </div>
+          <div class="u-body">
+            <h3 class="u-title">${esc(name)}</h3>
+            <div class="u-loc">${esc(where || "China")}</div>
+            ${tags.length ? `<div class="u-tags">${tags.join("")}</div>` : ``}
+          </div>
+        </a>
+      `;
+    }
+
+    function renderFeatured(list){
+      const grid = document.getElementById("featuredGrid");
+      if(!grid) return;
+
+      const picks = list.slice(0, 6);
+      if(!picks.length){
+        grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:900;">No universities found.</div>`;
+        return;
+      }
+
+      grid.innerHTML = picks.map(uniCardHTML).join("");
+    }
+
+    /* ===== Updates ===== */
+    function pillLabel(type){
+      const t = normalize(type);
+      if(t === "scholarship") return "Scholarship";
+      if(t === "admission") return "Admission";
+      if(t === "visa") return "Visa";
+      if(t === "notice") return "Notice";
+      if(t === "exam") return "Exam";
+      return "Update";
+    }
+
+    function updateCardHTML(u){
+      const featured = u.featured ? `<span class="featuredTag">★ Featured</span>` : ``;
+      const href = `update.html?id=${encodeURIComponent(u.id ?? "")}`;
+      const img = u.image || "";
+      const title = u.title || "Update";
+      const excerpt = u.excerpt || "";
+      const type = normalize(u.type || "update");
+
+      return `
+        <article class="card" data-href="${href}" tabindex="0" role="link" aria-label="${esc(title)}">
+          <div class="thumb">
+            <span class="pill" data-type="${esc(type)}"><span class="dot"></span>${esc(pillLabel(type))}</span>
+            ${img ? `<img src="${esc(img)}" alt="${esc(title)}" onerror="this.remove()">` : ``}
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>🗓</span> <span>${esc(fmtDate(u.date))}</span>
+              ${featured}
+            </div>
+            <h3 class="title">${esc(title)}</h3>
+            <p class="desc">${esc(excerpt)}</p>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderUpdates(){
+      const grid = document.getElementById("updatesGrid");
+      if(!grid) return;
+
+      const all = (window.UPDATES_DATA && Array.isArray(window.UPDATES_DATA)) ? window.UPDATES_DATA : [];
+      const list = all.slice().sort((a,b) => new Date(b.date||0).getTime() - new Date(a.date||0).getTime()).slice(0,3);
+
+      if(!list.length){
+        grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:900;">No updates found.</div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(updateCardHTML).join("");
+
+      grid.querySelectorAll(".card").forEach(card => {
+        const href = card.getAttribute("data-href");
+        card.addEventListener("click", () => { if(href) window.location.href = href; });
+        card.addEventListener("keydown", (e) => {
+          if((e.key === "Enter" || e.key === " ") && href){
+            e.preventDefault();
+            window.location.href = href;
+          }
+        });
+      });
+    }
+
+    /* ===== Testimonials slider (dots + auto, no arrows) ===== */
+    const REVIEWS = [
+      {
+        name: "Ayesha Siddiqua",
+        role: "Undergraduate",
+        stars: 5,
+        quote: "Supportive, transparent, and always available. They didn’t just process my file; they guided me through the entire journey.",
+        uni: "Partner University",
+        // photo: "assets/testimonials/ayesha.jpg"
+      },
+      {
+        name: "Rahim Ahmed",
+        role: "Master’s Applicant",
+        stars: 5,
+        quote: "Clear communication and proper documentation support. The process felt organized from eligibility to submission follow-up.",
+        uni: "China University Partner",
+        // photo: "assets/testimonials/rahim.jpg"
+      },
+      {
+        name: "Nusrat Jahan",
+        role: "Chinese Language Program",
+        stars: 5,
+        quote: "Very helpful guidance on scholarships and intake timing. They answered my questions fast and kept things transparent.",
+        uni: "Language Program Partner"
+      }
+    ];
+
+    function stars(n){
+      const s = "★★★★★";
+      return s.slice(0, Math.max(0, Math.min(5, n)));
+    }
+
+    let activeReview = 0;
+    let reviewTimer = null;
+    const REVIEW_INTERVAL = 7000;
+
+    function renderReview(i){
+      const inner = document.getElementById("revInner");
+      const dots = document.getElementById("reviewDots");
+      const barFill = document.getElementById("revBarFill");
+      if(!inner || !dots || !barFill) return;
+
+      activeReview = (i + REVIEWS.length) % REVIEWS.length;
+      const r = REVIEWS[activeReview];
+
+      inner.classList.add("isSwitching");
+      barFill.style.width = "0%";
+
+      setTimeout(() => {
+        const initial = (r.name || "S").trim().slice(0,1).toUpperCase();
+
+        const avatarHTML = r.photo
+          ? `<div class="avatar"><img src="${esc(r.photo)}" alt="${esc(r.name)}" onerror="this.closest('.avatar').textContent='${esc(initial)}'"></div>`
+          : `<div class="avatar">${esc(initial)}</div>`;
+
+        inner.innerHTML = `
+          <div class="rTop">
+            ${avatarHTML}
+            <div>
+              <p class="rName">${esc(r.name)}</p>
+              <p class="rMeta">${esc(stars(r.stars))} • ${esc(r.role)}</p>
+            </div>
+          </div>
+          <div class="stars">${esc(stars(r.stars))}</div>
+          <p class="rQuote">"${esc(r.quote)}"</p>
+          <div class="rUni">${esc(r.uni)}</div>
+        `;
+
+        dots.innerHTML = REVIEWS.map((_, idx) => `
+          <button class="dotBtn ${idx === activeReview ? "active" : ""}" aria-label="Review ${idx+1}" data-i="${idx}"></button>
+        `).join("");
+
+        dots.querySelectorAll("button").forEach(b => {
+          b.addEventListener("click", () => startReviews(Number(b.getAttribute("data-i") || "0")));
+        });
+
+        inner.classList.remove("isSwitching");
+
+        requestAnimationFrame(() => {
+          barFill.style.width = "100%";
+        });
+      }, 220);
+    }
+
+    function startReviews(startIndex = activeReview){
+      if(reviewTimer) clearInterval(reviewTimer);
+      renderReview(startIndex);
+      reviewTimer = setInterval(() => {
+        renderReview(activeReview + 1);
+      }, REVIEW_INTERVAL);
+    }
+
+    /* ===== Header/footer injection ===== */
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          document.getElementById(id).innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          const el = document.getElementById(id);
+          if(el) el.innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260228';
+      document.body.appendChild(s);
+
+      try{
+        const universities = await loadUniversities();
+        renderMarquee(universities);
+        renderFeatured(universities);
+      }catch(e){
+        console.error(e);
+      }
+
+      try{ renderUpdates(); }catch(e){ console.error(e); }
+
+      startReviews(0);
+    })();
+  </script>
+</body>
+</html>

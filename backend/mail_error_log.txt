@@ -1,0 +1,2 @@
+2026-03-06 16:49:04 | Reset OTP mail error: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-03-06 16:49:25 | Reset OTP mail error: SMTP Error: Could not connect to SMTP host. Failed to connect to server

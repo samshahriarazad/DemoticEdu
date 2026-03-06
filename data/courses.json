@@ -1,0 +1,57 @@
+{
+  "courses": [
+    {
+      "id": "math",
+      "title": "Mathematics",
+      "level": "HSC / Admission",
+      "lessons": [
+        { "id": "m01", "title": "Sets", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m02", "title": "Inequalities", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m03", "title": "Functions", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m04", "title": "Elementary Functions", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m05", "title": "Sequences", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m06", "title": "Calculus", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m07", "title": "Analytic Geometry", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m08", "title": "Solid Geometry", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m09", "title": "Vectors", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m10", "title": "Complex Numbers", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m11", "title": "Space Coordinate System", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "m12", "title": "Probability & Statistics", "type": "Topic", "videoUrl": "", "pdfUrl": "" }
+      ]
+    },
+    {
+      "id": "physics",
+      "title": "Physics",
+      "level": "HSC / Admission",
+      "lessons": [
+        { "id": "p01", "title": "Newton’s Laws of Motion", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p02", "title": "Kinematics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p03", "title": "Work and Energy", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p04", "title": "Momentum and Impulse", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p05", "title": "Circular Motion & Gravitation", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p06", "title": "Electrostatics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p07", "title": "DC Circuits", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p08", "title": "Magnetic Field", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p09", "title": "Electromagnetic Induction", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p10", "title": "Simple Harmonic Motion & Waves", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p11", "title": "Geometric Optics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p12", "title": "Physical Optics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p13", "title": "Optics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p14", "title": "Ideal Gas Law", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p15", "title": "Kinetic Theory of Gases", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p16", "title": "First Law of Thermodynamics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p17", "title": "Thermodynamics", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p18", "title": "Photoelectric Effect", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p19", "title": "Atomic Structure", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p20", "title": "Nuclear Physics Fundamentals", "type": "Topic", "videoUrl": "", "pdfUrl": "" },
+        { "id": "p21", "title": "Modern Physics", "type": "Topic", "videoUrl": "", "pdfUrl": "" }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "title": "Chemistry",
+      "level": "HSC / Admission",
+      "lessons": []
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+/* =====================================
+   DemoticEdu — Header + Footer ONLY
+   Do NOT add page-specific styles here.
+===================================== */
+
+/* ====== Vars ====== */
+:root{
+  --brand-darkblue:#123249;
+  --brand-blue:#20537A;
+  --brand-yellow:#F2AC33;
+  --brand-green:#82B822;
+
+  --ink:#0b1020;
+  --muted:#7b879c;
+  --radius:24px;
+  --max:1200px;
+
+  /* Header heights (desktop) */
+  --topbar-h: 40px;
+  --nav-h: 64px;
+
+  /* Drawer menu */
+  --drawer-w: 280px;
+}
+
+/* ====== Base (minimal) ====== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  color:var(--ink);
+  background:#fff;
+}
+.container{width:min(var(--max),92vw); margin-inline:auto}
+
+/* ====== Topbar ====== */
+.topbar{
+  position:fixed;
+  top:0; left:0; width:100%;
+  height:var(--topbar-h);
+  z-index:1000;
+  background:#ffffff;
+  color:var(--brand-darkblue);
+  border-bottom:1px solid #eef2f6;
+  font-size:14px;
+}
+.topbar .container{display:flex; justify-content:space-between; padding:8px 0}
+.topbar .left{display:flex; gap:18px}
+.topbar .social{display:flex; gap:12px}
+
+.topbar .left a,
+.topbar .social a{
+  color:var(--brand-darkblue);
+  text-decoration:none;
+  transition:color .25s ease;
+}
+.topbar .left a:hover{ color:var(--brand-yellow) }
+.topbar .social a:hover{ color:var(--brand-green) }
+
+/* ====== Navbar ====== */
+.nav{
+  position:fixed;
+  top:var(--topbar-h);
+  left:0; width:100%;
+  z-index:1002;
+  background:#ffffff;
+  border-bottom:1px solid #eef2f6;
+  box-shadow:0 10px 30px rgba(2,6,23,.08);
+  transition: top .25s, background .25s, box-shadow .25s, border-color .25s;
+}
+.nav-inner{display:flex; justify-content:space-between; align-items:center; padding:16px 0}
+.brand{display:flex; align-items:center; gap:.6rem; text-decoration:none}
+.logo{ height:28px; display:block }
+.logo-light{display:none}
+.logo-dark{display:block}
+@media (max-width:960px){ .logo{ height:26px } }
+
+/* Links */
+.links{display:flex; gap:22px; align-items:center}
+.links a{
+  color:var(--brand-darkblue);
+  font-weight:700;
+  position:relative;
+  text-decoration:none;
+  transition:color .2s, opacity .2s;
+}
+.links a::after{
+  content:""; position:absolute; left:0; bottom:-6px;
+  width:0%; height:2px; background:var(--brand-green);
+  transition:width .25s;
+}
+.links a:hover{ opacity:.95; color:var(--brand-blue) }
+.links a:hover::after{ width:100% }
+
+/* CTA */
+.nav-cta{
+  background: linear-gradient(135deg, #F8B030, #ffd58b);
+  color:#1b1600 !important;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+.nav-cta::after{ display:none !important; }
+
+/* Burger */
+.burger{display:none; background:none; border:0; cursor:pointer; padding:6px}
+.burger span{display:block; width:22px; height:3px; background:var(--brand-darkblue); margin:6px 0}
+@media (max-width:960px){ .links{display:none} .burger{display:block} }
+
+/* ==========================================================
+   MOBILE MENU: LEFT DRAWER + OVERLAY (NOT FULL SCREEN)
+   Starts under topbar+navbar using CSS vars updated by index.html
+========================================================== */
+
+/* Overlay (created by JS) */
+.menu-overlay{
+  position:fixed;
+  top:calc(var(--topbar-h) + var(--nav-h));
+  left:0; right:0; bottom:0;
+  background:rgba(2,6,23,.38);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease;
+  z-index:1001; /* under header(1002), above page */
+}
+.menu-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* Mobile menu base (drawer) */
+.mobile{
+  /* hidden by default on desktop */
+  display:none;
+
+  background:#ffffff;
+  border:1px solid #eef2f6;
+  box-shadow:0 18px 40px rgba(2,6,23,.10);
+  padding:12px;
+  border-radius:14px;
+
+  position:fixed;
+  top:calc(var(--topbar-h) + var(--nav-h));
+  left:0;
+  width:var(--drawer-w);
+  height:calc(100vh - (var(--topbar-h) + var(--nav-h)));
+  overflow:auto;
+
+  transform:translateX(calc(-1 * var(--drawer-w) - 16px));
+  transition:transform .25s ease;
+
+  z-index:1003; /* above header so it feels like a drawer */
+}
+
+/* on mobile: element exists, but stays off-canvas until .open */
+@media (max-width:960px){
+  .mobile{ display:block; }
+}
+
+.mobile.open{ transform:translateX(0); }
+
+.mobile a{display:block; color:var(--brand-darkblue); padding:12px; text-decoration:none; border-radius:12px}
+.mobile a:hover{ background:rgba(32,83,122,.08) }
+
+/* Active link highlight */
+.links a.active{
+  color: var(--brand-blue) !important;
+}
+.links a.active::after{
+  width:100% !important;
+}
+
+/* ===== Mobile fixes ===== */
+@media (max-width: 768px){
+  :root{ --topbar-h:34px; --nav-h:60px; }
+
+  .topbar{ height:var(--topbar-h); font-size:12px; }
+  .topbar .container{ padding:6px 0; align-items:center; }
+  .topbar .left a:first-child{ display:none !important; } /* hide email */
+  .topbar .social{ display:none !important; }             /* hide social */
+
+  .nav{ top:var(--topbar-h); }
+  .nav-inner{ padding:12px 0; }
+}
+
+/* ====== Footer ====== */
+footer{
+  background: var(--brand-darkblue);
+  color:#cbd5e1;
+  font:400 15px/1.6 Inter, sans-serif;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.2fr .6fr .6fr;
+  gap:32px;
+  padding:48px 0;
+}
+footer .brand.foot img{ height:38px; margin-bottom:12px; }
+footer p{ margin:0 0 12px; color:#cbd5e1; }
+footer h4{ font:600 16px/1.3 Poppins, sans-serif; margin:0 0 12px; color:#fff; }
+
+.foot-list{ list-style:none; padding:0; margin:0 }
+.foot-list li{ margin:6px 0 }
+.foot-list a{ color:#cbd5e1; text-decoration:none; transition:color .2s ease; }
+.foot-list a:hover{ color:var(--brand-yellow); }
+
+.foot-list.contact li{ display:flex; align-items:flex-start; gap:6px; }
+
+.foot-social{ display:flex; gap:10px; margin-top:12px }
+.sbtn{
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  background:#0f2a3f;
+  border-radius:8px;
+  color:#cbd5e1;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  transition:transform .2s ease, filter .2s ease;
+}
+.sbtn:hover{ transform:translateY(-2px); filter:brightness(1.1); }
+
+.copy{
+  padding:14px 0;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.15);
+  font-size:14px;
+}
+
+@media (max-width: 768px){
+  .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    padding: 34px 0 !important;
+  }
+  footer .brand.foot img{ height:34px; }
+  footer p{ font-size:14px; line-height:1.65; }
+}

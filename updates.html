@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Updates | DemoticEdu</title>
+  <meta name="description" content="Scholarships, university announcements, admissions and visa updates — DemoticEdu.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Global site CSS -->
+  <link rel="stylesheet" href="styles.css?v=20260226">
+
+  <style>
+    :root {
+      /* Same palette used in Universities/Services */
+      --brand-navy: #103048;
+      --brand-blue: #104878;
+      --brand-orange: #F8B030;
+      --brand-green: #90C018;
+
+      --ink: #0b1220;
+      --muted: #5b6b85;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --border: rgba(15, 23, 42, .10);
+
+      --shadowSoft: 0 14px 38px rgba(2, 6, 23, .06);
+      --shadowMid: 0 18px 60px rgba(2, 6, 23, .10);
+      --shadowHard: 0 30px 120px rgba(2, 6, 23, .18);
+
+      --r14: 14px;
+      --r16: 16px;
+      --r18: 18px;
+      --r20: 20px;
+      --r22: 22px;
+      --r24: 24px;
+      --r32: 32px;
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    /* =========================================================
+       ✅ Background EXACTLY like universities.html
+       (No bg-orbs, no dim overlay)
+       ========================================================= */
+
+    body.page-bg {
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg) !important;
+      background-image: none !important;
+      color: var(--ink);
+      line-height: 1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x: hidden;
+    }
+
+    /* IMPORTANT: isolation ensures overlays never create gray “sheet” */
+    .page-bg { position: relative; isolation: isolate; }
+
+    .page-bg::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248, 176, 48, .18), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16, 72, 120, .16), transparent 60%),
+        linear-gradient(#f7f8fc, #f6f7fb);
+    }
+
+    .page-bg::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .55;
+      background-image: radial-gradient(rgba(15, 23, 42, .10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-position: 0 0;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events: none;
+    }
+
+    section, [id] { scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Same container rhythm as universities */
+    .u-container {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       HERO (Universities style)
+       ========================================================= */
+    .hero { padding: 26px 0 18px; }
+
+    .heroBox {
+      position: relative;
+      padding: 70px 18px 56px;
+      text-align: center;
+      border-radius: var(--r32);
+      overflow: hidden;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .14);
+      box-shadow: var(--shadowHard);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248, 176, 48, .22), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144, 192, 24, .16), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16, 72, 120, .22), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    /* ✅ IMPORTANT: stop global styles.css .hero from affecting Updates page */
+body.page-bg section.hero{
+  min-height: auto !important;
+  background: transparent !important;
+  display: block !important;
+  place-items: initial !important;
+  color: inherit !important;
+}
+    .heroBox::before {
+      content: "";
+      position: absolute;
+      inset: -240px -240px auto auto;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle at 30% 30%, rgba(248, 176, 48, .28), transparent 65%);
+      animation: floatGlow 14s var(--ease) infinite;
+      pointer-events: none;
+    }
+
+    .heroBox::after {
+      content: "";
+      position: absolute;
+      inset: auto -260px -260px auto;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, .10), transparent 66%);
+      animation: floatGlow 18s var(--ease) infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(22px) translateX(-10px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+
+    .heroBadge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .18);
+      backdrop-filter: blur(10px);
+      font-weight: 950;
+      font-size: 13px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heroBox h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 950;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heroBox p {
+      margin: 0 auto;
+      max-width: 860px;
+      color: #d7e3f3;
+      opacity: .95;
+      font-size: 15px;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heroActions {
+      margin-top: 22px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .22);
+      background: rgba(255, 255, 255, .16);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      border: none;
+      color: #1b1600;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .18);
+    }
+
+    /* =========================================================
+       FILTER PANEL (as you requested)
+       ========================================================= */
+    .filterSection { padding: 22px 0 10px; }
+
+    .filterCard {
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, .10);
+      border-radius: 22px;
+      box-shadow: 0 18px 55px rgba(2, 6, 23, .10);
+      overflow: hidden;
+    }
+
+    .filterPad { padding: 18px; }
+
+    .filterTop {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .searchbar {
+      position: relative;
+      border: 1px solid rgba(15, 23, 42, .10);
+      border-radius: 18px;
+      background: #fff;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 12px 14px 12px 46px;
+    }
+
+    .searchbar .icon {
+      position: absolute;
+      left: 16px;
+      opacity: .55;
+      font-size: 16px;
+    }
+
+    .searchbar input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0b1220;
+    }
+
+    .featuredBtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #f8fafc;
+      font-weight: 900;
+      color: #475569;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    }
+
+    .featuredBtn:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(2, 6, 23, .08); }
+
+    .featuredBtn .star {
+      width: 30px; height: 30px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    .featuredBtn.active {
+      background: rgba(248, 176, 48, .14);
+      border-color: rgba(248, 176, 48, .35);
+      color: #1b1600;
+    }
+
+    .featuredBtn.active .star { color: #b45309; }
+
+    .filterMid { margin-top: 18px; }
+
+    .label {
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      color: rgba(100, 116, 139, .95);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .chip {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, .12);
+      background: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      color: #475569;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    }
+
+    .chip:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(2, 6, 23, .06); }
+
+    .chip.active {
+      background: #f59e0b;
+      border-color: rgba(245, 158, 11, .35);
+      color: #111827;
+      box-shadow: 0 12px 26px rgba(245, 158, 11, .22);
+    }
+
+    .filterBot {
+      margin-top: 18px;
+      border-top: 1px solid rgba(15, 23, 42, .08);
+      padding-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      color: rgba(100, 116, 139, .95);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .field select {
+      width: 100%;
+      min-height: 50px;
+      border-radius: 14px;
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      padding: 0 12px;
+      font-weight: 800;
+      color: #334155;
+      outline: none;
+    }
+
+    @media (max-width: 900px) {
+      .filterTop { grid-template-columns: 1fr; }
+      .filterBot { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================
+       RESULTS
+       ========================================================= */
+    .results { padding: 18px 0 70px; }
+
+    .resultsHead { margin-top: 18px; }
+
+    .resultsHead h2 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.6px;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+
+    .resultsHead p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r24);
+      box-shadow: var(--shadowSoft);
+      overflow: hidden;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(2, 6, 23, .12); }
+
+    .thumb {
+      height: 200px;
+      position: relative;
+      background:
+        radial-gradient(900px 220px at 20% 30%, rgba(248, 176, 48, .22), transparent 60%),
+        radial-gradient(900px 220px at 80% 20%, rgba(16, 72, 120, .16), transparent 60%),
+        linear-gradient(135deg, #0b2a3f, #071421);
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+      transition: transform 500ms var(--ease);
+    }
+
+    .card:hover .thumb img { transform: scale(1.04); }
+
+    .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .42));
+      pointer-events: none;
+    }
+
+    .pill {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(255, 255, 255, .55);
+      font-size: 12px;
+      font-weight: 950;
+      color: #0b1220;
+      box-shadow: 0 10px 26px rgba(2, 6, 23, .10);
+      backdrop-filter: blur(10px);
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      box-shadow: 0 0 0 4px rgba(16, 72, 120, .12);
+    }
+
+    .pill[data-type="scholarship"] .dot { background: var(--brand-green); box-shadow: 0 0 0 4px rgba(144, 192, 24, .14); }
+    .pill[data-type="visa"] .dot { background: var(--brand-orange); box-shadow: 0 0 0 4px rgba(248, 176, 48, .16); }
+    .pill[data-type="announcement"] .dot { background: #ef4444; box-shadow: 0 0 0 4px rgba(239, 68, 68, .12); }
+    .pill[data-type="news"] .dot { background: #6366f1; box-shadow: 0 0 0 4px rgba(99, 102, 241, .12); }
+    .pill[data-type="university"] .dot { background: #0ea5e9; box-shadow: 0 0 0 4px rgba(14, 165, 233, .12); }
+    .pill[data-type="event"] .dot { background: #a855f7; box-shadow: 0 0 0 4px rgba(168, 85, 247, .12); }
+    .pill[data-type="success"] .dot { background: var(--brand-green); box-shadow: 0 0 0 4px rgba(144, 192, 24, .14); }
+    .pill[data-type="partnership"] .dot { background: var(--brand-blue); box-shadow: 0 0 0 4px rgba(16, 72, 120, .12); }
+
+    .body { padding: 14px 14px 16px; }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .featuredTag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 176, 48, .30);
+      background: rgba(248, 176, 48, .14);
+      color: #1b1600;
+      font-weight: 950;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .title {
+      margin: 0 0 6px;
+      font-size: 16px;
+      font-weight: 950;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      letter-spacing: -.2px;
+      line-height: 1.25;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 38px;
+    }
+
+    .empty {
+      margin-top: 14px;
+      background: #fff;
+      border: 1px dashed rgba(15, 23, 42, .20);
+      border-radius: var(--r24);
+      padding: 18px;
+      color: var(--muted);
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      display: none;
+      box-shadow: var(--shadowSoft);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       PAGINATION (Universities style)
+       ========================================================= */
+    .u-pagerRow { margin: 26px 0 0; display: flex; justify-content: center; }
+
+    .u-pagerBar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .u-pagerGroup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .u-pgBtn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(2, 6, 23, .06);
+      cursor: pointer;
+      font-weight: 900;
+      color: #334155;
+      transition: transform 220ms var(--ease);
+      min-height: 44px;
+    }
+
+    .u-pgBtn:hover { transform: translateY(-2px); }
+    .u-pgBtn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+    .u-pageInfo {
+      font-weight: 900;
+      color: #475569;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6px;
+    }
+
+    .u-showBox {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(2, 6, 23, .06);
+      min-height: 44px;
+    }
+
+    .u-showBox span { font-weight: 900; color: #334155; font-size: 13px; }
+
+    .u-showBox select {
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 900;
+      outline: none;
+      cursor: pointer;
+      min-height: 36px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .heroBox::before, .heroBox::after { animation: none; }
+      .btn, .card, .chip, .featuredBtn, .u-pgBtn { transition: none; }
+    }
+  </style>
+</head>
+
+<body class="page-bg">
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="u-container">
+      <div class="heroBox">
+        
+        <h1>Latest Scholarships, News & Insights</h1>
+        <p>Find scholarships, university announcements, admissions and visa updates — updated regularly.</p>
+        <div class="heroActions">
+          <a class="btn primary" href="#updates">Get Updates →</a>
+          <a class="btn" href="eligibility.html">Check Eligibility</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PANEL -->
+  <section class="filterSection">
+    <div class="u-container">
+      <div class="filterCard" id="filters">
+        <div class="filterPad">
+          <div class="filterTop">
+            <div class="searchbar" role="search">
+              <span class="icon">🔎</span>
+              <input id="q" type="search" placeholder="Find scholarships, news, articles..." autocomplete="off" />
+            </div>
+
+            <button class="featuredBtn" id="featuredBtn" type="button" aria-pressed="false">
+              <span class="star" id="starIcon">☆</span>
+              Featured Only
+            </button>
+          </div>
+
+          <div class="filterMid">
+            <div class="label">Categories</div>
+            <div class="chips" aria-label="Categories">
+              <div class="chip active" data-filter="all">All</div>
+              <div class="chip" data-filter="announcement">Announcement</div>
+              <div class="chip" data-filter="university">University</div>
+              <div class="chip" data-filter="success">Success</div>
+              <div class="chip" data-filter="partnership">Partnership</div>
+              <div class="chip" data-filter="news">News</div>
+              <div class="chip" data-filter="scholarship">Scholarship</div>
+              <div class="chip" data-filter="visa">Visa</div>
+              <div class="chip" data-filter="event">Event</div>
+            </div>
+          </div>
+
+          <div class="filterBot">
+            <div class="field">
+              <label for="dateRange">Date</label>
+              <select id="dateRange">
+                <option value="all">All Time</option>
+                <option value="7">Last 7 days</option>
+                <option value="30">Last 30 days</option>
+                <option value="90">Last 90 days</option>
+                <option value="365">Last 12 months</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="sortBy">Sort</label>
+              <select id="sortBy">
+                <option value="new">Newest First</option>
+                <option value="old">Oldest First</option>
+                <option value="title">Title A → Z</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results" id="updates">
+    <div class="u-container">
+      <div class="resultsHead">
+        <h2>Latest Updates</h2>
+        <p>Discover opportunities and news tailored for you.</p>
+      </div>
+
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty">No updates found. Try another keyword or category.</div>
+
+      <div class="u-pagerRow" id="pagerRow" style="display:none;">
+        <div class="u-pagerBar">
+          <div class="u-pagerGroup">
+            <button class="u-pgBtn" id="prevBtn" type="button">Prev</button>
+            <div class="u-pageInfo" id="pageInfo">Page 1 of 1</div>
+            <button class="u-pgBtn" id="nextBtn" type="button">Next</button>
+          </div>
+
+          <div class="u-showBox">
+            <span>Show</span>
+            <select id="pageSize">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- Your Updates data: window.UPDATES_DATA = [...] -->
+  <script src="updates-data.js?v=20260226"></script>
+
+  <script>
+    function setHeaderVars() {
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function () {
+      try {
+        const header = await fetch("header-footer/header.html", { cache: "no-store" });
+        document.getElementById("header").innerHTML = await header.text();
+        const footer = await fetch("header-footer/footer.html", { cache: "no-store" });
+        document.getElementById("footer").innerHTML = await footer.text();
+      } catch (e) { }
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260226';
+      document.body.appendChild(s);
+    })();
+
+    const normalize = (s) => String(s || "").toLowerCase().trim();
+    const parseDate = (s) => {
+      if (!s) return new Date("1970-01-01T00:00:00");
+      const str = String(s);
+      return str.includes("T") ? new Date(str) : new Date(str + "T00:00:00");
+    };
+    const fmtDate = (dateStr) => {
+      const d = parseDate(dateStr);
+      return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+    };
+    function inRange(dateStr, days) {
+      if (days === "all") return true;
+      const d = parseInt(days, 10);
+      if (!Number.isFinite(d)) return true;
+      const dt = parseDate(dateStr);
+      const now = new Date();
+      const diff = (now - dt) / (1000 * 60 * 60 * 24);
+      return diff <= d;
+    }
+    function pillLabel(type) {
+      const map = {
+        scholarship: "Scholarship",
+        university: "University",
+        visa: "Visa",
+        announcement: "Announcement",
+        news: "News",
+        event: "Event",
+        success: "Success",
+        partnership: "Partnership"
+      };
+      return map[type] || "Update";
+    }
+    function getUpdates() {
+      return Array.isArray(window.UPDATES_DATA) ? window.UPDATES_DATA.slice() : [];
+    }
+
+    const grid = document.getElementById("grid");
+    const empty = document.getElementById("empty");
+
+    const qEl = document.getElementById("q");
+    const dateRangeEl = document.getElementById("dateRange");
+    const sortByEl = document.getElementById("sortBy");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+
+    const featuredBtn = document.getElementById("featuredBtn");
+    const starIcon = document.getElementById("starIcon");
+    let featuredOnly = false;
+
+    const pagerRow = document.getElementById("pagerRow");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const pageInfo = document.getElementById("pageInfo");
+    const pageSizeEl = document.getElementById("pageSize");
+
+    let activeFilter = "all";
+    let currentPage = 1;
+
+    let pageSize = Number(localStorage.getItem("updates_page_size")) || 10;
+    pageSizeEl.value = String(pageSize);
+
+    function cardHTML(u) {
+      const featured = u.featured ? `<span class="featuredTag">★ Featured</span>` : ``;
+      const href = `update.html?id=${encodeURIComponent(u.id ?? "")}`;
+      const img = u.image || "";
+      const title = u.title || "Update";
+      const excerpt = u.excerpt || "";
+      const type = normalize(u.type || "update");
+
+      return `
+        <article class="card" data-href="${href}" tabindex="0" role="link" aria-label="${title}">
+          <div class="thumb">
+            <span class="pill" data-type="${type}"><span class="dot"></span>${pillLabel(type)}</span>
+            ${img ? `<img src="${img}" alt="${title}" onerror="this.remove()">` : ``}
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>🗓</span> <span>${fmtDate(u.date)}</span>
+              ${featured}
+            </div>
+            <h3 class="title">${title}</h3>
+            <p class="desc">${excerpt}</p>
+          </div>
+        </article>
+      `;
+    }
+
+    function getFiltered(all) {
+      const term = normalize(qEl.value);
+      const dr = dateRangeEl.value;
+
+      let list = all.filter(u => {
+        const type = normalize(u.type || "");
+        const okType = (activeFilter === "all") || (type === activeFilter);
+        const okFeat = !featuredOnly || !!u.featured;
+        const okDate = inRange(u.date, dr);
+        const hay = normalize((u.title || "") + " " + (u.excerpt || "") + " " + (u.type || "") + " " + (u.tags || ""));
+        const okTerm = !term || hay.includes(term);
+        return okType && okFeat && okDate && okTerm;
+      });
+
+      const s = sortByEl.value;
+      if (s === "new") list.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+      if (s === "old") list.sort((a, b) => parseDate(a.date) - parseDate(b.date));
+      if (s === "title") list.sort((a, b) => (a.title || "").localeCompare(b.title || "", undefined, { sensitivity: "base" }));
+
+      return list;
+    }
+
+    function render() {
+      const all = getUpdates();
+      const list = getFiltered(all);
+
+      const pages = Math.max(1, Math.ceil(list.length / pageSize));
+      currentPage = Math.min(currentPage, pages);
+
+      const start = (currentPage - 1) * pageSize;
+      const items = list.slice(start, start + pageSize);
+
+      if (!list.length) {
+        grid.innerHTML = "";
+        empty.style.display = "block";
+      } else {
+        empty.style.display = "none";
+        grid.innerHTML = items.map(cardHTML).join("");
+      }
+
+      if (list.length > 0) {
+        pagerRow.style.display = "flex";
+        pageInfo.textContent = `Page ${currentPage} of ${pages}`;
+        prevBtn.disabled = (currentPage <= 1);
+        nextBtn.disabled = (currentPage >= pages);
+      } else {
+        pagerRow.style.display = "none";
+      }
+    }
+
+    function debounce(fn, wait = 250) {
+      let t;
+      return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn(...args), wait);
+      };
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener("click", () => {
+        chips.forEach(x => x.classList.remove("active"));
+        ch.classList.add("active");
+        activeFilter = ch.getAttribute("data-filter");
+        currentPage = 1;
+        render();
+      });
+    });
+
+    featuredBtn.addEventListener("click", () => {
+      featuredOnly = !featuredOnly;
+      featuredBtn.classList.toggle("active", featuredOnly);
+      featuredBtn.setAttribute("aria-pressed", featuredOnly ? "true" : "false");
+      starIcon.textContent = featuredOnly ? "★" : "☆";
+      currentPage = 1;
+      render();
+    });
+
+    qEl.addEventListener("input", debounce(() => { currentPage = 1; render(); }, 250));
+    dateRangeEl.addEventListener("change", () => { currentPage = 1; render(); });
+    sortByEl.addEventListener("change", () => { currentPage = 1; render(); });
+
+    pageSizeEl.addEventListener("change", () => {
+      pageSize = Number(pageSizeEl.value) || 10;
+      localStorage.setItem("updates_page_size", String(pageSize));
+      currentPage = 1;
+      render();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentPage = Math.max(1, currentPage - 1);
+      render();
+    });
+    nextBtn.addEventListener("click", () => {
+      currentPage = currentPage + 1;
+      render();
+    });
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      if (!card) return;
+      const href = card.getAttribute("data-href");
+      if (href) window.location.href = href;
+    });
+    grid.addEventListener("keydown", (e) => {
+      const card = e.target.closest(".card");
+      if (!card) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const href = card.getAttribute("data-href");
+        if (href) window.location.href = href;
+      }
+    });
+
+    render();
+  </script>
+</body>
+
+</html>

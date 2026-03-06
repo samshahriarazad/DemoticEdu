@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | DemoticEdu</title>
+  <meta name="description" content="Contact DemoticEdu for admissions, scholarships, documents and visa support." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="styles.css?v=20251215">
+
+  <style>
+    :root{
+      /* ✅ Brand (same as your services/eligibility) */
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0b1220;
+      --muted:#5b6b85;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --border:rgba(15,23,42,.10);
+
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 60px rgba(2,6,23,.10);
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --dur: 680ms;
+      --r: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+
+    body{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg) !important;
+      background-image: none !important;
+      color: var(--ink);
+      line-height: 1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+
+    section, [id]{ scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1200px, calc(100% - 40px)); margin:0 auto; }
+
+    /* ===== Same premium background system as services ===== */
+    .page-bg{ position:relative; isolation:isolate; }
+    .page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248,176,48,.16), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16,72,120,.14), transparent 60%),
+        linear-gradient(#f7f8fc, #f6f7fb);
+    }
+    .page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.55;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    /* ===== Reveal animation (same as services) ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+      will-change: opacity, transform;
+    }
+    .reveal.in{ opacity:1; transform: translateY(0); }
+
+    /* ===== Shared strips (same vibe as services; clean) ===== */
+    .trust-strip{ background:#fff; border-bottom:1px solid var(--border); }
+    .trust-strip .row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:10px 0;
+      align-items:center;
+    }
+    .trust-pill{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff, #fbfbff);
+      font-size:13px;
+      font-weight:900;
+      justify-content:center;
+      white-space:nowrap;
+      color:#0b1220;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .trust-pill:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(2,6,23,.10);
+    }
+    .trust-pill .dot{
+      width:10px; height:10px; border-radius:50%;
+      background:var(--brand-blue);
+      box-shadow:0 0 0 4px rgba(16,72,120,.12);
+      flex:0 0 auto;
+    }
+    .trust-pill:nth-child(2) .dot{ background:var(--brand-green); box-shadow:0 0 0 4px rgba(144,192,24,.16); }
+    .trust-pill:nth-child(3) .dot{ background:var(--brand-orange); box-shadow:0 0 0 4px rgba(248,176,48,.18); }
+    .trust-pill:nth-child(4) .dot{ background:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12); }
+
+    .alertbar{
+      background:linear-gradient(90deg, var(--brand-navy), var(--brand-blue));
+      color:#fff;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .alertbar::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 160px at 18% 50%, rgba(248,176,48,.16), transparent 60%),
+        radial-gradient(600px 160px at 78% 50%, rgba(255,255,255,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .alertbar .inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:.2px;
+      padding: 0 10px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      font-size:12px;
+      font-weight:950;
+      backdrop-filter: blur(10px);
+    }
+    .badge .tag{
+      background:var(--brand-orange);
+      color:#1b1600;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+    }
+
+    /* ===== Hero (services-style card) ===== */
+    .contact-hero{ padding: 26px 0 10px; }
+    .hero-gradient{
+      position:relative;
+      padding: 64px 18px 48px;
+      text-align:center;
+      border-radius: 32px;
+      overflow:hidden;
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 40px 120px rgba(2,6,23,.22);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.20), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.14), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.18), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .hero-gradient::before{
+      content:"";
+      position:absolute;
+      inset:-240px -240px auto auto;
+      width:520px; height:520px;
+      background: radial-gradient(circle, rgba(248,176,48,.22), transparent 60%);
+      filter: blur(6px);
+      opacity:.8;
+      pointer-events:none;
+    }
+    .hero-gradient h1{
+      margin:0;
+      font-size: clamp(30px, 4.2vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.8px;
+      font-weight: 980;
+    }
+    .hero-gradient p{
+      margin: 14px auto 0;
+      max-width: 70ch;
+      color: rgba(255,255,255,.86);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding: 18px 0; }
+    .section-title{
+      text-align:center;
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -.4px;
+      font-weight: 980;
+    }
+    .section-sub{
+      margin: 10px auto 0;
+      max-width: 78ch;
+      text-align:center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ===== Eligibility bar (above form, prominent but calm) ===== */
+    .elig-bar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(144,192,24,.22);
+      background: linear-gradient(90deg, rgba(144,192,24,.12), rgba(16,72,120,.08));
+      box-shadow: var(--shadowSoft);
+    }
+    .elig-left{
+      display:flex; align-items:flex-start; gap: 12px;
+      min-width: 0;
+    }
+    .elig-ico{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(248,176,48,.14);
+      border: 1px solid rgba(248,176,48,.20);
+      flex: 0 0 auto;
+    }
+    .elig-text strong{
+      display:block;
+      font-weight: 980;
+      letter-spacing: -.2px;
+    }
+    .elig-text span{
+      display:block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* ===== Buttons ===== */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border:0;
+      cursor:pointer;
+      font-weight: 980;
+      font-size: 13px;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), filter 220ms var(--ease);
+      user-select:none;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
+      color:#1b1600;
+      background: linear-gradient(135deg, rgba(248,176,48,1), rgba(248,176,48,.88));
+      box-shadow: 0 16px 30px rgba(248,176,48,.20);
+    }
+    .btn-primary:hover{ box-shadow: 0 20px 42px rgba(248,176,48,.24); }
+    .btn-ghost{
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      box-shadow: var(--shadowSoft);
+    }
+    .btn-ghost:hover{ box-shadow: var(--shadowMid); }
+
+    /* ===== Form card (services-style clean) ===== */
+    .card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadowSoft);
+    }
+    .form-card{ padding: 18px; }
+    .form-head{
+      padding: 4px 6px 14px;
+      text-align:center;
+    }
+    .form-head h2{
+      margin:0;
+      font-size: 20px;
+      font-weight: 980;
+      letter-spacing: -.3px;
+    }
+    .form-head p{
+      margin: 8px auto 0;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .full{ grid-column: 1 / -1; }
+
+    label{
+      display:block;
+      font-size: 12px;
+      font-weight: 980;
+      color: rgba(11,18,32,.88);
+      margin: 0 0 7px;
+    }
+    .req{ color:#ef4444; margin-left: 4px; }
+    input, select, textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.16);
+      background: rgba(255,255,255,.96);
+      font: inherit;
+      outline:none;
+      transition: box-shadow 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(16,72,120,.50);
+      box-shadow: 0 0 0 5px rgba(16,72,120,.12);
+      transform: translateY(-1px);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    .form-actions{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .note{
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.45;
+      max-width: 56ch;
+    }
+
+    /* ===== Office + Map (single info card, not fragmented) ===== */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .info-card{ padding: 16px; }
+    .info-card h3{
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 980;
+      letter-spacing: -.2px;
+    }
+    .info-row{
+      padding: 10px 0;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+    .info-row:first-of-type{ border-top: 0; padding-top: 0; }
+    .k{
+      font-size: 12px;
+      font-weight: 980;
+      color: rgba(11,18,32,.78);
+      margin-bottom: 4px;
+    }
+    .v, .v a{
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .v a:hover{ color: var(--ink); }
+
+    .map-card{ overflow:hidden; }
+    .map-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .map-head strong{
+      font-size: 13px;
+      font-weight: 980;
+      letter-spacing: -.1px;
+    }
+    .map-head a{
+      font-size: 12.5px;
+      font-weight: 980;
+      color: var(--brand-blue);
+    }
+    .map-head a:hover{ text-decoration: underline; }
+    .map{
+      width:100%;
+      height: 330px;
+      border:0;
+      display:block;
+    }
+
+    /* ===== Floating WhatsApp (subtle, no pulse) ===== */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+    }
+    .wa-btn{
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      border: 0;
+      cursor: pointer;
+      background: linear-gradient(135deg, rgba(144,192,24,1), rgba(144,192,24,.88));
+      box-shadow: 0 18px 40px rgba(144,192,24,.20);
+      display:grid;
+      place-items:center;
+      transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
+    }
+    .wa-btn:hover{ transform: translateY(-2px); box-shadow: 0 22px 52px rgba(144,192,24,.24); }
+    .wa-btn svg{ width: 26px; height: 26px; color: #0d1b0a; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .trust-strip .row{ grid-template-columns: repeat(2, 1fr); }
+      .two-col{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      form{ grid-template-columns: 1fr; }
+      .elig-bar{ flex-direction: column; align-items: flex-start; }
+      .elig-bar .btn{ width: 100%; }
+      .form-actions{ justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ transition:none; opacity:1; transform:none; }
+      .btn, .trust-pill, .wa-btn{ transition:none; }
+    }
+  </style>
+</head>
+
+<body class="page-bg">
+  <!-- shared header -->
+  <div id="header"></div>
+
+  <!-- Trust strip (same style language as services) -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="row">
+        <div class="trust-pill"><span class="dot"></span> Free Consultation</div>
+        <div class="trust-pill"><span class="dot"></span> Scholarship Guidance</div>
+        <div class="trust-pill"><span class="dot"></span> Document Support</div>
+        <div class="trust-pill"><span class="dot"></span> Visa Assistance</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small alert bar -->
+  <div class="alertbar">
+    <div class="container">
+      <div class="inner">
+        <span class="badge"><span class="tag">Support</span> Fast response on WhatsApp & Email</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="hero-gradient reveal">
+        <h1>Contact Us</h1>
+        <p>
+          Get guidance on admissions, scholarships, documents, and visa support.
+          Share your details—our counselors will respond as soon as possible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility bar (above form) -->
+  <section class="section">
+    <div class="container">
+      <div class="elig-bar card reveal">
+        <div class="elig-left">
+          <div class="elig-ico" aria-hidden="true">🎓</div>
+          <div class="elig-text">
+            <strong>Not sure what scholarship you can get?</strong>
+            <span>Check your eligibility in just 2 minutes.</span>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="eligibility.html">Check Eligibility →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section" id="message">
+    <div class="container">
+      <h2 class="section-title reveal">Send Us a Message</h2>
+      <p class="section-sub reveal">
+        Fill out the form—then we’ll open WhatsApp with your message pre-filled (fast & easy).
+      </p>
+
+      <div class="card form-card reveal" style="margin-top:14px;">
+        <div class="form-head">
+          <h2>Contact Form</h2>
+          <p>Fields marked with <span class="req">*</span> are required.</p>
+        </div>
+
+        <form id="contactForm" autocomplete="on">
+          <div>
+            <label for="name">Full Name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" placeholder="e.g. John Doe" required>
+          </div>
+
+          <div>
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="e.g. john@example.com" required>
+          </div>
+
+          <div>
+            <label for="phone">WhatsApp / Phone <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" placeholder="e.g. +880 1XXXXXXXXX" required>
+          </div>
+
+          <div>
+            <label for="level">Study Level / Interest <span class="req">*</span></label>
+            <select id="level" name="level" required>
+              <option value="" selected disabled>Select an option…</option>
+              <option>Chinese Language</option>
+              <option>Diploma</option>
+              <option>Bachelor</option>
+              <option>Master’s</option>
+              <option>PhD</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="intake">Intake (Optional)</label>
+            <input id="intake" name="intake" type="text" placeholder="e.g. March 2026 / September 2026">
+          </div>
+
+          <div class="full">
+            <label for="msg">Message (Optional)</label>
+            <textarea id="msg" name="msg" placeholder="Tell us your goal or questions…"></textarea>
+          </div>
+
+          <div class="full form-actions">
+            <div class="note">
+              Clicking “Send on WhatsApp” will open WhatsApp with your message.
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-ghost" type="button" id="copyBtn">Copy Message</button>
+              <button class="btn btn-primary" type="submit">Send on WhatsApp →</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office + Map -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Office & Contact Details</h2>
+      <p class="section-sub reveal">
+        You can visit our office or reach us directly using the contact details below.
+      </p>
+
+      <div class="two-col" style="margin-top:14px;">
+        <div class="card info-card reveal">
+          <h3>DemoticEdu Office</h3>
+
+          <div class="info-row">
+            <div class="k">Address</div>
+            <div class="v">
+              House 06, Flat 2B, Road 08, Block B, West-Dhanmondi,<br>
+              Mohammadpur, Dhaka-1207
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="k">Phone</div>
+            <div class="v">
+              <a href="tel:+8801735387888">+8801735387888</a><br>
+              <a href="tel:+8613774471507">+8613774471507</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="k">Email</div>
+            <div class="v">
+              <a href="mailto:contact@demoticedu.com">contact@demoticedu.com</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="k">Office Hours</div>
+            <div class="v">
+              Saturday – Thursday: 9:00 AM – 6:00 PM<br>
+              Friday: Closed
+            </div>
+          </div>
+        </div>
+
+        <div class="card map-card reveal">
+          <div class="map-head">
+            <strong>Find Us on Map</strong>
+            <a id="openMap" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+          <iframe
+            id="map"
+            class="map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src=""
+            title="Office Location Map"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- shared footer -->
+  <div id="footer"></div>
+
+  <!-- Floating WhatsApp -->
+  <div class="wa-float" aria-label="WhatsApp floating button">
+    <button class="wa-btn" id="waBtn" type="button" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20l1.2-3.6A8 8 0 1 1 20 12a8 8 0 0 1-12.4 6.8L7 20Z" stroke="currentColor" stroke-width="2" />
+        <path d="M10 9c.3 2 2.2 4 4 4l1-1 2 1-1 2c-3.8 0-7-3.2-7-7l1-1 2 1-1 1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    /* ===== Header/Footer injection (same as your other pages) ===== */
+    async function inject(id, file){
+      try{
+        const res = await fetch(file, { cache: 'no-store' });
+        if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+        document.getElementById(id).innerHTML = await res.text();
+      }catch(err){
+        console.error('Failed to load', file, err);
+        document.getElementById(id).innerHTML = '';
+      }
+    }
+
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      // highlight active
+      const path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.links a, .mobile a').forEach(a=>{
+        if (a.getAttribute('href') === path) a.classList.add('active');
+      });
+
+      // reveal
+      const els = document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el=>el.classList.add('in'));
+      }else{
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        }, {threshold: .12});
+        els.forEach(el=>io.observe(el));
+      }
+    })();
+
+    /* ===== Contact config (confirmed) ===== */
+    const WHATSAPP_NUMBER = "8801735387888"; // wa.me format (no +)
+    const ADDRESS = "House 06, Flat 2B, Road 08, Block B, West-Dhanmondi, Mohammadpur, Dhaka-1207";
+
+    // map embed
+    (function(){
+      const q = encodeURIComponent(ADDRESS);
+      document.getElementById('map').src = "https://www.google.com/maps?q=" + q + "&output=embed";
+      document.getElementById('openMap').href = "https://www.google.com/maps?q=" + q;
+    })();
+
+    const enc = (s) => encodeURIComponent((s || "").trim());
+
+    function buildMessage(){
+      const name  = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const level = document.getElementById("level").value.trim();
+      const intake = document.getElementById("intake").value.trim();
+      const msg   = document.getElementById("msg").value.trim();
+
+      return [
+        "Hello DemoticEdu Team,",
+        "",
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `WhatsApp/Phone: ${phone}`,
+        `Study Level/Interest: ${level}`,
+        intake ? `Intake: ${intake}` : null,
+        msg ? "" : null,
+        msg ? `Message: ${msg}` : null,
+        "",
+        "Please guide me for a free consultation."
+      ].filter(Boolean).join("\n");
+    }
+
+    function openWhatsApp(text){
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${enc(text)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Form submit -> WhatsApp prefill
+    document.getElementById("contactForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      openWhatsApp(buildMessage());
+    });
+
+    // Copy message
+    document.getElementById("copyBtn").addEventListener("click", async ()=>{
+      const text = buildMessage();
+      try{
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById("copyBtn");
+        const old = btn.textContent;
+        btn.textContent = "Copied ✓";
+        setTimeout(()=> btn.textContent = old, 1200);
+      }catch(err){
+        alert("Copy failed. Please copy manually.");
+      }
+    });
+
+    // Floating WhatsApp quick chat
+    const quickText = "Hello DemoticEdu Team, I want to talk to a counselor for a free consultation.";
+    document.getElementById("waBtn").addEventListener("click", ()=> openWhatsApp(quickText));
+  </script>
+</body>
+</html>

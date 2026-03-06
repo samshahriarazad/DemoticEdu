@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSCA Exam Preparation | DemoticEdu</title>
+  <meta name="description" content="CSCA exam preparation for China Bachelor admission. Learn Math, Physics and Chemistry with structured lessons. Create a free account to access materials." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Global site CSS -->
+  <link rel="stylesheet" href="styles.css?v=20260302">
+
+  <style>
+    :root{
+      /* Brand vars (fallback safe) */
+      --navy: var(--brand-darkblue, #0b2a3f);
+      --blue: var(--brand-blue, #20537a);
+      --yellow: var(--brand-yellow, #F8B030);
+      --green: var(--brand-green, #82B822);
+
+      --ink: #0b1220;
+      --muted: rgba(11,18,32,.66);
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --border: rgba(15,23,42,.10);
+
+      /* Softer, premium shadows */
+      --shadowSoft: 0 10px 22px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 54px rgba(2,6,23,.12);
+
+      --r14: 14px;
+      --r18: 18px;
+      --r22: 22px;
+      --r28: 28px;
+
+      /* Set by JS after header injection */
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      /* Anim */
+      --easeOut: cubic-bezier(.2,.9,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    body.page-bg{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+
+    /* Subtle site background (keeps DemoticEdu vibe) */
+    body.page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 12% 6%, rgba(248,176,48,.12), transparent 60%),
+        radial-gradient(900px 360px at 88% 0%, rgba(32,83,122,.10), transparent 60%),
+        linear-gradient(#f8f9fd,#f6f7fb);
+    }
+    body.page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.34;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .container{ width:min(1100px, calc(100% - 40px)); margin:0 auto; }
+    section{ scroll-margin-top: calc(var(--topbar-h) + var(--nav-h) + 16px); }
+
+    /* =========================
+       Scroll-reveal base
+    ========================== */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .55s var(--easeOut), transform .55s var(--easeOut);
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; transition:none; }
+      .heroWrap::before{ animation:none !important; }
+    }
+
+    /* =========================
+       HERO (premium dark like other pages)
+    ========================== */
+    .hero{ padding: 18px 0 14px; }
+
+    .heroWrap{
+      border-radius: var(--r28);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 28px 90px rgba(2,6,23,.22);
+      position:relative;
+
+      /* Dark premium gradient */
+      background:
+        radial-gradient(900px 460px at 20% 10%, rgba(248,176,48,.20), transparent 60%),
+        radial-gradient(900px 460px at 85% 35%, rgba(130,184,34,.16), transparent 60%),
+        radial-gradient(900px 520px at 55% -10%, rgba(32,83,122,.30), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+
+    /* Subtle animated texture */
+    .heroWrap::before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      opacity:.22;
+      background:
+        radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+      background-size: 22px 22px;
+      transform: translate3d(0,0,0);
+      animation: heroDrift 10s linear infinite;
+      pointer-events:none;
+      mask-image: radial-gradient(58% 60% at 50% 35%, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-image: radial-gradient(58% 60% at 50% 35%, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+    @keyframes heroDrift{
+      0%{ transform: translate3d(0,0,0); }
+      100%{ transform: translate3d(22px, 22px, 0); }
+    }
+
+    .heroInner{
+      padding: 54px 22px;
+      text-align:center;
+      position:relative;
+    }
+
+    .heroBadge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.92);
+      box-shadow: 0 18px 44px rgba(2,6,23,.18);
+      margin-bottom: 16px;
+    }
+    .heroBadge .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: var(--yellow);
+      box-shadow: 0 14px 34px rgba(248,176,48,.26);
+    }
+
+    .heroTitle{
+      margin: 0 0 10px;
+      font-size: 56px;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      font-weight: 1000;
+      color: #fff;
+    }
+
+    .heroSub{
+      margin: 0 auto 10px;
+      max-width: 92ch;
+      color: rgba(255,255,255,.86);
+      line-height: 1.85;
+      font-size: 15.6px;
+      font-weight: 600;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+    .heroDesc{
+      margin: 0 auto 18px;
+      max-width: 92ch;
+      color: rgba(255,255,255,.78);
+      line-height: 1.75;
+      font-size: 14.6px;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+
+    .heroCtas{
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    /* No arrows anywhere */
+    .ctaPrimary,
+    .ctaGhost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-width: 220px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 900;
+      text-decoration:none;
+      cursor:pointer;
+      transition: transform .15s var(--easeOut), box-shadow .15s var(--easeOut), filter .15s var(--easeOut);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .ctaPrimary{
+      background: linear-gradient(135deg, var(--yellow), #ffd58b);
+      border-color: rgba(248,176,48,.35);
+      color:#1b1600;
+      box-shadow: 0 20px 52px rgba(248,176,48,.16);
+    }
+    .ctaPrimary:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      box-shadow: 0 26px 66px rgba(248,176,48,.20);
+    }
+
+    .ctaGhost{
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 18px 48px rgba(2,6,23,.16);
+    }
+    .ctaGhost:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.14);
+    }
+
+    @media (max-width: 700px){
+      .heroTitle{ font-size: 40px; }
+      .heroInner{ padding: 42px 16px; }
+    }
+
+    /* =========================
+       Section headings (clean)
+    ========================== */
+    .sectionTitle{
+      text-align:center;
+      margin: 30px 0 8px;
+      font-size: 34px;
+      font-weight: 1000;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .sectionSub{
+      text-align:center;
+      margin: 0 auto 16px;
+      max-width: 74ch;
+      color: rgba(11,18,32,.64);
+      line-height: 1.7;
+      font-size: 14.6px;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* =========================
+       Subject cards
+    ========================== */
+    .subjects{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+    @media (max-width: 980px){ .subjects{ grid-template-columns: 1fr; } }
+
+    .sCard{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r22);
+      box-shadow: var(--shadowSoft);
+      padding: 16px;
+      display:flex;
+      align-items:flex-start;
+      gap: 12px;
+      cursor:pointer;
+      transition: transform .18s var(--easeOut), box-shadow .18s var(--easeOut), border-color .18s var(--easeOut);
+      text-decoration:none;
+      color: inherit;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .tint-phy{ background: linear-gradient(180deg, rgba(130,184,34,.12), #fff 65%); }
+    .tint-math{ background: linear-gradient(180deg, rgba(32,83,122,.12), #fff 65%); }
+    .tint-chem{ background: linear-gradient(180deg, rgba(248,176,48,.14), #fff 65%); }
+
+    .sCard::after{
+      content:"";
+      position:absolute;
+      inset:-40px -30px auto auto;
+      width: 220px; height: 220px;
+      border-radius: 999px;
+      opacity:.10;
+      background: radial-gradient(circle at 30% 30%, rgba(15,23,42,.35), transparent 60%);
+      pointer-events:none;
+      transform: translate3d(0,0,0);
+      transition: opacity .18s var(--easeOut);
+    }
+
+    .sCard:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadowMid);
+      border-color: rgba(32,83,122,.18);
+    }
+    .sCard:hover::after{ opacity:.14; }
+
+    .sIcon{
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(15,23,42,.10);
+      font-weight: 900;
+      color: var(--navy);
+      flex: 0 0 auto;
+      font-size: 18px;
+      transition: transform .18s var(--easeOut);
+    }
+    .sCard:hover .sIcon{ transform: translateY(-2px); }
+
+    .icon-phy{ background: linear-gradient(180deg, rgba(130,184,34,.20), rgba(130,184,34,.06)); }
+    .icon-math{ background: linear-gradient(180deg, rgba(32,83,122,.20), rgba(32,83,122,.06)); }
+    .icon-chem{ background: linear-gradient(180deg, rgba(248,176,48,.22), rgba(248,176,48,.08)); }
+
+    .sBody h3{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .sBody p{
+      margin: 6px 0 10px;
+      color: rgba(11,18,32,.64);
+      font-size: 13.6px;
+      line-height: 1.55;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+    .meta{
+      display:flex;
+      gap: 14px;
+      flex-wrap:wrap;
+      color: rgba(11,18,32,.62);
+      font-size: 12.8px;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+    .meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .meta .dot{
+      width: 10px; height: 10px;
+      border-radius: 4px;
+      background: rgba(15,23,42,.18);
+      display:inline-block;
+    }
+    .meta .dot.blue{ background: rgba(32,83,122,.38); }
+    .meta .dot.yellow{ background: rgba(248,176,48,.50); }
+
+    /* =========================
+       Why cards
+    ========================== */
+    .whyGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+    @media (max-width: 980px){ .whyGrid{ grid-template-columns: 1fr; } }
+
+    .wCard{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r22);
+      box-shadow: var(--shadowSoft);
+      padding: 16px;
+      min-height: 126px;
+      transition: transform .18s var(--easeOut), box-shadow .18s var(--easeOut), border-color .18s var(--easeOut);
+    }
+    .wCard:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadowMid);
+      border-color: rgba(32,83,122,.16);
+    }
+    .wTop{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wIcon{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(15,23,42,.04);
+      font-weight: 900;
+      color: var(--navy);
+      flex: 0 0 auto;
+      transition: transform .18s var(--easeOut);
+    }
+    .wCard:hover .wIcon{ transform: translateY(-2px); }
+
+    .wIcon.blue{ background: rgba(32,83,122,.08); color: var(--blue); border-color: rgba(32,83,122,.14); }
+    .wIcon.yellow{ background: rgba(248,176,48,.10); color: #8a5a00; border-color: rgba(248,176,48,.20); }
+    .wIcon.green{ background: rgba(130,184,34,.10); color: #2f5d0c; border-color: rgba(130,184,34,.18); }
+
+    .wCard h3{ margin:0; font-size: 15.5px; font-weight: 800; }
+    .wCard p{
+      margin:0;
+      color: rgba(11,18,32,.64);
+      line-height: 1.7;
+      font-size: 13.8px;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+    }
+
+    /* =========================
+       Final CTA
+    ========================== */
+    .finalCta{
+      margin: 22px 0 54px;
+      border-radius: var(--r28);
+      padding: 32px 18px;
+      text-align:center;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 28px 90px rgba(2,6,23,.18);
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(248,176,48,.20), transparent 60%),
+        radial-gradient(900px 420px at 88% 30%, rgba(32,83,122,.18), transparent 60%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .finalCta::before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      opacity:.20;
+      background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events:none;
+      mask-image: radial-gradient(58% 60% at 50% 35%, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-image: radial-gradient(58% 60% at 50% 35%, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+    .finalCta h2{
+      margin: 0 0 10px;
+      font-size: 40px;
+      font-weight: 1000;
+      letter-spacing: -0.02em;
+      color: #fff;
+      position:relative;
+    }
+    .finalCta p{
+      margin: 0 auto 18px;
+      max-width: 84ch;
+      color: rgba(255,255,255,.84);
+      line-height: 1.7;
+      font-weight: 500;
+      font-family: "Hind Siliguri", Inter, sans-serif;
+      position:relative;
+    }
+    .finalBtns{
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      position:relative;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.10);
+      font-weight: 900;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+      color: rgba(255,255,255,.92);
+      transition: transform .15s var(--easeOut), box-shadow .15s var(--easeOut), background .15s var(--easeOut);
+      min-width: 220px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 18px 48px rgba(2,6,23,.16);
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.14); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--yellow), #ffd58b);
+      border-color: rgba(248,176,48,.35);
+      color:#1b1600;
+      box-shadow: 0 20px 52px rgba(248,176,48,.16);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .btn.primary:hover{ box-shadow: 0 26px 66px rgba(248,176,48,.20); }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      background:#0b1220;
+      color:#fff;
+      padding:12px 14px;
+      border-radius: 14px;
+      box-shadow: 0 22px 70px rgba(2,6,23,.18);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 9999;
+      font-size: 13px;
+      max-width: min(560px, calc(100% - 26px));
+    }
+    .toast.show{ opacity:1; transform: translateX(-50%) translateY(-6px); }
+  </style>
+</head>
+
+<body class="page-bg">
+  <!-- Injected header -->
+  <div id="header"></div>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero reveal" id="top">
+      <div class="heroWrap">
+        <div class="heroInner">
+          <div class="heroBadge"><span class="dot"></span> Bachelor Admission Focus • CSCA Required (Selected Universities)</div>
+
+          <h1 class="heroTitle">CSCA Exam Preparation</h1>
+
+          <p class="heroSub">
+            Structured preparation for the China Scholastic Competency Assessment required by selected universities for Bachelor admission in China.
+          </p>
+
+          <p class="heroDesc">
+            Learn Mathematics, Physics, and Chemistry chapter-wise with organized video lessons and exam-focused materials.
+          </p>
+
+          <div class="heroCtas">
+            <a class="ctaPrimary js-guard" data-dest="/student/index.php" href="/student/index.php">Start Learning</a>
+            <a class="ctaGhost js-guard" data-dest="/auth/register.php" href="/auth/register.php">Create Free Account</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <h2 class="sectionTitle reveal" style="margin-top:34px;">Choose your subject</h2>
+    <p class="sectionSub reveal">Access structured lessons after creating your free account and completing verification.</p>
+
+    <section class="subjects" aria-label="Subjects">
+      <a class="sCard tint-phy js-guard reveal" data-dest="/student/course.php?subject=physics" href="/student/course.php?subject=physics">
+        <div class="sIcon icon-phy">⚙️</div>
+        <div class="sBody">
+          <h3>Physics</h3>
+          <p>Core Physics concepts aligned with CSCA exam patterns.</p>
+          <div class="meta">
+            <span><i class="dot blue"></i>Chapters: —</span>
+            <span><i class="dot yellow"></i>Videos: —</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="sCard tint-math js-guard reveal" data-dest="/student/course.php?subject=math" href="/student/course.php?subject=math">
+        <div class="sIcon icon-math">√x</div>
+        <div class="sBody">
+          <h3>Mathematics</h3>
+          <p>Essential math topics structured for CSCA preparation.</p>
+          <div class="meta">
+            <span><i class="dot blue"></i>Chapters: —</span>
+            <span><i class="dot yellow"></i>Videos: —</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="sCard tint-chem js-guard reveal" data-dest="/student/course.php?subject=chemistry" href="/student/course.php?subject=chemistry">
+        <div class="sIcon icon-chem">🧪</div>
+        <div class="sBody">
+          <h3>Chemistry</h3>
+          <p>Key chemistry fundamentals designed for CSCA success.</p>
+          <div class="meta">
+            <span><i class="dot blue"></i>Chapters: —</span>
+            <span><i class="dot yellow"></i>Videos: —</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- WHY -->
+    <h2 class="sectionTitle reveal" style="margin-top:34px;">Why Prepare CSCA with DemoticEdu</h2>
+    <p class="sectionSub reveal">Focused lessons. Clear structure. Admission-aligned preparation.</p>
+
+    <section class="whyGrid" aria-label="Why DemoticEdu">
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon green">🧩</div>
+          <h3>Structured Chapters</h3>
+        </div>
+        <p>Clear learning path with organized modules.</p>
+      </div>
+
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon blue">🎯</div>
+          <h3>Exam-Focused Content</h3>
+        </div>
+        <p>Designed specifically for CSCA patterns.</p>
+      </div>
+
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon yellow">⏱️</div>
+          <h3>Learn at Your Pace</h3>
+        </div>
+        <p>Flexible study anytime.</p>
+      </div>
+
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon blue">👥</div>
+          <h3>Community Support</h3>
+        </div>
+        <p>Discuss and clarify doubts.</p>
+      </div>
+
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon green">🎓</div>
+          <h3>Experienced Academic Instructors</h3>
+        </div>
+        <p>Guided by mentors with real academic experience in China.</p>
+      </div>
+
+      <div class="wCard reveal">
+        <div class="wTop">
+          <div class="wIcon yellow">📌</div>
+          <h3>Admission Aligned</h3>
+        </div>
+        <p>Preparation designed for Bachelor admission requirements.</p>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="finalCta reveal" aria-label="Final call to action">
+      <h2>Ready to begin your CSCA preparation?</h2>
+      <p>Create your account to access structured lessons and join thousands of students preparing in Math, Physics, and Chemistry.</p>
+      <div class="finalBtns">
+        <a class="btn primary js-guard" data-dest="/auth/register.php" href="/auth/register.php">Create Account</a>
+        <a class="btn js-guard" data-dest="/student/index.php" href="/student/index.php">Start Learning</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Injected footer -->
+  <div id="footer"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* ===== REAL Frontend gate (session-based) =====
+      - If NOT logged in: redirect to /auth/login.php?next=<destination>
+      - If logged in: go destination directly
+      Uses: /api/me.php (session cookie)
+    */
+
+    const AUTH = {
+      login: '/auth/login.php',
+      nextParam: 'next',
+    };
+
+    async function isLoggedIn(){
+      try{
+        const res = await fetch('/api/me.php', {
+          method: 'GET',
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        const data = await res.json();
+        return data && data.ok === true;
+      }catch(e){
+        return false;
+      }
+    }
+
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      if(!t) return;
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+    }
+
+    function goLogin(nextUrl){
+      const next = nextUrl.startsWith('/') ? nextUrl : ('/' + nextUrl);
+      const u = new URL(AUTH.login, window.location.origin);
+      u.searchParams.set(AUTH.nextParam, next);
+      window.location.href = u.toString();
+    }
+
+    async function guardedNavigate(dest){
+      const ok = await isLoggedIn();
+      if (ok){
+        window.location.href = dest;
+        return;
+      }
+      showToast("Login to access CSCA materials.");
+      setTimeout(()=>goLogin(dest), 240);
+    }
+
+    function bindGuards(){
+      document.querySelectorAll('.js-guard').forEach(el=>{
+        el.addEventListener('click', async (e)=>{
+          const dest = el.getAttribute('data-dest') || el.getAttribute('href');
+          if(!dest) return;
+
+          const ok = await isLoggedIn();
+          if(!ok){
+            e.preventDefault();
+            guardedNavigate(dest);
+          }
+        });
+      });
+    }
+
+    /* Scroll reveal */
+    function initReveal(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el=>el.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting){
+            en.target.classList.add('in');
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+      els.forEach(el=>io.observe(el));
+    }
+
+    /* Header/footer injection (matches your site pattern) */
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      async function inject(id, file){
+        try{
+          const res = await fetch(file, {cache:'no-store'});
+          if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          const el = document.getElementById(id);
+          if(el) el.innerHTML = await res.text();
+        }catch(err){
+          console.error('Failed to load', file, err);
+          const el = document.getElementById(id);
+          if(el) el.innerHTML = '';
+        }
+      }
+
+      await Promise.all([
+        inject('header', 'header-footer/header.html'),
+        inject('footer', 'header-footer/footer.html')
+      ]);
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      // Load site JS (burger toggle, footer year, etc.)
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260302';
+      document.body.appendChild(s);
+
+      bindGuards();
+      initReveal();
+    })();
+  </script>
+</body>
+</html>

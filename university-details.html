@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>University Details | DemoticEdu</title>
+  <meta name="description" content="University details, scholarship policy, requirements, majors, fees, deadlines.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root{
+      --brand-navy:#103048;
+      --brand-blue:#104878;
+      --brand-orange:#F8B030;
+      --brand-green:#90C018;
+
+      --ink:#0b1220;
+      --muted:#5b6b85;
+      --bg:#f6f7fb;
+      --border: rgba(15,23,42,.10);
+
+      --shadowSoft: 0 14px 38px rgba(2,6,23,.06);
+      --shadowMid: 0 18px 60px rgba(2,6,23,.10);
+
+      --topbar-h: 0px;
+      --nav-h: 0px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    a{ color:inherit; text-decoration:none; }
+
+    body.page-bg{
+      font-family: Inter, "Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg) !important;
+      color: var(--ink);
+      line-height: 1.55;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
+      overflow-x:hidden;
+    }
+
+    .container-wide{
+      width: min(1280px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Background */
+    .page-bg::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(900px 360px at 10% 6%, rgba(248,176,48,.16), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(16,72,120,.14), transparent 60%),
+        linear-gradient(#f7f8fc,#f6f7fb);
+    }
+    .page-bg::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.55;
+      background-image: radial-gradient(rgba(15,23,42,.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(62% 55% at 50% 18%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .ico{ width:18px; height:18px; display:inline-block; vertical-align:-4px; }
+
+    /* ===== HERO ===== */
+    .ud-heroWrap{ padding: 18px 0 0; }
+    .ud-hero{
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      min-height: 420px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 40px 120px rgba(2,6,23,.22);
+      background:
+        radial-gradient(900px 400px at 18% 30%, rgba(248,176,48,.18), transparent 60%),
+        radial-gradient(900px 420px at 80% 18%, rgba(144,192,24,.12), transparent 62%),
+        radial-gradient(900px 420px at 60% 85%, rgba(16,72,120,.18), transparent 62%),
+        linear-gradient(135deg, #071421, #0b2a3f, #0f3a63);
+    }
+    .ud-heroImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.03);
+      opacity:.96;
+    }
+    .ud-heroShade{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1100px 520px at 22% 20%, rgba(0,0,0,.14), transparent 60%),
+        linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.74));
+    }
+    .ud-heroInner{
+      position: relative;
+      z-index: 2;
+      padding: 56px 26px 60px;
+      color:#fff;
+    }
+    .ud-titleRow{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+    .ud-logo{
+      width:72px; height:72px;
+      border-radius:18px;
+      background:#fff;
+      padding:9px;
+      object-fit:contain;
+      box-shadow: 0 16px 40px rgba(0,0,0,.26);
+      flex:0 0 auto;
+    }
+    .ud-title{
+      margin:0;
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight:950;
+      letter-spacing:-1px;
+      line-height:1.06;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+    }
+    .ud-sub{
+      margin:12px 0 0;
+      color:#d7e3f3;
+      opacity:.96;
+      font-weight:800;
+      font-size:14px;
+    }
+    .ud-tags{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      color:#fff;
+      white-space:nowrap;
+      transition: transform 200ms var(--ease), background 200ms var(--ease);
+    }
+    .chip:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.16);
+    }
+    .chip.orange{
+      background: rgba(248,176,48,.18);
+      border-color: rgba(248,176,48,.30);
+    }
+    .chip.green{
+      background: rgba(144,192,24,.18);
+      border-color: rgba(144,192,24,.30);
+    }
+    /* GOLD ranking chips */
+    .chip.gold{
+      background: rgba(248,176,48,.20);
+      border-color: rgba(248,176,48,.36);
+      color:#fff;
+      box-shadow: 0 18px 46px rgba(248,176,48,.16);
+    }
+
+    /* ===== MAIN ===== */
+    .section{ padding: 18px 0 60px; }
+
+    .ud-layout{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:18px;
+      align-items:start;
+      margin-top: 18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow: var(--shadowSoft);
+      overflow:hidden;
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 70px rgba(2,6,23,.10);
+    }
+
+    .card .hd{
+      padding:14px 16px;
+      border-bottom:1px solid var(--border);
+      font-weight:950;
+      font-size:14px;
+      letter-spacing:-.2px;
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .card .bd{ padding:14px 16px; }
+
+    .muted{ color: var(--muted); font-weight:800; font-size:13px; }
+    .hoverText{ transition: color 180ms var(--ease); }
+    .card:hover .hoverText{ color: var(--brand-blue); }
+
+    /* Scholarship grid */
+    .sch-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top: 10px;
+    }
+    .sch-box{
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:12px 12px;
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+    .sch-box:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 44px rgba(2,6,23,.10);
+    }
+    .sch-title{
+      font-weight:950;
+      font-size:13px;
+      margin:0 0 10px;
+      color:#0b2a3f;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .sch-list{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .sch-item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-weight:850;
+      color: rgba(11,18,32,.92);
+      font-size:13px;
+      transition: color 180ms var(--ease);
+    }
+    .sch-item:hover{ color: var(--brand-blue); }
+    .sch-note{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid rgba(248,176,48,.26);
+      background: rgba(248,176,48,.12);
+      color:#6a3d00;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    /* Requirements */
+    .reqList{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .reqItem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg,#ffffff,#fbfbff);
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      font-weight:900;
+      color:#0b2a3f;
+    }
+    .reqItem:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(2,6,23,.10);
+      color: var(--brand-blue);
+    }
+
+    /* Majors */
+    .gridList{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px 12px;
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      font-weight:900;
+      font-size:13px;
+      color:#0b2a3f;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), color 180ms var(--ease);
+    }
+    .pill:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(2,6,23,.10);
+      color: var(--brand-blue);
+    }
+
+    /* Fees */
+    .feeList{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .feeRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:16px 16px;
+      border-radius:18px;
+      border:1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg,#ffffff,#fbfbff);
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+    .feeRow:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(2,6,23,.10);
+    }
+    .feeKey{
+      font-weight:950;
+      color:#0b2a3f;
+      transition: color 180ms var(--ease);
+    }
+    .feeRow:hover .feeKey{ color: var(--brand-blue); }
+    .feeVal{
+      font-weight:950;
+      font-size:13px;
+      color:#0b2a3f;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(248,248,255,.9);
+      white-space:nowrap;
+    }
+
+    /* Right sticky */
+    .ud-side{
+      position: sticky;
+      top: calc(var(--topbar-h) + var(--nav-h) + 16px);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .summaryList{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .sumRow{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      font-size:13px;
+      font-weight:900;
+      color:#0b2a3f;
+    }
+    .sumLeft{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      min-width: 140px;
+      color: rgba(11,18,32,.72);
+      font-weight:950;
+    }
+    .sumRight{
+      text-align:right;
+      color:#0b2a3f;
+      font-weight:950;
+    }
+
+    /* Deadline highlight */
+    .deadlineHighlight{
+      margin-top: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border-radius:18px;
+      padding:12px 12px;
+      border:1px solid rgba(248,176,48,.30);
+      background:
+        radial-gradient(420px 120px at 18% 20%, rgba(248,176,48,.22), transparent 60%),
+        linear-gradient(180deg,#ffffff,#fffaf0);
+      box-shadow: 0 16px 46px rgba(248,176,48,.14);
+      transition: transform 200ms var(--ease);
+    }
+    .deadlineHighlight:hover{ transform: translateY(-2px); }
+    .deadlineTitle{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:950;
+      color:#6a3d00;
+      font-size:13px;
+    }
+    .deadlineVal{
+      font-weight:950;
+      color:#0b2a3f;
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(15,23,42,.10);
+      padding:8px 10px;
+      border-radius:12px;
+      white-space:nowrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:13px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      cursor:pointer;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), filter 220ms var(--ease);
+      width:100%;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow:0 16px 34px rgba(2,6,23,.10);
+      filter: saturate(1.05);
+    }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--brand-orange), #ffd58b);
+      color:#1b1600;
+      box-shadow:0 18px 44px rgba(0,0,0,.10);
+    }
+    .btn.whatsapp{
+      border:none;
+      background: linear-gradient(135deg, #25D366, #86efac);
+      color:#052e12;
+      box-shadow:0 18px 44px rgba(0,0,0,.10);
+    }
+
+    /* End: Eligibility link only */
+    .endLink{
+      margin-top: 18px;
+      border-radius:22px;
+      padding:16px;
+      border:1px solid rgba(15,23,42,.10);
+      background: linear-gradient(180deg,#fff,#fbfbff);
+      box-shadow: var(--shadowSoft);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .endLink strong{
+      font-family:"Hind Siliguri", Inter, sans-serif;
+      font-size:16px;
+      font-weight:950;
+    }
+    .endLink a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:#fff;
+      font-weight:950;
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), color 200ms var(--ease);
+    }
+    .endLink a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(2,6,23,.10);
+      color: var(--brand-blue);
+    }
+
+    @media (max-width: 1060px){
+      .ud-layout{ grid-template-columns: 1fr; }
+      .ud-side{ position:relative; top:auto; }
+    }
+    @media (max-width: 920px){
+      .sch-grid{ grid-template-columns: 1fr; }
+      .gridList{ grid-template-columns: 1fr; }
+      .ud-hero{ min-height: 400px; }
+    }
+    @media (max-width: 520px){
+      .ud-logo{ width:64px;height:64px; }
+      .ud-heroInner{ padding: 46px 16px 56px; }
+      .sumLeft{ min-width: 120px; }
+    }
+    /* ===== Ranking Logos ===== */
+.rankLogoWrap{
+  width: 28px;
+  height: 22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 8px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 10px 26px rgba(0,0,0,.14);
+  overflow:hidden;
+}
+
+.rankLogo{
+  width: 22px;
+  height: 16px;
+  object-fit: contain;
+  display:block;
+}
+
+.rankLogo.usnews{
+  width: 26px;
+}
+  </style>
+</head>
+
+<body class="page-bg">
+  <div id="header"></div>
+
+  <!-- HERO -->
+  <section class="ud-heroWrap">
+    <div class="container-wide">
+      <div class="ud-hero" id="heroBox"></div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="ud-layout" id="contentRoot"></div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+    function esc(s){
+      return String(s ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#39;");
+    }
+    function getParam(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || "";
+    }
+    function isObj(v){ return v && typeof v === "object" && !Array.isArray(v); }
+
+    async function loadUniversities(){
+      const res = await fetch("data/universities.json", { cache: "no-store" });
+      if(!res.ok) throw new Error("Failed to load data/universities.json");
+      return await res.json();
+    }
+
+    const ICONS = {
+      city: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l6-4v16" stroke="currentColor" stroke-width="2"/><path d="M9 21V3l12 6v12" stroke="currentColor" stroke-width="2"/><path d="M13 13h4M13 17h4M13 9h4" stroke="currentColor" stroke-width="2"/></svg>`,
+      cap: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 8.5L12 4l9 4.5-9 4.5L3 8.5Z" stroke="currentColor" stroke-width="2"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5" stroke="currentColor" stroke-width="2"/></svg>`,
+      cal: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2"/><path d="M4 7h16" stroke="currentColor" stroke-width="2"/><path d="M6 21h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z" stroke="currentColor" stroke-width="2"/></svg>`,
+      star: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.7 6.3.9-4.6 4.5 1.1 6.3L12 17.8 6.5 20.4 7.6 14 3 9.6l6.3-.9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+      trophy: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M8 4h8v3a4 4 0 0 1-8 0V4Z" stroke="currentColor" stroke-width="2"/><path d="M6 4H4v3a4 4 0 0 0 4 4" stroke="currentColor" stroke-width="2"/><path d="M18 4h2v3a4 4 0 0 1-4 4" stroke="currentColor" stroke-width="2"/><path d="M12 11v4" stroke="currentColor" stroke-width="2"/><path d="M8 21h8" stroke="currentColor" stroke-width="2"/><path d="M10 15h4l1 6H9l1-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+      clock: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+      check: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      money: `<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 7h18v10H3V7Z" stroke="currentColor" stroke-width="2"/><path d="M7 7v10M17 7v10" stroke="currentColor" stroke-width="2"/><path d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" stroke="currentColor" stroke-width="2"/></svg>`
+    };
+
+    function feeKeyNice(key){
+      const map = {
+        application: "Application Fee",
+        tuition: "Tuition Fee",
+        hostel: "Accommodation",
+        accommodation: "Accommodation",
+        insurance: "Medical Insurance",
+        medical: "Health Check up",
+        residencePermit: "Residence Permit",
+        registration: "Registration Fees",
+        annualTuition: "Annual Tuition",
+        deposit: "Deposit",
+        textbooks: "Textbooks",
+        bedding: "Bedding"
+      };
+      return map[key] || (key || "").replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
+    }
+
+    function getLocation(u){
+      const loc = isObj(u.location) ? u.location : {};
+      return {
+        city: loc.city || u.city || "",
+        province: loc.province || u.province || "",
+        country: loc.country || u.country || "China"
+      };
+    }
+
+    function getScholarshipModel(u){
+      const sch = u.scholarship;
+      if(typeof sch === "string") return sch.trim();
+      if(isObj(sch)){
+        return (sch.model && String(sch.model).trim()) ? String(sch.model).trim() : (sch.available ? "Scholarship Available" : "");
+      }
+      return "";
+    }
+
+    function requirementsLines(req){
+      if(typeof req === "string") return req ? [req] : [];
+      if(!isObj(req)) return [];
+      const lines = [];
+      if(req.academic) lines.push(`Academic: ${req.academic}`);
+      if(req.cgpa) lines.push(`CGPA/GPA: ${req.cgpa}`);
+      if(Array.isArray(req.english) && req.english.length) lines.push(`English: ${req.english.join(" / ")}`);
+      if(req.hsk) lines.push(`HSK: ${req.hsk}`);
+      if(req.csca === true) lines.push(`CSCA: Required`);
+      if(req.interview === true) lines.push(`Interview: Required`);
+      if(req.extra) lines.push(`Extra: ${req.extra}`);
+      if(Array.isArray(req.notes) && req.notes.length) req.notes.forEach(n => lines.push(String(n)));
+      return lines;
+    }
+
+    function rankingChips(ranking){
+  if(!isObj(ranking)) return "";
+
+  const sources = [
+    { key: "qs",     logo: "assets/ranking/qs.png",     tip: "QS World University Rankings" },
+    { key: "times",  logo: "assets/ranking/times.png",  tip: "Times Higher Education" },
+    { key: "usNews", logo: "assets/ranking/usnews.png", tip: "U.S. News Best Global Universities" }
+  ];
+
+  const chips = [];
+
+  for(const s of sources){
+    const val = String(ranking[s.key] ?? "").trim();
+    if(!val) continue;
+
+    const isUS = s.key === "usNews";
+
+    chips.push(`
+      <span class="chip gold" title="${esc(s.tip)}">
+        <span class="rankLogoWrap">
+          <img
+            class="rankLogo ${isUS ? "usnews" : ""}"
+            src="${esc(s.logo)}"
+            alt=""
+          >
+        </span>
+        <span>${esc(val)}</span>
+      </span>
+    `);
+  }
+
+  return chips.length ? chips.join("") : "";
+}
+
+    /* ===== Scholarship renderers (separate cards) ===== */
+
+    function buildFirstYearScholarship(sch){
+      if(!isObj(sch) || !isObj(sch.firstYear)) return "";
+      const items = Array.isArray(sch.firstYear.benefits) ? sch.firstYear.benefits : [];
+      if(!items.length) return "";
+
+      return `
+        <div class="sch-grid">
+          <div class="sch-box">
+            <p class="sch-title">${ICONS.star}<span class="hoverText">First Year Scholarship</span></p>
+            <ul class="sch-list">
+              ${items.map(i => `
+                <li class="sch-item">
+                  <span style="color:var(--brand-green);">${ICONS.check}</span>
+                  <span>${esc(i)}</span>
+                </li>`).join("")}
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    function buildFromSecondYearScholarship(sch){
+      if(!isObj(sch) || !isObj(sch.fromSecondYear)) return "";
+      const bands = Array.isArray(sch.fromSecondYear.bands) ? sch.fromSecondYear.bands : [];
+      if(!bands.length) return "";
+
+      const basedOn = String(sch.fromSecondYear.basedOn ?? "").trim();
+
+      return `
+        ${basedOn ? `<div class="muted" style="margin-bottom:10px;">Based on: <b>${esc(basedOn)}</b></div>` : ``}
+        <div class="sch-grid">
+          ${bands.map(b => {
+            const label = String(b.label ?? "").trim() || "Scholarship";
+            const pct = String(b.percentage ?? "").trim();
+            const title = pct ? `${label} — ${pct}` : label;
+            const items = Array.isArray(b.benefits) ? b.benefits : [];
+            const conditions = Array.isArray(b.conditions) ? b.conditions : [];
+            return `
+              <div class="sch-box">
+                <p class="sch-title">${ICONS.star}<span class="hoverText">${esc(title)}</span></p>
+                ${
+                  (items.length || conditions.length)
+                    ? `<ul class="sch-list">
+                        ${items.map(i => `
+                          <li class="sch-item">
+                            <span style="color:var(--brand-green);">${ICONS.check}</span>
+                            <span>${esc(i)}</span>
+                          </li>`).join("")}
+                        ${conditions.map(c => `
+                          <li class="sch-item">
+                            <span style="color:var(--brand-orange);">${ICONS.star}</span>
+                            <span><b>Condition:</b> ${esc(c)}</span>
+                          </li>`).join("")}
+                      </ul>`
+                    : `<div class="muted">Details will be added soon.</div>`
+                }
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function buildProgramBasedScholarship(sch){
+      if(!isObj(sch) || !Array.isArray(sch.programSpecific) || !sch.programSpecific.length) return "";
+
+      const boxes = [];
+      for(const ps of sch.programSpecific){
+        const program = String(ps.program ?? "").trim() || "Program";
+        const types = Array.isArray(ps.types) ? ps.types : [];
+        for(const t of types){
+          const label = String(t.label ?? "").trim() || "Scholarship";
+          const items = Array.isArray(t.benefits) ? t.benefits : [];
+          boxes.push({ title: `${program}: ${label}`, items });
+        }
+      }
+
+      if(!boxes.length) return "";
+
+      return `
+        <div class="sch-grid">
+          ${boxes.map(b => `
+            <div class="sch-box">
+              <p class="sch-title">${ICONS.star}<span class="hoverText">${esc(b.title)}</span></p>
+              ${
+                b.items.length
+                  ? `<ul class="sch-list">
+                      ${b.items.map(i => `
+                        <li class="sch-item">
+                          <span style="color:var(--brand-green);">${ICONS.check}</span>
+                          <span>${esc(i)}</span>
+                        </li>`).join("")}
+                    </ul>`
+                  : `<div class="muted">Details will be added soon.</div>`
+              }
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function buildScholarshipNotes(sch){
+      if(!isObj(sch)) return "";
+      const notes = [];
+      const model = (sch.model && String(sch.model).trim()) ? String(sch.model).trim() : "";
+      if(model) notes.push(model);
+      if(Array.isArray(sch.notes) && sch.notes.length) sch.notes.forEach(n => notes.push(String(n)));
+      const noteText = notes.filter(Boolean).join(" • ");
+      return noteText ? `<div class="sch-note">${esc(noteText)}</div>` : "";
+    }
+
+    function renderNotFound(slug){
+      document.title = "University Not Found | DemoticEdu";
+      document.getElementById("heroBox").innerHTML = `
+        <div class="ud-heroShade"></div>
+        <div class="ud-heroInner">
+          <div class="ud-titleRow">
+            <div>
+              <h1 class="ud-title">University not found</h1>
+              <p class="ud-sub">No entry matched: <b>${esc(slug || "(empty)")}</b></p>
+              <div class="ud-tags" style="margin-top:18px;">
+                <a class="chip" href="universities.html">← Back to Universities</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById("contentRoot").innerHTML = `
+        <div class="card">
+          <div class="hd">${ICONS.star}<span class="hoverText">Not Found</span></div>
+          <div class="bd">
+            <p class="muted">Go back to the listing page and try again.</p>
+            <div style="margin-top:12px;">
+              <a class="btn primary" href="universities.html" style="width:auto;">Back to Universities</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderUniversity(u){
+      const name = u.name || "University";
+      const loc = getLocation(u);
+
+      const programLevel = u.programLevel || u.programType || "";
+      const duration = u.duration || "";
+      const intake = u.intake || "";
+      const deadline = u.deadline || "";
+      const ageLimit = u.ageLimit || "";
+
+      const schModel = getScholarshipModel(u);
+      const reqLines = requirementsLines(u.requirements);
+
+      // Support both: majors OR subjects
+      const majors = Array.isArray(u.majors) ? u.majors : (Array.isArray(u.subjects) ? u.subjects : []);
+      const feesObj = isObj(u.fees) ? u.fees : {};
+
+      const slug = String(u.slug || "");
+      const hero = (u.heroImage && String(u.heroImage).trim()) ? String(u.heroImage).trim() : (slug ? `assets/universities/${slug}/hero.jpg` : "");
+      const logo = (u.logo && String(u.logo).trim()) ? String(u.logo).trim() : (slug ? `assets/universities/${slug}/logo.png` : "");
+
+      const rankingHtml = rankingChips(u.ranking);
+
+      document.getElementById("heroBox").innerHTML = `
+        ${hero ? `<img class="ud-heroImg" src="${esc(hero)}" alt="${esc(name)}" onerror="this.remove()">` : ``}
+        <div class="ud-heroShade"></div>
+        <div class="ud-heroInner">
+          <div class="ud-titleRow">
+            ${logo ? `<img class="ud-logo" src="${esc(logo)}" alt="${esc(name)} logo" onerror="this.remove()">` : ``}
+            <div>
+              <h1 class="ud-title">${esc(name)}</h1>
+              <p class="ud-sub">${esc([loc.city, loc.province, loc.country].filter(Boolean).join(", "))}</p>
+
+              <div class="ud-tags">
+                ${programLevel ? `<span class="chip">🎓 ${esc(programLevel)}</span>` : ``}
+                ${intake ? `<span class="chip orange">📅 ${esc(intake)} Intake</span>` : ``}
+                ${schModel ? `<span class="chip green">🎯 ${esc(schModel)}</span>` : ``}
+              </div>
+
+              ${rankingHtml ? `<div class="ud-tags" style="margin-top:12px;">${rankingHtml}</div>` : ``}
+            </div>
+          </div>
+        </div>
+      `;
+
+      /* Scholarship cards (Option A) */
+      const sch = isObj(u.scholarship) ? u.scholarship : null;
+      const firstYearHTML = buildFirstYearScholarship(sch);
+      const secondYearHTML = buildFromSecondYearScholarship(sch);
+      const programBasedHTML = buildProgramBasedScholarship(sch);
+      const schNoteHTML = buildScholarshipNotes(sch);
+
+      const scholarshipCards = `
+        ${firstYearHTML ? `
+          <div class="card">
+            <div class="hd">${ICONS.star}<span class="hoverText">First Year Scholarship</span></div>
+            <div class="bd">
+              ${firstYearHTML}
+              ${schNoteHTML}
+            </div>
+          </div>
+        ` : ``}
+
+        ${secondYearHTML ? `
+          <div class="card">
+            <div class="hd">${ICONS.star}<span class="hoverText">From Second Year Scholarship</span></div>
+            <div class="bd">
+              ${secondYearHTML}
+              ${schNoteHTML}
+            </div>
+          </div>
+        ` : ``}
+
+        ${programBasedHTML ? `
+          <div class="card">
+            <div class="hd">${ICONS.star}<span class="hoverText">Program-Based Scholarship</span></div>
+            <div class="bd">
+              ${programBasedHTML}
+              ${schNoteHTML}
+            </div>
+          </div>
+        ` : ``}
+
+        ${(!firstYearHTML && !secondYearHTML && !programBasedHTML) ? `
+          <div class="card">
+            <div class="hd">${ICONS.star}<span class="hoverText">Scholarship Policy</span></div>
+            <div class="bd">
+              <div class="muted">Scholarship details will be added soon.</div>
+              ${schNoteHTML}
+            </div>
+          </div>
+        ` : ``}
+      `;
+
+      const feeEntries = Object.entries(feesObj).filter(([k,v]) => String(v||"").trim() !== "");
+      const feeHTML = feeEntries.length
+        ? `<div class="feeList">
+            ${feeEntries.map(([k,v]) => `
+              <div class="feeRow">
+                <div class="feeKey">${esc(feeKeyNice(k))}</div>
+                <div class="feeVal">${esc(v)}</div>
+              </div>
+            `).join("")}
+          </div>`
+        : `<div class="muted">Fees will be added soon.</div>`;
+
+      const waText = `Hi DemoticEdu, I’m interested in ${name}${programLevel || intake ? ` (${[programLevel, intake].filter(Boolean).join(", ")})` : ""}. Please guide me.`;
+      const waLink = `https://wa.me/8801735387888?text=${encodeURIComponent(waText)}`;
+
+      document.getElementById("contentRoot").innerHTML = `
+        <!-- LEFT -->
+        <div style="display:flex; flex-direction:column; gap:18px;">
+
+          ${scholarshipCards}
+
+          <div class="card">
+            <div class="hd">${ICONS.check}<span class="hoverText">Requirements</span></div>
+            <div class="bd">
+              ${
+                reqLines.length
+                  ? `<ul class="reqList">
+                      ${reqLines.map(x => `
+                        <li class="reqItem">
+                          <span style="color:var(--brand-green);">${ICONS.check}</span>
+                          <span>${esc(x)}</span>
+                        </li>`).join("")}
+                    </ul>`
+                  : `<div class="muted">Requirements will be added soon.</div>`
+              }
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="hd">${ICONS.check}<span class="hoverText">Available Majors</span></div>
+            <div class="bd">
+              ${majors.length
+                ? `<div class="gridList">
+                    ${majors.map(m => `
+                      <div class="pill">
+                        <span style="color:#2563eb;">${ICONS.check}</span>
+                        <span>${esc(m)}</span>
+                      </div>
+                    `).join("")}
+                  </div>`
+                : `<div class="muted">Majors will be added soon.</div>`
+              }
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="hd">${ICONS.money}<span class="hoverText">Fees & Cost Breakdown</span></div>
+            <div class="bd">${feeHTML}</div>
+          </div>
+
+          <div class="endLink">
+            <div>
+              <strong>✅ Check Your Eligibility</strong>
+              <div class="muted" style="margin-top:4px;">See eligibility rules and required documents.</div>
+            </div>
+            <a href="eligibility.html" aria-label="Check eligibility">
+              ${ICONS.check}
+              <span>Check Eligibility</span>
+              <span style="font-weight:950;">→</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <aside class="ud-side">
+          <div class="card">
+            <div class="hd">${ICONS.cap}<span class="hoverText">Quick Summary</span></div>
+            <div class="bd">
+
+              <div class="summaryList">
+                ${loc.city ? `<div class="sumRow">
+                  <div class="sumLeft">${ICONS.city}<span>City</span></div>
+                  <div class="sumRight">${esc(loc.city)}</div>
+                </div>` : ``}
+
+                ${programLevel ? `<div class="sumRow">
+                  <div class="sumLeft">${ICONS.cap}<span>Degree</span></div>
+                  <div class="sumRight">${esc(programLevel)}</div>
+                </div>` : ``}
+
+                ${duration ? `<div class="sumRow">
+                  <div class="sumLeft">${ICONS.clock}<span>Duration</span></div>
+                  <div class="sumRight">${esc(duration)}</div>
+                </div>` : ``}
+                
+                ${ageLimit ? `
+                  <div class="sumRow">
+                  <div class="sumLeft">👤<span>Age Limit</span></div>
+                  <div class="sumRight">${esc(ageLimit)}</div>
+                  </div>
+                ` : ``}
+                ${intake ? `<div class="sumRow">
+                  <div class="sumLeft">${ICONS.cal}<span>Intake</span></div>
+                  <div class="sumRight">${esc(intake)}</div>
+                </div>` : ``}
+
+                ${schModel ? `<div class="sumRow">
+                  <div class="sumLeft">${ICONS.star}<span>Scholarship</span></div>
+                  <div class="sumRight">${esc(schModel)}</div>
+                </div>` : ``}
+              </div>
+
+              ${deadline ? `
+                <div class="deadlineHighlight">
+                  <div class="deadlineTitle">${ICONS.clock}<span>Deadline</span></div>
+                  <div class="deadlineVal">${esc(deadline)}</div>
+                </div>
+              ` : ``}
+
+              <div style="margin-top:12px; display:flex; flex-direction:column; gap:10px;">
+                <a class="btn primary" href="contact.html">Get Free Consultation</a>
+                <a class="btn whatsapp" href="${waLink}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+
+              <p class="muted" style="margin:12px 0 0;">
+                Need personalized guidance? Our consultants are ready to help.
+              </p>
+            </div>
+          </div>
+        </aside>
+      `;
+
+      document.title = `${name} | DemoticEdu`;
+    }
+
+    (async function(){
+      const slug = getParam("u").trim();
+      try{
+        const list = await loadUniversities();
+        const uni = Array.isArray(list) ? list.find(x => String(x.slug || "") === slug) : null;
+        if(!slug || !uni){ renderNotFound(slug); return; }
+        renderUniversity(uni);
+      }catch(err){
+        console.error(err);
+        renderNotFound(slug || "error-loading-json");
+      }
+    })();
+  </script>
+
+  <!-- Header/Footer loader -->
+  <script>
+    function setHeaderVars(){
+      const topbar = document.querySelector('.topbar');
+      const nav = document.querySelector('header.nav');
+      const topH = topbar ? topbar.offsetHeight : 0;
+      const navH = nav ? nav.offsetHeight : 0;
+      document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+      document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    }
+
+    (async function(){
+      try{
+        const header = await fetch("header-footer/header.html", { cache: "no-store" });
+        document.getElementById("header").innerHTML = await header.text();
+        const footer = await fetch("header-footer/footer.html", { cache: "no-store" });
+        document.getElementById("footer").innerHTML = await footer.text();
+      }catch(e){}
+
+      setHeaderVars();
+      window.addEventListener('resize', setHeaderVars);
+
+      const s = document.createElement('script');
+      s.src = 'main.js?v=20260227';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

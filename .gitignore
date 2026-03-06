@@ -1,0 +1,23 @@
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore zip files
+*.zip
+
+# Ignore local XAMPP files
+ntuser.dat*
+ntuser.ini
+
+# Ignore Python / notebook files
+*.ipynb
+
+# Ignore unrelated folders
+yolov10/
+wxchat_files/
+seat-reservation*/
+study-seat-system-*/
+temp-v*/

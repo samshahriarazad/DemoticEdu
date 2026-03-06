@@ -1,0 +1,4388 @@
+[
+  {
+    "name": "Nanjing Tech University (NJTech)",
+    "slug": "njtech-masters",
+    "programLevel": "Masters",
+    "programType": "Masters",
+    "duration": "3 Years",
+    "ageLimit": "18-35 Years",
+    "intake": "September",
+    "deadline": "May 30th, 2026",
+
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China",
+    "location": {
+      "city": "Nanjing City",
+      "province": "Jiangsu Province",
+      "country": "China"
+    },
+
+    "ranking": {
+      "qs": "301-350",
+      "times": "601-800",
+      "usNews": "556",
+      "cwur": "",
+      "arwu": ""
+    },
+
+    "heroImage": "assets/universities/njtech/hero.jpg",
+    "logo": "assets/universities/njtech/logo.png",
+
+    "requirements": {
+      "academic": "Bachelor Degree Required",
+      "cgpa": "3.00+",
+      "english": [],
+      "csca": false,
+      "interview": false,
+      "hsk": "",
+      "notes": []
+    },
+
+    "scholarship": {
+      "available": true,
+      "model": "Full Free with Stipend",
+
+      "firstYear": {
+        "benefits": [
+          "Tuition Fee: 100% Free",
+          "Accommodation Fee: 100% Free",
+          "Stipend: 1,400 CNY/Month"
+        ]
+      },
+
+      "fromSecondYear": {
+        "basedOn": "Academic Ranking",
+        "bands": [
+          {
+            "label": "Type A",
+            "percentage": "Top 10%",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 1,400 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "Next 30%",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 600 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "Remaining 60%",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 2,000 CNY/Year",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          }
+        ]
+      },
+
+      "programSpecific": [],
+      "notes": []
+    },
+
+    "majors": [
+      "Safety Science and Engineering",
+      "Materials Science and Engineering",
+      "Materials and Chemicals",
+      "Business Administration",
+      "Mechanical Engineering",
+      "Electrical Engineering",
+      "Control Science and Engineering",
+      "Chemical Engineering and Technology",
+      "Bioengineering",
+      "Optical Engineering",
+      "Civil Engineering",
+      "Pharmacy",
+      "Transportation",
+      "Resources and Environment",
+      "Intelligent Science and Technology",
+      "Biology and Medicine",
+      "Food Science and Engineering",
+      "Geological Resources and Geological Engineering",
+      "Power Engineering and Engineering Thermophysics"
+    ],
+
+    "fees": {
+      "application": "500 CNY (Non-refundable)",
+      "tuition": "22,000 CNY/Year",
+      "accommodation": "2,000-4,000 CNY/Year",
+      "insurance": "800 CNY/Year",
+      "medical": "400 CNY (1st Year only)",
+      "residencePermit": "400 CNY/Year",
+      "deposit": "2,500 CNY (Enrollment Deposit, Refundable)",
+      "textbooks": "",
+      "bedding": "",
+      "others": []
+    }
+  },
+  {
+  "name": "China University of Petroleum, Beijing (CUPB)",
+  "slug": "cupb-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 5th, 2026",
+
+  "city": "Beijing City",
+  "province": "",
+  "country": "China",
+  "location": {
+    "city": "Beijing City",
+    "province": "",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "686",
+    "times": "501-600",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/cupb/hero.jpg",
+  "logo": "assets/universities/cupb/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 6.0", "DET 115"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on available seats."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "First Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Stipend: 2,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Second Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Insurance Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Third Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "Computer Science & Technology",
+    "International Trade & Economics",
+    "Chemical Engineering and Technics",
+    "Petroleum Engineering",
+    "English"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "25,000 CNY/Year",
+    "accommodation": "1,200 - 1,500 CNY/Month",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+
+{
+  "name": "Xi’an Shiyou University (XSYU)",
+  "slug": "xsyu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Xi’an City",
+  "province": "Shaanxi Province",
+  "country": "China",
+  "location": {
+    "city": "Xi’an City",
+    "province": "Shaanxi Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "1201-1300",
+    "times": "801-1000",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/xsyu/hero.jpg",
+  "logo": "assets/universities/xsyu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on available seats."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Performance",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type 1",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type 2",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type 3",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 50% Free",
+              "Accommodation Fee: 50% Free",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": [
+              "Student must pay 9,250 CNY tuition."
+            ]
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review.",
+      "Scholarship level may be adjusted based on academic performance."
+    ]
+  },
+
+  "majors": [
+    "Civil Engineering",
+    "Petroleum Engineering",
+    "Geology",
+    "Offshore Oil & Gas Engineering",
+    "Resource Exploration Engineering"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "18,500 CNY/Year",
+    "accommodation": "7,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100–500 CNY (1st Year only)",
+    "residencePermit": "800 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+
+{
+  "name": "Northwestern Polytechnical University (NPU)",
+  "slug": "npu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 1st, 2026",
+
+  "city": "Xi’an City",
+  "province": "Shaanxi Province",
+  "country": "China",
+  "location": {
+    "city": "Xi’an City",
+    "province": "Shaanxi Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "273",
+    "usNews": "207",
+    "cwur": "",
+    "arwu": "ShanghaiRank: 128"
+  },
+
+  "heroImage": "assets/universities/npu/hero.jpg",
+  "logo": "assets/universities/npu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 6.0", "DET 115"],
+    "csca": true,
+    "interview": true,
+    "hsk": "",
+    "notes": ["Exam + Interview"]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Scholarship Type / University Policy",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Belt & Road Scholarship (Only 1st Year) — Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Belt & Road Scholarship (Only 1st Year) — Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Belt & Road Scholarship (Only 1st Year) — Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 12,500 CNY/Year",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "NPU President Scholarship (All Years) — Type A",
+            "percentage": "Top 10%",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 1,500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "NPU President Scholarship (All Years) — Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "NPU President Scholarship (All Years) — Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 12,500 CNY/Year",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": ["All scholarship winners must pass an annual review."]
+  },
+
+  "majors": [
+    "Aerospace Engineering (Aeronautics)",
+    "Aerospace Engineering (Astronautics)",
+    "Mechanical Engineering",
+    "Electrical Engineering and Automation",
+    "Electronics & Information Engineering",
+    "Biotechnology",
+    "Computer Science & Technology (till 15th March)",
+    "Business Administration (till 15th April)",
+    "Materials Science and Engineering"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "25,000 CNY/Year",
+    "accommodation": "5,400 - 7,200 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+
+  {
+  "name": "Nanjing Tech University (NJTech)",
+  "slug": "njtech-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "301-350",
+    "times": "601-800",
+    "usNews": "556",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/njtech/hero.jpg",
+  "logo": "assets/universities/njtech/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 6.0", "DET 105"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": []
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free with Stipend",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Stipend: 400 CNY/Month"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Ranking",
+      "bands": [
+        {
+          "label": "Type A",
+          "percentage": "Top 10%",
+          "benefits": [
+            "Tuition Fee: 100% Free",
+            "Stipend: 400 CNY/Month",
+            "Accommodation Fee: Self-Paid"
+          ],
+          "conditions": []
+        },
+        {
+          "label": "Type B",
+          "percentage": "Next 30%",
+          "benefits": [
+            "Tuition Fee: 100% Free",
+            "Accommodation Fee: Self-Paid"
+          ],
+          "conditions": []
+        },
+        {
+          "label": "Type C",
+          "percentage": "Remaining 60%",
+          "benefits": [
+            "Tuition Fee: 8,000 CNY/Year",
+            "Accommodation Fee: Self-Paid"
+          ],
+          "conditions": []
+        }
+      ]
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Computer Science & Technology",
+    "Applied Chemistry",
+    "Electrical Engineering & Automation",
+    "Mechanical Engineering",
+    "Pharmacy",
+    "International Trade & Economics",
+    "Transportation Engineering",
+    "Surveying and Mapping Engineering",
+    "Materials Science and Engineering"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "16,000 CNY/Year",
+    "accommodation": "2,000 - 4,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shanghai Business School (SBS)",
+  "slug": "sbs-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-30 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Shanghai City",
+  "province": "Shanghai",
+  "country": "China",
+  "location": {
+    "city": "Shanghai City",
+    "province": "Shanghai",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/sbs/hero.jpg",
+  "logo": "assets/universities/sbs/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on available seats."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 1,200 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: 1,200 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: 600 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type D",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type E",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: Self-Paid",
+              "Insurance Fee: Self-Paid",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: 1,200 CNY/Month"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "Business Management",
+    "Hospitality Management",
+    "Finance"
+  ],
+
+  "fees": {
+    "application": "800 CNY (Non-refundable)",
+    "tuition": "24,000 CNY/Year",
+    "accommodation": "8,400 - 11,200 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Anhui University of Technology (AHUT)",
+  "slug": "ahut-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Ma’anshan City",
+  "province": "Anhui Province",
+  "country": "China",
+  "location": {
+    "city": "Ma’anshan City",
+    "province": "Anhui Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "1354",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/ahut/hero.jpg",
+  "logo": "assets/universities/ahut/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Annual Review",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 3000 CNY/Year"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 3,000 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": ["University will review the scholarship every year."]
+  },
+
+  "majors": [
+    "International Trade (Business)",
+    "Civil Engineering",
+    "Internet of Things Engineering (Computer Category)"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "15,000 CNY/Year",
+    "accommodation": "3,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "3,000 CNY (Enrollment Deposit, Refundable)",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Nanjing Institute of Technology (NJIT)",
+  "slug": "njit-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "1953",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/njit/hero.jpg",
+  "logo": "assets/universities/njit/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": []
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Annual Review",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: 500 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Accommodation Fee: Self-Paid",
+              "Stipend: N/A"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": ["All scholarship winners must pass an annual review."]
+  },
+
+  "majors": [
+    "Mechanical Engineering",
+    "International Economics & Trade"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "16,000 CNY/Year",
+    "accommodation": "2,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "5,000 CNY (Enrollment Deposit, Refundable)",
+    "textbooks": "",
+    "bedding": "",
+    "others": [
+      "Dormitory Deposit: 800 CNY/Person (Refundable)"
+    ]
+  }
+},
+{
+  "name": "Shaoxing University (SXU)",
+  "slug": "sxu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shaoxing City",
+  "province": "Zhejiang Province",
+  "country": "China",
+  "location": {
+    "city": "Shaoxing City",
+    "province": "Zhejiang Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "1646",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/sxu/hero.jpg",
+  "logo": "assets/universities/sxu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Accommodation Fee: 100% Free",
+        "Stipend: 500 CNY/Month"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Annual Review",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": ["University will review the scholarship every year."]
+  },
+
+  "majors": [
+    "Computer Science & Technology",
+    "Biology",
+    "Civil Engineering",
+    "English",
+    "International Economics & Trade",
+    "Computer Science and Technology",
+    "Nursing",
+    "Textile Engineering"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "16,000 - 19,200 CNY/Year",
+    "accommodation": "3,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "504 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Harbin Institute of Technology, Shenzhen (HITSZ)",
+  "slug": "hitsz-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "",
+  "deadline": "May 20th, 2026",
+
+  "city": "Shenzhen City",
+  "province": "Guangdong Province",
+  "country": "China",
+  "location": {
+    "city": "Shenzhen City",
+    "province": "Guangdong Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "256",
+    "times": "131",
+    "usNews": "128",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/hitsz/hero.jpg",
+  "logo": "assets/universities/hitsz/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free with Stipend",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Major Award",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Stipend: 1,000 CNY/Month"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "First Award",
+            "percentage": "",
+            "benefits": ["Tuition Fee: 100% Free"],
+            "conditions": []
+          },
+          {
+            "label": "Second Award",
+            "percentage": "",
+            "benefits": ["Tuition Fee: 6,000 CNY/Year"],
+            "conditions": []
+          },
+          {
+            "label": "Third Award",
+            "percentage": "",
+            "benefits": ["Tuition Fee: 9,000 CNY/Year"],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "Student can apply for Shenzhen International Scholarship: 35,000 CNY/Year",
+      "Guangdong Government Scholarship: 10,000 RMB/Year",
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "Computer Science and Technology",
+    "Optoelectronic Information Science and Engineering",
+    "Mechanical Design, Manufacturing and Automation",
+    "Energy and Power Engineering",
+    "Civil Engineering",
+    "Business Administration",
+    "Economics",
+    "Architecture"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "30,000 CNY/Year",
+    "accommodation": "240 - 1,000 CNY/Month",
+    "insurance": "800 CNY/Year",
+    "medical": "500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "30,000 CNY (After Admission Notice)",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Taiyuan University of Technology (TYUT)",
+  "slug": "tyut-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "",
+  "deadline": "June 30th, 2026",
+
+  "city": "Taiyuan City",
+  "province": "Shaanxi Province",
+  "country": "China",
+  "location": {
+    "city": "Taiyuan City",
+    "province": "Shaanxi Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "351-400",
+    "times": "",
+    "usNews": "1414",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/tyut/hero.jpg",
+  "logo": "assets/universities/tyut/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 6.5", "DET 110"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free with Stipend",
+
+    "firstYear": { "benefits": [] },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 100% Free",
+              "Stipend: 800 CNY/Month"
+            ],
+            "conditions": [
+              "CSCA Required (M+P: 50+)",
+              "IELTS 6.5+"
+            ]
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 100% Free",
+              "Stipend: 500 CNY/Month"
+            ],
+            "conditions": [
+              "CSCA Required (M+P: 45+)",
+              "IELTS 6.5+"
+            ]
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 100% Free",
+              "Stipend: N/A"
+            ],
+            "conditions": [
+              "CSCA Required (M+P: 40+)",
+              "IELTS 6.5+"
+            ]
+          },
+          {
+            "label": "Type D",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 10,000 CNY/Year",
+              "Hostel Fee: 100% Free",
+              "Stipend: N/A"
+            ],
+            "conditions": [
+              "CSCA Required (M+P: 40+)",
+              "EFSET 65+"
+            ]
+          }
+        ]
+      }
+    ],
+
+    "notes": []
+  },
+
+  "majors": [
+    "International Economics and Trade",
+    "Computer Science and Technology",
+    "Chinese Language (6,000 CNY/Year)"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "10,000 CNY/Year",
+    "accommodation": "180 - 800 CNY/Month",
+    "insurance": "800 CNY/Year",
+    "medical": "415 CNY (1st Year only)",
+    "residencePermit": "800 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Nantong University (NTU)",
+  "slug": "ntu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-24 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjong City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjong City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "851-900",
+    "times": "",
+    "usNews": "",
+    "cwur": "770",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/ntu/hero.jpg",
+  "logo": "assets/universities/ntu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "International Economics and Trade",
+    "Computer Science and Technology",
+    "Pharmacy",
+    "Clinical Medicine-MBBS (6 years)",
+    "Dental Surgery-BDS (5 years)"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "16,000 / 26,000 CNY/Year",
+    "accommodation": "2,800 CNY/Year (Off Campus-4 Beds Room)",
+    "insurance": "800 CNY/Year",
+    "medical": "100 - 500 CNY (1st Year only)",
+    "residencePermit": "800 CNY/Year",
+    "deposit": "",
+    "textbooks": "1,200 CNY/Year",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Guizhou University (GZU)",
+  "slug": "gzu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "",
+  "deadline": "June 15th, 2026",
+
+  "city": "Guiyang City",
+  "province": "Guizhou Province",
+  "country": "China",
+  "location": {
+    "city": "Guiyang City",
+    "province": "Guizhou Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "401-475",
+    "times": "",
+    "usNews": "913",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/gzu/hero.jpg",
+  "logo": "assets/universities/gzu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 5.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Result in July."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Hostel Fee: 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Computer Science and Technology",
+    "Chemical Biology",
+    "Veterinary Medicine"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "21,500 CNY/Year",
+    "accommodation": "3,000 - 6,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100 - 500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Sichuan University (SCU)",
+  "slug": "scu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Chengdu City",
+  "province": "Sichuan Province",
+  "country": "China",
+  "location": {
+    "city": "Chengdu City",
+    "province": "Sichuan Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "324",
+    "times": "201-250",
+    "usNews": "182",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/scu/hero.jpg",
+  "logo": "assets/universities/scu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.80+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+
+    "firstYear": {
+      "benefits": [
+        "Belt & Road Scholarship: 20,000 CNY/Year"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Software Engineering",
+    "Civil Engineering",
+    "Business Administration",
+    "International Tourism and Hotel Management"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "17,500 - 22,000 CNY/Year",
+    "accommodation": "1,500 - 6,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Harbin Institute of Technology (HIT)",
+  "slug": "hit-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "July 25th, 2026",
+
+  "city": "Harbin",
+  "province": "Heilongjiang Province",
+  "country": "China",
+  "location": {
+    "city": "Harbin",
+    "province": "Heilongjiang Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "256",
+    "times": "131",
+    "usNews": "128",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/hit/hero.jpg",
+  "logo": "assets/universities/hit/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Self-funded applicants under 30 years old accepted.",
+      "Student have to deposit 13,000 CNY for getting JW202."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Elite Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "First Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 50% Free (Pay 13,000 CNY/Year)"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Second Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 30% Free (Pay 18,200 CNY/Year)"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Third Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 20% Free (Pay 20,800 CNY/Year)"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": []
+  },
+
+  "majors": [
+    "Automation",
+    "Integrated Circuit Design and Integrated System",
+    "Electrical Engineering and Automation",
+    "Computer Science and Technology",
+    "Artificial Intelligence",
+    "Robot Engineering",
+    "Civil Engineering",
+    "Chemical Engineering and Technology",
+    "Biological Engineering",
+    "Digital Media Art",
+    "Architecture",
+    "Big Data Management and Application",
+    "Business Management"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "26,000 CNY/Year",
+    "accommodation": "800 CNY/Month",
+    "insurance": "800 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "13,000 CNY (For JW202 Issuance)",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Jiaxing University (JXU)",
+  "slug": "jxu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-30 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Hangzhou City",
+  "province": "Zhejiang Province",
+  "country": "China",
+  "location": {
+    "city": "Hangzhou City",
+    "province": "Zhejiang Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "1594",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/jxu/hero.jpg",
+  "logo": "assets/universities/jxu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Friendship Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free",
+              "Residence Permit Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Textbooks Fee: 100% Free",
+              "Physical Exam Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Excellent Degree Freshman Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 5,475 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "Extra Scholarship: Zhejiang Provincial Scholarship: 20,000 CNY/Year",
+      "University will review the scholarship every year."
+    ]
+  },
+
+  "majors": [
+    "Business Administration",
+    "English",
+    "Civil Engineering",
+    "Textile Engineering"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "16,000 - 21,000 CNY/Year",
+    "accommodation": "5,475 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "580 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Zhejiang University of Technology (ZJUT)",
+  "slug": "zjut-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Hangzhou City",
+  "province": "Zhejiang Province",
+  "country": "China",
+  "location": {
+    "city": "Hangzhou City",
+    "province": "Zhejiang Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "1251-1300",
+    "times": "501-600",
+    "usNews": "521",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/zjut/hero.jpg",
+  "logo": "assets/universities/zjut/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "100% Tuition FREE for 4 Years"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "100% Tuition FREE for 1st Year"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": [
+              "50% Tuition FREE for 1st Year (Pay 8,900 CNY/Year)"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type D",
+            "percentage": "",
+            "benefits": [
+              "100% Hostel FREE for 1st Year (Pay 17,800 CNY/Year Tuition)"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "For Type B, C and D scholarship students, university will provide scholarships from 2-4 year according to rules and regulations of ZJUT and performance of students.",
+      "Students must pay half of the tuition and accommodation fees at the beginning of every semester (and visa and insurance fees for one year as well)."
+    ]
+  },
+
+  "majors": [
+    "International Economics and Trade",
+    "Civil Engineering",
+    "Computer Science and Technology",
+    "Software Engineering",
+    "International Economics and Trade",
+    "Mechanical Engineering",
+    "Chemical Engineering and Technology",
+    "Finance",
+    "Electrical Engineering and Automation",
+    "Environmental Engineering",
+    "Law (International Law Oriented)",
+    "Pharmaceutical Engineering"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "17,800 CNY/Year",
+    "accommodation": "3,500 - 5,300 CNY/Year",
+    "insurance": "1,000 CNY/Year",
+    "medical": "600 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Fuzhou University of International Studies and Trade (FUIST)",
+  "slug": "fuist-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Fuzhou City",
+  "province": "Fujian Province",
+  "country": "China",
+  "location": {
+    "city": "Fuzhou City",
+    "province": "Fujian Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/fuist/hero.jpg",
+  "logo": "assets/universities/fuist/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Accommodation Fee: 3,200 CNY/Year"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 6,000 CNY/Year",
+              "Accommodation Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type D",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 6,000 CNY/Year",
+              "Accommodation Fee: 3,200 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "University will review the scholarship every year."
+    ]
+  },
+
+  "majors": [
+    "International Economics and Trade"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "16,000 CNY/Year",
+    "accommodation": "3,200 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "600 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Jinling Institute of Technology (JIT)",
+  "slug": "jit-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-23 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/jit/hero.jpg",
+  "logo": "assets/universities/jit/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 115"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Accommodation Fee: 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Annual Review",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": ["University will review the scholarship every year."]
+  },
+
+  "majors": [
+    "Software Engineering",
+    "International Economics and Trade"
+  ],
+
+  "fees": {
+    "application": "300 CNY (Non-refundable)",
+    "tuition": "12,000 CNY/Year",
+    "accommodation": "1,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "526 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Sunming University (SMU)",
+  "slug": "smu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 15th, 2026",
+
+  "city": "Sunming",
+  "province": "Fujian Province",
+  "country": "China",
+  "location": {
+    "city": "Sunming",
+    "province": "Fujian Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/smu/hero.jpg",
+  "logo": "assets/universities/smu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 5.00+",
+    "cgpa": "",
+    "english": ["IELTS 6.0", "DET 105"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Result in July."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Hostel Fee: 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Trade Economics"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "14,00 CNY/Year",
+    "accommodation": "4,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Huangshan University (HSU)",
+  "slug": "hsu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 15th, 2026",
+
+  "city": "Huangshan",
+  "province": "Anhui Province",
+  "country": "China",
+  "location": {
+    "city": "Huangshan",
+    "province": "Anhui Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/hsu/hero.jpg",
+  "logo": "assets/universities/hsu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 5.00+",
+    "cgpa": "",
+    "english": ["IELTS 6.0", "DET 105"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Result in July."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Hostel Fee: 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Hospitality Management (Sino-France Corporation)"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "12,000 CNY/Year",
+    "accommodation": "2,000 - 4,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Wenzhou University (WZU)",
+  "slug": "wzu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Wenzhou City",
+  "province": "Zhejiang Province",
+  "country": "China",
+  "location": {
+    "city": "Wenzhou City",
+    "province": "Zhejiang Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "1501+",
+    "times": "801-1000",
+    "usNews": "608",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/wzu/hero.jpg",
+  "logo": "assets/universities/wzu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "First Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Second Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 8,000 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": ["University will review the scholarship every year."]
+  },
+
+  "majors": [
+    "Computer Science & Technology",
+    "International Economics and Trade",
+    "Marketing",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Biotechnology",
+    "Chemical Engineering and Technology",
+    "Law",
+    "Chemistry",
+    "Mathematics and Applied Mathematics"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "20,000 - 22,000 CNY/Year",
+    "accommodation": "2,900 - 4,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "800 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Nanjing University of Information Science and Technology (NUIST)",
+  "slug": "nuist-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "151-200",
+    "times": "801-1000",
+    "usNews": "409",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/nuist/hero.jpg",
+  "logo": "assets/universities/nuist/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Ranking",
+      "bands": [
+        {
+          "label": "1st Class Scholarship",
+          "percentage": "Top 40%",
+          "benefits": [],
+          "conditions": []
+        },
+        {
+          "label": "2nd Class Scholarship",
+          "percentage": "41-85%",
+          "benefits": [],
+          "conditions": []
+        },
+        {
+          "label": "Full Tuition Self-Funded",
+          "percentage": "Rest Students",
+          "benefits": ["Pay Full Tuition Fees"],
+          "conditions": []
+        }
+      ]
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "First Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Second Class Scholarship",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 50% Free (Pay 9,000 CNY/Year)"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": []
+  },
+
+  "majors": [
+    "Artificial Intelligence",
+    "Computer Science and Technology",
+    "Electronic Information Engineering",
+    "International Economics and Trade"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "18,000 CNY/Year",
+    "accommodation": "2,500 - 4,000 CNY/Year",
+    "insurance": "600 CNY/Year",
+    "medical": "526 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Zhengzhou University (ZZU)",
+  "slug": "zzu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-23 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Zhengzhou City",
+  "province": "Henan Province",
+  "country": "China",
+  "location": {
+    "city": "Zhengzhou City",
+    "province": "Henan Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "618",
+    "times": "601-800",
+    "usNews": "203",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/zzu/hero.jpg",
+  "logo": "assets/universities/zzu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A Scholarship (University President Scholarship)",
+            "percentage": "",
+            "benefits": ["Tuition Fee: 100% Free"],
+            "conditions": []
+          },
+          {
+            "label": "Type B Scholarship (University President Scholarship)",
+            "percentage": "",
+            "benefits": ["Tuition Fee: 5000 CNY"],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": []
+  },
+
+  "majors": [
+    "International Economics and Trade",
+    "Tourism Management",
+    "Urban and Rural Planning",
+    "Architecture",
+    "Civil Engineering",
+    "Pharmacy",
+    "Software Engineering",
+    "MBBS (Tuition Fee: 36000 CNY/Year)"
+  ],
+
+  "fees": {
+    "application": "800 CNY (Non-refundable)",
+    "tuition": "23,000 - 36,000 CNY/Year",
+    "accommodation": "5,000 CNY/Year (Off-campus: 2500-4000 RMB/year)",
+    "insurance": "1000 CNY/Year",
+    "medical": "100-600 CNY (1st Year only)",
+    "residencePermit": "430 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "China University of Mining and Technology (CUMT)",
+  "slug": "cumt-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Xuzhou City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Xuzhou City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "654",
+    "times": "801-1000",
+    "usNews": "550",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/cumt/hero.jpg",
+  "logo": "assets/universities/cumt/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "First Class Scholarship",
+            "percentage": "",
+            "benefits": ["100% Tuition Free"],
+            "conditions": []
+          },
+          {
+            "label": "Second Class Scholarship",
+            "percentage": "",
+            "benefits": ["50% Tuition Free (Pay 7,200 CNY/Year)"],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": ["All scholarship winners must pass an annual review."]
+  },
+
+  "majors": [
+    "Mining Engineering",
+    "Safety Engineering",
+    "Mechanical Engineering"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "14,600 CNY/Year",
+    "accommodation": "2,000 - 3,000 CNY/Year",
+    "insurance": "690 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Nanjing University of Aeronautics and Astronautics (NUAA)",
+  "slug": "nuaa-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "680",
+    "times": "601-800",
+    "usNews": "510",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/nuaa/hero.jpg",
+  "logo": "assets/universities/nuaa/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": {
+      "benefits": [
+        "NUAA Fly High Scholarship (Only 1st Year): 100% Tuition Free",
+        "Nanjing Government Scholarship: One time payment of 10,000 CNY"
+      ]
+    },
+
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [],
+    "notes": [
+      "All scholarship winners must pass an annual review.",
+      "The level of scholarship will be adjusted according to their academic performance."
+    ]
+  },
+
+  "majors": [
+    "Aircraft Design and Engineering",
+    "Computer Science and Technology",
+    "Mechanical Engineering",
+    "Electrical and Electronic Engineering",
+    "International Business",
+    "Civil Engineering"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "22,900 - 23,900 CNY/Year",
+    "accommodation": "4,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100-600 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "South China University of Technology (SCUT)",
+  "slug": "scut-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "June 30th, 2026",
+
+  "city": "Guangzhou City",
+  "province": "Guangdong Province",
+  "country": "China",
+  "location": {
+    "city": "Guangzhou City",
+    "province": "Guangdong Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "377",
+    "times": "251-300",
+    "usNews": "166",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/scut/hero.jpg",
+  "logo": "assets/universities/scut/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Result in July."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": ["100% Tuition FREE for 4 Years"],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": ["50% Tuition FREE for 4 Years (Pay 13,000 CNY/Year)"],
+            "conditions": []
+          },
+          {
+            "label": "Type C",
+            "percentage": "",
+            "benefits": ["50% Tuition FREE for 2 Years (Pay 13,000 CNY/Year)"],
+            "conditions": []
+          },
+          {
+            "label": "Type D",
+            "percentage": "",
+            "benefits": [
+              "Guangdong Government Scholarship: 10,000 CNY/Year (Pay 16,000 CNY/Year)"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": []
+  },
+
+  "majors": [
+    "Computer Science and Technology",
+    "International Trade and Economics"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "26,000 CNY/Year",
+    "accommodation": "12-27 CNY/Day",
+    "insurance": "800 CNY/Year",
+    "medical": "400 CNY (1st Year only)",
+    "residencePermit": "800 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shanghai University of Engineering Science (SUES)",
+  "slug": "sues-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shanghai City",
+  "province": "",
+  "country": "China",
+  "location": {
+    "city": "Shanghai City",
+    "province": "",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "1542",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/sues/hero.jpg",
+  "logo": "assets/universities/sues/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on seats.",
+      "Student have to pass HSK3 in First Year to continue 2nd Year Scholarship and HSK4 in 2nd year to continue next year."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Insurance Fee: 100% Free",
+        "Hostel Fee: 1,200 CNY/Year"
+      ]
+    },
+
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Textile Engineering",
+    "Artificial Intelligence (AI)",
+    "International Economics and Trade",
+    "Medicinal Chemistry"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "20,000 - 23,000 CNY/Year",
+    "accommodation": "1,200 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Jiangsu College of Tourism",
+  "slug": "jiangsu-college-of-tourism-diploma",
+  "programLevel": "Diploma",
+  "programType": "Diploma",
+  "duration": "3 Years (1 Year Language + 2 Year Major)",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "July 15th, 2026",
+
+  "city": "Yangzhou City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Yangzhou City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/jstc/hero.jpg",
+  "logo": "assets/universities/jstc/logo.png",
+
+  "requirements": {
+    "academic": "",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Accommodation Fee: 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Performance",
+      "bands": [
+        {
+          "label": "First-Class Scholarship",
+          "percentage": "",
+          "benefits": [
+            "Tuition Fee: 1,800 CNY/Year",
+            "Free Accommodation"
+          ],
+          "conditions": []
+        },
+        {
+          "label": "Second-Class Scholarship",
+          "percentage": "",
+          "benefits": [
+            "Tuition Fee: 4,200 CNY/Year",
+            "Free Accommodation"
+          ],
+          "conditions": []
+        }
+      ]
+    },
+
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Culinary Techniques and Nutrition",
+    "Hotel Management and Digital Operation",
+    "Arts and Crafts Design",
+    "Marketing",
+    "Computer Network Technology",
+    "Financial Services and Management"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "6,000 CNY/Year",
+    "accommodation": "1,500 CNY/Year",
+    "insurance": "600 CNY/Year",
+    "medical": "514 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "600 CNY/Year",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Nanjing University of Post & Telecommunication (NJUPT)",
+  "slug": "njupt-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "",
+    "usNews": "714",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/njupt/hero.jpg",
+  "logo": "assets/universities/njupt/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Full Free",
+
+    "firstYear": {
+      "benefits": [
+        "NJUPT International Students Scholarship: 100% Tuition Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Ranking",
+      "bands": [
+        {
+          "label": "1st Type",
+          "percentage": "Top 50% Students",
+          "benefits": [
+            "Tuition Fee: 100% Free"
+          ],
+          "conditions": []
+        },
+        {
+          "label": "2nd Type",
+          "percentage": "Next 30% Students",
+          "benefits": [
+            "Tuition Fee: 6,000 CNY/Year"
+          ],
+          "conditions": []
+        },
+        {
+          "label": "3rd Type",
+          "percentage": "Last 20% Students",
+          "benefits": [
+            "Tuition Fee: 11,500 CNY/Year"
+          ],
+          "conditions": []
+        }
+      ]
+    },
+
+    "programSpecific": [],
+    "notes": [
+      "Nanjing Government Scholarship: 10,000 CNY (Every Year top students will get)"
+    ]
+  },
+
+  "majors": [
+    "Electronic Information Engineering",
+    "Computer Science and Technology",
+    "Business Administration",
+    "Electronic Commerce"
+  ],
+
+  "fees": {
+    "application": "800 CNY (Non-refundable)",
+    "tuition": "18,000 CNY/Year",
+    "accommodation": "1,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "430 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Jiangsu Normal University (JSU)",
+  "slug": "jsu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Xizhou City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Xizhou City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "1501+",
+    "usNews": "1212",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/jsnu/hero.jpg",
+  "logo": "assets/universities/jsnu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 1,500-3,000 CNY/Year"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 7,000 CNY/Year",
+              "Hostel Fee: 1,500-3,000 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "Software Engineering",
+    "Mechanical Engineering",
+    "Electrical Engineering and Automation",
+    "International Economics and Trade"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "14,000 CNY/Year",
+    "accommodation": "1,500-3,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Changzhou University (CCZU)",
+  "slug": "cczu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Changzhou City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Changzhou City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "",
+    "times": "1201-1500",
+    "usNews": "1314",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/cczu/hero.jpg",
+  "logo": "assets/universities/cczu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": { "benefits": [] },
+
+    "fromSecondYear": {
+      "basedOn": "",
+      "bands": []
+    },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Type A",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Hostel Fee: 1,750 CNY/Year"
+            ],
+            "conditions": []
+          },
+          {
+            "label": "Type B",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 5,000 CNY/Year",
+              "Hostel Fee: 1,750 CNY/Year"
+            ],
+            "conditions": []
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "Chemical Engineering & Technology",
+    "Petroleum Engineering",
+    "Computer Science & Technology",
+    "International Economy and Trade"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "15,000 CNY/Year",
+    "accommodation": "1,750-5,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "430 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "China Three Gorges University (CTGU)",
+  "slug": "ctgu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Yichang City",
+  "province": "Hubei Province",
+  "country": "China",
+  "location": {
+    "city": "Yichang City",
+    "province": "Hubei Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "851-900",
+    "times": "",
+    "usNews": "1612",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/ctgu/hero.jpg",
+  "logo": "assets/universities/ctgu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Tuition Free",
+
+    "firstYear": {
+      "benefits": [
+        "Hubei Provincial Government Scholarship: Tuition Fee 100% Free"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Performance",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": [
+      "All scholarship winners must pass an annual review.",
+      "The level of scholarship will be adjusted according to their academic performance.",
+      "Students also have chance to get additional scholarship."
+    ]
+  },
+
+  "majors": [
+    "Aeronautical Engineering",
+    "Computer Science and Technology",
+    "Business Administration",
+    "Pharmacy",
+    "Electrical Engineering and Automation",
+    "Automation",
+    "Civil Engineering",
+    "Mechanical Design, Manufacturing & Automation",
+    "Nursing",
+    "Physical Education",
+    "New Energy Materials and Devices",
+    "Opto-Electronics Information Science and Engineering",
+    "Mathematics",
+    "Nuclear Engineering and Nuclear Technology",
+    "Physics",
+    "Sports Training"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "10,000-15,000 CNY/Year",
+    "accommodation": "1,800-3,600 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "100-600 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "China Pharmaceutical University (CPU)",
+  "slug": "cpu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Nanjing City",
+  "province": "Jiangsu Province",
+  "country": "China",
+  "location": {
+    "city": "Nanjing City",
+    "province": "Jiangsu Province",
+    "country": "China"
+  },
+
+  "ranking": {
+    "qs": "61 (by subject)",
+    "times": "1001-1200",
+    "usNews": "847",
+    "cwur": "",
+    "arwu": ""
+  },
+
+  "heroImage": "assets/universities/cpu/hero.jpg",
+  "logo": "assets/universities/cpu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": true,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Category 1 (CPU President Scholarship)",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 100% Free"
+            ],
+            "conditions": ["International Economics and Trade"]
+          },
+          {
+            "label": "Category 2 (CPU President Scholarship)",
+            "percentage": "",
+            "benefits": [
+              "Tuition Fee: 5000 CNY/Year"
+            ],
+            "conditions": ["Pharmacy", "Clinical Pharmacy"]
+          }
+        ]
+      }
+    ],
+
+    "notes": [
+      "Nanjing Government Scholarship: One time payment of 10,000 CNY",
+      "All scholarship winners must pass an annual review."
+    ]
+  },
+
+  "majors": [
+    "International Economics and Trade",
+    "Pharmacy",
+    "Clinical Pharmacy"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "19,000-25,000 CNY/Year",
+    "accommodation": "4,000 CNY/Year",
+    "insurance": "600-800 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shanghai University of Electric Power (SUEP)",
+  "slug": "suep-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shanghai City",
+  "province": "",
+  "country": "China",
+  "location": { "city": "Shanghai City", "province": "", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "1651", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/suep/hero.jpg",
+  "logo": "assets/universities/suep/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Scholarship Available",
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "SGS Class A",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Hostel Fee: 100% Free",
+              "Stipend: 12,000 CNY/Year"
+            ]
+          },
+          {
+            "label": "SGS Class B",
+            "benefits": [
+              "Tuition Fee: 100% Free",
+              "Insurance Fee: 100% Free",
+              "Hostel Fee: 4,500 CNY/Year"
+            ]
+          },
+          {
+            "label": "University Scholarship",
+            "benefits": [
+              "Tuition Fee: 8,000 CNY/Year",
+              "Insurance Fee: 100% Free",
+              "Hostel Fee: 4,500 CNY/Year"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+
+  "majors": ["International Economics and Trade"],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "20,000 CNY/Year",
+    "accommodation": "4,500 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shanghai Dianji University (SDJU)",
+  "slug": "sdju-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "September",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shanghai City",
+  "province": "",
+  "country": "China",
+  "location": { "city": "Shanghai City", "province": "", "country": "China" },
+
+  "ranking": { "qs": "1401-1500", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/sdju/hero.jpg",
+  "logo": "assets/universities/sdju/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on seats.",
+      "Need to submit study plan and self-introduction video of 3-4 minutes."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "Class A",
+            "benefits": ["Tuition Fee: 100% Free", "Hostel Fee: 9,600 CNY/Year"]
+          },
+          {
+            "label": "Class B",
+            "benefits": ["Tuition Fee: 7,500 CNY/Year", "Hostel Fee: 9,600 CNY/Year"]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+
+  "majors": [
+    "Automation",
+    "Software Engineering",
+    "International Trade and Economics",
+    "Marketing"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "20,000 CNY/Year",
+    "accommodation": "9,600 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shanghai Polytechnic University (SSPU)",
+  "slug": "sspu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shanghai City",
+  "province": "",
+  "country": "China",
+  "location": { "city": "Shanghai City", "province": "", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/sspu/hero.jpg",
+  "logo": "assets/universities/sspu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 85", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on seats.",
+      "Need to submit study plan and self-introduction video of 3-4 minutes."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Scholarship Available",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 100% Free",
+        "Insurance Fee: 100% Free",
+        "Hostel Fee: 40 CNY/Day"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "International Business",
+    "E-Commerce",
+    "Public Relations",
+    "English Language and Literature"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "20,000 CNY/Year",
+    "accommodation": "40 CNY/Day",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Hangzhou Dianzi University (HDU)",
+  "slug": "hdu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-30 Years",
+  "intake": "",
+  "deadline": "May 30th, 2026",
+
+  "city": "Hangzhou City",
+  "province": "Zhejiang Province",
+  "country": "China",
+  "location": { "city": "Hangzhou City", "province": "Zhejiang Province", "country": "China" },
+
+  "ranking": { "qs": "1501+", "times": "1201-1500", "usNews": "1435", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/hdu/hero.jpg",
+  "logo": "assets/universities/hdu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95", "EFSET", "MOI"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Scholarship Available",
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "Annual Review", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          {
+            "label": "First Class Scholarship",
+            "benefits": ["Tuition Fee: 100% Free", "Accommodation Fee: 100% Free"]
+          },
+          {
+            "label": "Second Class Scholarship",
+            "benefits": ["Tuition Fee: 100% Free"]
+          }
+        ]
+      }
+    ],
+    "notes": ["University will review the scholarship every year."]
+  },
+
+  "majors": [
+    "Computer Science & Technology",
+    "Materials Science & Engineering",
+    "Telecommunication Engineering",
+    "Artificial Intelligence (AI)",
+    "Mechanical Engineering",
+    "Software Engineering",
+    "Electronic & Information Engineering",
+    "Business Administration (BBA)",
+    "Digital Economy (International Economics & Trade)"
+  ],
+
+  "fees": {
+    "application": "1000 CNY (Non-refundable)",
+    "tuition": "22,000 CNY/Year",
+    "accommodation": "5,400 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "North China Electric Power University (NCEPU)",
+  "slug": "ncepu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-28 Years",
+  "intake": "",
+  "deadline": "May 30th, 2026",
+
+  "city": "Beijing City",
+  "province": "",
+  "country": "China",
+  "location": { "city": "Beijing City", "province": "", "country": "China" },
+
+  "ranking": { "qs": "451-500", "times": "801-1000", "usNews": "703", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/ncepu/hero.jpg",
+  "logo": "assets/universities/ncepu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Deadline depends on seats.",
+      "Admission Notice within 5 Days and JW202 within 10 Days."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Scholarship Available",
+
+    "firstYear": {
+      "benefits": [
+        "International Students Scholarship: Tuition Fee 100% Free",
+        "Hostel Fee: 9000 CNY/Year"
+      ]
+    },
+
+    "fromSecondYear": {
+      "basedOn": "Academic Performance",
+      "bands": []
+    },
+
+    "programSpecific": [],
+    "notes": ["Scholarship amount depends on Academic Performance from second year."]
+  },
+
+  "majors": [
+    "Electrical Engineering",
+    "Business Administration (BBA)",
+    "Mechanical Engineering",
+    "New Energy Science & Engineering"
+  ],
+
+  "fees": {
+    "application": "600 CNY (Non-refundable)",
+    "tuition": "22,000 CNY/Year",
+    "accommodation": "9,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "300-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Linyi University (LYU)",
+  "slug": "lyu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25 Years",
+  "intake": "",
+  "deadline": "May 30th, 2026",
+
+  "city": "Linyi City",
+  "province": "Shandong Province",
+  "country": "China",
+  "location": { "city": "Linyi City", "province": "Shandong Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "1496", "arwu": "" },
+
+  "heroImage": "assets/universities/lyu/hero.jpg",
+  "logo": "assets/universities/lyu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.00+",
+    "cgpa": "",
+    "english": ["IELTS 5.5", "DET 95"],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": { "benefits": [] },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+
+    "programSpecific": [
+      {
+        "program": "Bachelor",
+        "types": [
+          { "label": "1st Class", "benefits": ["Tuition Fee: 100% Free"] },
+          { "label": "2nd Class", "benefits": ["Tuition Fee: 4000 CNY/Year"] },
+          { "label": "3rd Class", "benefits": ["Tuition Fee: 7000 CNY/Year"] }
+        ]
+      }
+    ],
+
+    "notes": ["2nd to 4th Year have a chance to get additional 5000/year."]
+  },
+
+  "majors": [
+    "E-Commerce",
+    "Civil Engineering",
+    "Computer Science and Technology",
+    "International Business Trade",
+    "Visual Communication Design",
+    "Media Communication Design"
+  ],
+
+  "fees": {
+    "application": "400 CNY (Non-refundable)",
+    "tuition": "12,000 CNY/Year",
+    "accommodation": "2,880 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "320 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Hebei University of Science and Technology (HBUST)",
+  "slug": "hbust-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25",
+  "intake": "",
+  "deadline": "June 30th, 2025",
+
+  "city": "Shijiazhuang",
+  "province": "Hebei Province",
+  "country": "China",
+  "location": { "city": "Shijiazhuang", "province": "Hebei Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "2130", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/hbust/hero.jpg",
+  "logo": "assets/universities/hbust/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["From second year all students will get scholarship of 5000-8000 CNY.", "Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 4,900 CNY/Year",
+        "Hostel Fee: 1,200 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Computer Science and Technology",
+    "Civil Engineering",
+    "Mechanical Engineering",
+    "International Trade and Economics",
+    "Electrical Engineering and Automation",
+    "Environmental Engineering",
+    "Water Supply and Drainage"
+  ],
+
+  "fees": {
+    "application": "500 CNY/Year",
+    "tuition": "",
+    "accommodation": "",
+    "insurance": "800 CNY/Year",
+    "medical": "100-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": ["Registration Fee: 500 CNY/Year"]
+  }
+},
+{
+  "name": "Hechi University (HEU)",
+  "slug": "heu-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-22",
+  "intake": "",
+  "deadline": "June 30th, 2025",
+
+  "city": "Hechi City",
+  "province": "Guangxi Province",
+  "country": "China",
+  "location": { "city": "Hechi City", "province": "Guangxi Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/heu/hero.jpg",
+  "logo": "assets/universities/heu/logo.png",
+
+  "requirements": {
+    "academic": "HSC 3.50+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Excellent results holder will get extra scholarship 4,000 CNY/Year.", "Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 6,500 CNY/Year",
+        "Hostel Fee: 2,000 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": ["Business English", "Computer Science & Technology", "Trade Economics"],
+
+  "fees": {
+    "application": "",
+    "tuition": "6,500 CNY/Year",
+    "accommodation": "2,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": ["Registration Fee: 400 CNY/Year"]
+  }
+},
+{
+  "name": "Hebei Academy of Fine Arts (HAFA)",
+  "slug": "hafa-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-24",
+  "intake": "",
+  "deadline": "May 30th, 2026",
+
+  "city": "Shijiazhuang",
+  "province": "Hebei Province",
+  "country": "China",
+  "location": { "city": "Shijiazhuang", "province": "Hebei Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/hafa/hero.jpg",
+  "logo": "assets/universities/hafa/logo.png",
+
+  "requirements": {
+    "academic": "HSC 3.50+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Scholarship from 2nd year to 4th year: Just pass on the exam & regular attendance.", "Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 7,500 CNY/Year (After 75% Scholarship)",
+        "Hostel Fee: 2,000-3,000 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": ["[ Harry Porter School In China ]"]
+  },
+
+  "majors": [
+    "Architecture",
+    "Animation",
+    "Film & TV Photography & Production",
+    "Drawing Painting",
+    "Art Education",
+    "Product Design",
+    "Digital Media Art",
+    "Apparel & Accessories Design",
+    "Jewelry and Accessory Design"
+  ],
+
+  "fees": {
+    "application": "500 CNY/Year",
+    "tuition": "",
+    "accommodation": "",
+    "insurance": "800 CNY/Year",
+    "medical": "100-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Hubei University of Technology (HUT)",
+  "slug": "hut-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "18-25",
+  "intake": "",
+  "deadline": "June 30th, 2025",
+
+  "city": "Wuhan City",
+  "province": "Hubei Province",
+  "country": "China",
+  "location": { "city": "Wuhan City", "province": "Hubei Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "1271", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/hut/hero.jpg",
+  "logo": "assets/universities/hut/logo.png",
+
+  "requirements": {
+    "academic": "HSC 4.50+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": [
+      "Excellent results holder will get extra scholarship 3,000/5,000/10,000/15,000 CNY.",
+      "Deadline depends on seats."
+    ]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 7,000 CNY/Year",
+        "Hostel Fee: 3,000 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": []
+  },
+
+  "majors": [
+    "Computer Science and Technology",
+    "Software Engineering",
+    "Civil Engineering",
+    "Mechanical Engineering and Automation",
+    "Electrical Engineering and Automation",
+    "International Trade and Economics",
+    "Pharmaceutical Engineering"
+  ],
+
+  "fees": {
+    "application": "",
+    "tuition": "",
+    "accommodation": "1,500/3,000/6,000 CNY/Year",
+    "insurance": "800 CNY/Year",
+    "medical": "400-500 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": ["Registration Fee: 400 CNY/Year"]
+  }
+},
+{
+  "name": "Shenyang City University (SYCU)",
+  "slug": "syucu-city-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "16-30",
+  "intake": "",
+  "deadline": "June 30th, 2025",
+
+  "city": "Shenyang",
+  "province": "Liaoning Province",
+  "country": "China",
+  "location": { "city": "Shenyang", "province": "Liaoning Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/syucu-city/hero.jpg",
+  "logo": "assets/universities/syucu-city/logo.png",
+
+  "requirements": {
+    "academic": "HSC 3.00+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Student have to deposit 2,800 CNY for getting JW2021.", "Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 10,000 CNY/Year",
+        "Hostel Fee: 4,500 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": ["Unconditional scholarship for 4 years"]
+  },
+
+  "majors": [
+    "Business Management",
+    "Computer Science & Technology",
+    "Artificial Intelligence (AI)",
+    "Civil Engineering"
+  ],
+
+  "fees": {
+    "application": "500 CNY (Non-refundable)",
+    "tuition": "",
+    "accommodation": "",
+    "insurance": "800 CNY/Year",
+    "medical": "100-400 CNY (1st Year only)",
+    "residencePermit": "500-800 CNY/Year",
+    "deposit": "2,800 CNY (For JW2021)",
+    "textbooks": "500 CNY/Year",
+    "bedding": "",
+    "others": []
+  }
+},
+{
+  "name": "Shenyang Urban Construction University (SYUCU)",
+  "slug": "syucu-urban-bachelor",
+  "programLevel": "Bachelor",
+  "programType": "Bachelor",
+  "duration": "4 Years",
+  "ageLimit": "16-32",
+  "intake": "",
+  "deadline": "June 30th, 2025",
+
+  "city": "Shenyang",
+  "province": "Liaoning Province",
+  "country": "China",
+  "location": { "city": "Shenyang", "province": "Liaoning Province", "country": "China" },
+
+  "ranking": { "qs": "", "times": "", "usNews": "", "cwur": "", "arwu": "" },
+
+  "heroImage": "assets/universities/syucu-urban/hero.jpg",
+  "logo": "assets/universities/syucu-urban/logo.png",
+
+  "requirements": {
+    "academic": "HSC 3.00+",
+    "cgpa": "",
+    "english": [],
+    "csca": false,
+    "interview": false,
+    "hsk": "",
+    "notes": ["Deadline depends on seats."]
+  },
+
+  "scholarship": {
+    "available": true,
+    "model": "Partial Scholarship",
+    "firstYear": {
+      "benefits": [
+        "Tuition Fee: 10,000 CNY/Year",
+        "Hostel Fee: 2,700 CNY/Year"
+      ]
+    },
+    "fromSecondYear": { "basedOn": "", "bands": [] },
+    "programSpecific": [],
+    "notes": ["Unconditional scholarship for 4 years"]
+  },
+
+  "majors": [
+    "Business Administration",
+    "Computer Science & Technology",
+    "Civil Engineering",
+    "Architecture"
+  ],
+
+  "fees": {
+    "application": "500 CNY/Year",
+    "tuition": "",
+    "accommodation": "",
+    "insurance": "800 CNY/Year",
+    "medical": "100-400 CNY (1st Year only)",
+    "residencePermit": "400 CNY/Year",
+    "deposit": "",
+    "textbooks": "",
+    "bedding": "",
+    "others": []
+  }
+}
+]
